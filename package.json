@@ -1,8 +1,8 @@
 {
-  "name": "studyprojectbyulby",
+  "name": "prod_spa_totally_customized",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.tsx",
   "scripts": {
     "start": "webpack serve --env port=3000",
     "build:prod": "webpack --env mode=production",
