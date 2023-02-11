@@ -10,6 +10,7 @@ interface INavbarProps {
 export const Navbar: FC<INavbarProps> = ({ className }) => {
   return (
     <div className={classNames(cls.Navbar, {}, [className])}>
+
       <div className={cls.links}>
         <AppLink
           theme={AppLinkTheme.SECONDARY}
