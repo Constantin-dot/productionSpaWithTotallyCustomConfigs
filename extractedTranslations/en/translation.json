@@ -1,4 +1,10 @@
 {
+  "about": "about",
+  "aboutPageContent": "aboutPageContent",
+  "boundaryErrorMessage": "boundaryErrorMessage",
   "language": "",
-  "mainPageContent": ""
+  "main": "main",
+  "mainPageContent": "",
+  "notFoundPage": "notFoundPage",
+  "refreshBtnLable": "refreshBtnLable"
 }

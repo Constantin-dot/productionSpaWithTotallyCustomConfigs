@@ -1,4 +1,9 @@
 {
-  "language": "English",
-  "loading": "Loading..."
+  "language": "Рус",
+  "loading": "Loading...",
+  "notFoundPage": "Page not found",
+  "about": "About",
+  "main": "Main",
+  "boundaryErrorMessage": "Something went wrong.",
+  "refreshBtnLable": "Refresh page"
 }

@@ -1,4 +1,9 @@
 {
-  "language": "Русский",
-  "loading": "Загрузка..."
+  "language": "Eng",
+  "loading": "Загрузка...",
+  "notFoundPage": "Страница не найдена",
+  "about": "О проекте",
+  "main": "Главная",
+  "boundaryErrorMessage": "Произошла непредвиденная ошибка.",
+  "refreshBtnLable": "Обновить страницу"
 }

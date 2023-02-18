@@ -1,6 +1,6 @@
 import { FC, useState } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Button } from 'shared/ui/Button';
+import { Button, ThemeButtonEnum } from 'shared/ui/Button';
 import { LangSwitcher } from 'shared/ui/LangSwitcher';
 import { ThemeSwticher } from 'shared/ui/ThemeSwitcher';
 import cls from './Sidebar.module.scss';
@@ -17,11 +17,29 @@ export const Sidebar: FC<PropsType> = (props) => {
   };
 
   return (
-    <div className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}>
-      <Button onClick={onToggleHandler}>toggle</Button>
-      <div className={cls.switchers}>
+    <div className={classNames(
+      cls.Sidebar,
+      { [cls.collapsed]: collapsed },
+
+      [className],
+    )}
+    >
+      <div className={classNames(
+        cls.switchers,
+        { [cls.tight]: collapsed },
+
+        [className],
+      )}
+      >
         <ThemeSwticher />
-        <LangSwitcher className={cls.lang} />
+        <LangSwitcher />
+        <Button
+          onClick={onToggleHandler}
+          className={cls.coolapsingBtn}
+          theme={ThemeButtonEnum.CLEAR}
+        >
+          &#10231;
+        </Button>
       </div>
     </div>
   );
