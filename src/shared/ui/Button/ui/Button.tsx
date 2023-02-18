@@ -3,13 +3,13 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './Button.module.scss';
 
 export enum ThemeButtonEnum {
-  CLEAR = 'clear',
-};
+    CLEAR = 'clear',
+}
 
 interface IProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  className?: string,
-  theme?: ThemeButtonEnum,
-};
+    className?: string,
+    theme?: ThemeButtonEnum,
+}
 
 export const Button: FC<IProps> = (props) => {
   const {
@@ -21,6 +21,7 @@ export const Button: FC<IProps> = (props) => {
 
   return (
     <button
+      type="button"
       className={classNames(cls.Button, {}, [className, cls[theme]])}
       {...otherProps}
     >

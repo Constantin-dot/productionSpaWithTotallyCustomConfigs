@@ -10,19 +10,19 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
       loader: 'babel-loader',
       options: {
         presets: [
-          ['@babel/preset-env']
+          ['@babel/preset-env'],
         ],
         plugins: [
           [
-            "i18next-extract",
+            'i18next-extract',
             {
               locales: ['ru', 'en'],
-              keyAsDefaultValue: true
-            }
-          ]
-        ]
-      }
-    }
+              keyAsDefaultValue: true,
+            },
+          ],
+        ],
+      },
+    },
   };
 
   const fileLoader = {
@@ -44,15 +44,15 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
     use: [
       options.isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
       {
-        loader: "css-loader",
+        loader: 'css-loader',
         options: {
           modules: {
             auto: (resPath: string) => Boolean(resPath.includes('.module.')),
             localIdentName: options.isDev ? '[path][name]__[local]--[hash:base64:5]' : '[hash:base64:8]',
           },
-        }
+        },
       },
-      "sass-loader",
+      'sass-loader',
     ],
   };
 
@@ -69,4 +69,4 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
     typescriptLoader,
     cssLoader,
   ];
-};
+}

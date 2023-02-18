@@ -1,4 +1,4 @@
-import { ThemeSwticher } from "./ui/ThemeSwticher";
+import { ThemeSwticher } from './ui/ThemeSwticher';
 
 export {
   ThemeSwticher,
