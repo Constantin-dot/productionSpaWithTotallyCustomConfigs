@@ -1,5 +1,5 @@
 import { FC, useEffect, useState } from 'react';
-import { Button } from 'shared/ui/Button';
+import { Button } from 'shared/ui/Button/Button';
 
 // компонет для тестирования
 export const BugButton: FC = () => {
@@ -12,7 +12,7 @@ export const BugButton: FC = () => {
   }, [isError]);
 
   return (
-    <Button onClick={throwErrorHandler} style={{ color: 'black' }}>
+    <Button onClick={throwErrorHandler}>
       new error
     </Button>
   );
