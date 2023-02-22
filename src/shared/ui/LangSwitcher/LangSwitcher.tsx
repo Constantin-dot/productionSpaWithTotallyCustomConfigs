@@ -15,7 +15,7 @@ export const LangSwitcher: FC<PropsType> = (props) => {
   return (
     <Button
       className={classNames('', {}, [className])}
-      theme={ButtonVariantEnum.CLEAR}
+      variant={ButtonVariantEnum.INVERTED_BACKGROUND}
       onClick={languageToggleHandler}
     >
       {t('language')}

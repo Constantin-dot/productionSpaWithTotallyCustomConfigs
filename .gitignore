@@ -4,6 +4,9 @@
 /node_modules
 /.pnp
 .pnp.js
+/storybook-static
+.loki/report.html
+.loki/report.json
 
 # testing
 /coverage

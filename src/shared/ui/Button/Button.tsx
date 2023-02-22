@@ -4,26 +4,43 @@ import cls from './Button.module.scss';
 
 export enum ButtonVariantEnum {
     CLEAR = 'clear',
-    OUTLINE = 'outline'
+    OUTLINE = 'outline',
+    BACKGROUND = 'background',
+    INVERTED_BACKGROUND = 'invertedBackground'
+}
+
+export enum ButtonSizeEnum {
+  S = 'size_s',
+  M = 'size_m',
+  L = 'size_l'
 }
 
 interface IProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     className?: string,
-    theme?: ButtonVariantEnum,
+    isSquare?: boolean,
+    size?: ButtonSizeEnum,
+    variant?: ButtonVariantEnum,
 }
 
 export const Button: FC<IProps> = (props) => {
   const {
     className,
-    theme,
+    variant,
+    isSquare = false,
+    size = ButtonSizeEnum.M,
     children,
     ...otherProps
   } = props;
 
+  const mods: Record<string, boolean> = {
+    [cls.square]: isSquare,
+    [cls[size]]: true,
+  };
+
   return (
     <button
       type="button"
-      className={classNames(cls.Button, {}, [className, cls[theme]])}
+      className={classNames(cls.Button, mods, [className, cls[variant]])}
       {...otherProps}
     >
       {children}

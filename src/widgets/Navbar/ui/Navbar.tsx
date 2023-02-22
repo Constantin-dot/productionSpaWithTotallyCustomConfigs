@@ -1,34 +1,16 @@
 import { FC } from 'react';
-import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { AppLink, AppLinkVariantEnum } from 'shared/ui/AppLink/AppLink';
 import cls from './Navbar.module.scss';
 
 interface INavbarProps {
   className?: string;
 }
 
-export const Navbar: FC<INavbarProps> = ({ className }) => {
-  const { t } = useTranslation();
+export const Navbar: FC<INavbarProps> = ({ className }) => (
+  <div className={classNames(cls.Navbar, {}, [className])}>
 
-  return (
-    <div className={classNames(cls.Navbar, {}, [className])}>
-
-      <div className={cls.links}>
-        <AppLink
-          variant={AppLinkVariantEnum.SECONDARY}
-          to="/"
-          className={cls.mainLink}
-        >
-          {t('main')}
-        </AppLink>
-        <AppLink
-          variant={AppLinkVariantEnum.SECONDARY}
-          to="/about"
-        >
-          {t('about')}
-        </AppLink>
-      </div>
+    <div className={cls.links}>
+      /
     </div>
-  );
-};
+  </div>
+);

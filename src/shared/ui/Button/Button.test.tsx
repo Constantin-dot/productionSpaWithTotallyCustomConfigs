@@ -8,7 +8,7 @@ describe('custom button component', () => {
   });
 
   test('testing component with clear variant', () => {
-    render(<Button theme={ButtonVariantEnum.CLEAR}>TEST</Button>);
+    render(<Button variant={ButtonVariantEnum.CLEAR}>TEST</Button>);
     expect(screen.getByText('TEST')).toHaveClass('clear');
     screen.debug();
   });

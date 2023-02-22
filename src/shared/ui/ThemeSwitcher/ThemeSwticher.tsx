@@ -13,7 +13,7 @@ export const ThemeSwticher: FC<PropsType> = (props) => {
 
   return (
     <Button
-      theme={ButtonVariantEnum.CLEAR}
+      variant={ButtonVariantEnum.CLEAR}
       className={classNames('', {}, [className])}
       onClick={themeToggle}
     >
