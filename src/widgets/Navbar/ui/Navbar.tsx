@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
+import { AppLink, AppLinkVariantEnum } from 'shared/ui/AppLink/AppLink';
 import cls from './Navbar.module.scss';
 
 interface INavbarProps {
@@ -16,14 +16,14 @@ export const Navbar: FC<INavbarProps> = ({ className }) => {
 
       <div className={cls.links}>
         <AppLink
-          theme={AppLinkTheme.SECONDARY}
+          variant={AppLinkVariantEnum.SECONDARY}
           to="/"
           className={cls.mainLink}
         >
           {t('main')}
         </AppLink>
         <AppLink
-          theme={AppLinkTheme.SECONDARY}
+          variant={AppLinkVariantEnum.SECONDARY}
           to="/about"
         >
           {t('about')}
