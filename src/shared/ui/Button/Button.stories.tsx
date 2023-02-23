@@ -24,6 +24,12 @@ Clear.args = {
   variant: ButtonVariantEnum.CLEAR,
 };
 
+export const ClearInverted = Template.bind({});
+ClearInverted.args = {
+  children: 'Text',
+  variant: ButtonVariantEnum.CLEAR_INVERTED,
+};
+
 export const Outline = Template.bind({});
 Outline.args = {
   children: 'Text',

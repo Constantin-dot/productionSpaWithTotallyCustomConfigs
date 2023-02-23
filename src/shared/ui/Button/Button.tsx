@@ -4,6 +4,7 @@ import cls from './Button.module.scss';
 
 export enum ButtonVariantEnum {
     CLEAR = 'clear',
+    CLEAR_INVERTED = 'clearInverted',
     OUTLINE = 'outline',
     BACKGROUND = 'background',
     INVERTED_BACKGROUND = 'invertedBackground'
@@ -27,7 +28,7 @@ export const Button: FC<IProps> = (props) => {
     className,
     variant,
     isSquare = false,
-    size = ButtonSizeEnum.M,
+    size = ButtonSizeEnum.S,
     children,
     ...otherProps
   } = props;
