@@ -41,6 +41,7 @@ module.exports = {
     'import/extensions': 'off',
     'import/no-extraneous-dependencies': 'off',
     'no-underscore-dangle': 'off',
+    'linebreak-style': 'off',
     'i18next/no-literal-string': ['warn', {
       markupOnly: true,
       ignoreAttribute: [
