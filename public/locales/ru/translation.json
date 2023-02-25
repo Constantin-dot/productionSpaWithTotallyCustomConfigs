@@ -6,5 +6,7 @@
   "main": "Главная",
   "boundaryErrorMessage": "Произошла непредвиденная ошибка.",
   "refreshBtnLable": "Обновить страницу",
-  "signIn": "Войти"
+  "signIn": "Войти",
+  "loginPlaceholder": "Введите логин",
+  "passwordPlaceholder": "Введите пароль"
 }

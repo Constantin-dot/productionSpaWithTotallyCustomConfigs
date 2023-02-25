@@ -3,9 +3,11 @@
   "aboutPageContent": "aboutPageContent",
   "boundaryErrorMessage": "boundaryErrorMessage",
   "language": "language",
+  "loginPlaceholder": "loginPlaceholder",
   "main": "main",
   "mainPageContent": "mainPageContent",
   "notFoundPage": "notFoundPage",
+  "passwordPlaceholder": "passwordPlaceholder",
   "refreshBtnLable": "refreshBtnLable",
   "signIn": "signIn"
 }

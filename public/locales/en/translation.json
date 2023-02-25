@@ -6,5 +6,7 @@
   "main": "Main",
   "boundaryErrorMessage": "Something went wrong.",
   "refreshBtnLable": "Refresh page",
-  "signIn": "Sign in"
+  "signIn": "Sign in",
+  "loginPlaceholder": "Enter login",
+  "passwordPlaceholder": "Enter password"
 }

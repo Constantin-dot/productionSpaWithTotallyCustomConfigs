@@ -1,8 +1,8 @@
+import { LoginModal } from 'features/AuthByUsername';
 import { FC, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Button, ButtonSizeEnum, ButtonVariantEnum } from 'shared/ui/Button/Button';
-import { Modal } from 'shared/ui/Modal/Modal';
+import { Button, ButtonVariantEnum } from 'shared/ui/Button/Button';
 import cls from './Navbar.module.scss';
 
 interface INavbarProps {
@@ -13,8 +13,12 @@ export const Navbar: FC<INavbarProps> = ({ className }) => {
   const { t } = useTranslation();
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
 
-  const onToggleModal = useCallback(() => {
-    setIsAuthModalOpen((prev) => !prev);
+  const onCloseModal = useCallback(() => {
+    setIsAuthModalOpen(false);
+  }, []);
+
+  const onOpenModal = useCallback(() => {
+    setIsAuthModalOpen(true);
   }, []);
 
   return (
@@ -23,17 +27,14 @@ export const Navbar: FC<INavbarProps> = ({ className }) => {
       <Button
         variant={ButtonVariantEnum.CLEAR_INVERTED}
         className={cls.links}
-        onClick={onToggleModal}
+        onClick={onOpenModal}
       >
         {t('signIn')}
       </Button>
-      <Modal isOpen={isAuthModalOpen} onClose={onToggleModal}>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis nesciunt
-        modi sit libero accusantium dolore tempore voluptas rerum totam reprehenderit
-        quo ad magnam nobis officiis harum obcaecati aut suscipit accusamus ipsa
-        corporis consequatur, illum, distinctio nisi. Quod assumenda nesciunt
-        temporibus a dolorem quis laudantium inventore sunt magni. Placeat, debitis temporibus.
-      </Modal>
+      <LoginModal
+        isOpen={isAuthModalOpen}
+        onClose={onCloseModal}
+      />
     </div>
   );
 };
