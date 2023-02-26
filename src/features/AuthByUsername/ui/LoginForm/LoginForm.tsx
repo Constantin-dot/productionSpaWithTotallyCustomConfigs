@@ -10,9 +10,9 @@ import { getLoginState } from '../../model/selectors/getLoginState';
 import { loginActions } from '../../model/slice/loginSlice';
 import cls from './LoginForm.module.scss';
 
-type PropsType = {className?: string,};
+export type LoginFormPropsType = {className?: string,};
 
-export const LoginForm = memo((props: PropsType) => {
+const LoginForm = memo((props: LoginFormPropsType) => {
   const { className } = props;
   const { t } = useTranslation();
   const dispatch = useDispatch();
@@ -60,3 +60,5 @@ export const LoginForm = memo((props: PropsType) => {
     </div>
   );
 });
+
+export default LoginForm;
