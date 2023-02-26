@@ -84,3 +84,11 @@ SquareSizeL.args = {
   isSquare: true,
   size: ButtonSizeEnum.L,
 };
+
+export const Disabled = Template.bind({});
+Disabled.args = {
+  children: 'BTN',
+  variant: ButtonVariantEnum.OUTLINE,
+  size: ButtonSizeEnum.L,
+  disabled: true,
+};

@@ -21,12 +21,14 @@ interface IProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     isSquare?: boolean,
     size?: ButtonSizeEnum,
     variant?: ButtonVariantEnum,
+    disabled?: boolean,
 }
 
 export const Button: FC<IProps> = (props) => {
   const {
     className,
     variant,
+    disabled,
     isSquare = false,
     size = ButtonSizeEnum.S,
     children,
@@ -36,11 +38,13 @@ export const Button: FC<IProps> = (props) => {
   const mods: Record<string, boolean> = {
     [cls.square]: isSquare,
     [cls[size]]: true,
+    [cls.disabled]: disabled,
   };
 
   return (
     <button
       type="button"
+      disabled={disabled}
       className={classNames(cls.Button, mods, [className, cls[variant]])}
       {...otherProps}
     >

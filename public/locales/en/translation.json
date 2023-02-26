@@ -7,6 +7,9 @@
   "boundaryErrorMessage": "Something went wrong.",
   "refreshBtnLable": "Refresh page",
   "signIn": "Sign in",
+  "signOut": "Sign out",
   "loginPlaceholder": "Enter login",
-  "passwordPlaceholder": "Enter password"
+  "passwordPlaceholder": "Enter password",
+  "authorizationModalTitle": "Authorization form",
+  "authErrorMessage": "You entered incorrect data"
 }

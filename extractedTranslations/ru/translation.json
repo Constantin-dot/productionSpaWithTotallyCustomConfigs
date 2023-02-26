@@ -1,6 +1,8 @@
 {
   "about": "about",
   "aboutPageContent": "aboutPageContent",
+  "authErrorMessage": "authErrorMessage",
+  "authorizationModalTitle": "authorizationModalTitle",
   "boundaryErrorMessage": "boundaryErrorMessage",
   "language": "language",
   "loginPlaceholder": "loginPlaceholder",
@@ -9,5 +11,6 @@
   "notFoundPage": "notFoundPage",
   "passwordPlaceholder": "passwordPlaceholder",
   "refreshBtnLable": "refreshBtnLable",
-  "signIn": "signIn"
+  "signIn": "signIn",
+  "signOut": "signOut"
 }

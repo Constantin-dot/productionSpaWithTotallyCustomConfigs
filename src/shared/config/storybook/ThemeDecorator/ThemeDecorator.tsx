@@ -5,7 +5,6 @@ import 'app/styles/index.scss';
 export const ThemeDecorator = (theme: Theme) => (
   StoryComponent: Story,
 ) => (
-  // document.body.className = theme;
   <ThemeProvider initialTheme={theme}>
     <div className={`app ${theme}`}>
       <StoryComponent />

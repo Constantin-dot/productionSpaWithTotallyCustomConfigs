@@ -7,6 +7,9 @@
   "boundaryErrorMessage": "Произошла непредвиденная ошибка.",
   "refreshBtnLable": "Обновить страницу",
   "signIn": "Войти",
+  "signOut": "Выйти",
   "loginPlaceholder": "Введите логин",
-  "passwordPlaceholder": "Введите пароль"
+  "passwordPlaceholder": "Введите пароль",
+  "authorizationModalTitle": "Форма авторизации",
+  "authErrorMessage": "Вы ввели неверные данные"
 }
