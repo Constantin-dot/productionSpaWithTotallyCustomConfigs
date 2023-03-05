@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, memo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './Text.module.scss';
 
@@ -14,7 +14,7 @@ type PropsType = {
   variant?: TextVariantEnum,
 };
 
-export const Text: FC<PropsType> = (props) => {
+export const Text = memo((props: PropsType) => {
   const {
     className,
     title,
@@ -28,4 +28,4 @@ export const Text: FC<PropsType> = (props) => {
       {text && <p className={cls.text}>{text}</p>}
     </div>
   );
-};
+});

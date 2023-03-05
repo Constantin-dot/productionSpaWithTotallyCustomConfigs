@@ -1,0 +1,27 @@
+.SidebarItem {
+  padding: 20px;
+}
+
+.item {
+  min-width: 10px;
+  display: flex;
+  align-items: center;
+  height: 32px;
+}
+
+.link {
+  margin-left: 10px;
+}
+
+.icon {
+  fill: var(--inverted-primary-color);
+}
+
+.collapsed {
+  .link {
+    opacity: 0;
+    transition: 0.2s opacity;
+    width: 0;
+    height: 0;
+  }
+}

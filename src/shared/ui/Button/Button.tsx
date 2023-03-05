@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, FC } from 'react';
+import { ButtonHTMLAttributes, memo, ReactNode } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './Button.module.scss';
 
@@ -22,9 +22,10 @@ interface IProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     size?: ButtonSizeEnum,
     variant?: ButtonVariantEnum,
     disabled?: boolean,
+    children?: ReactNode,
 }
 
-export const Button: FC<IProps> = (props) => {
+export const Button = memo((props: IProps) => {
   const {
     className,
     variant,
@@ -51,4 +52,4 @@ export const Button: FC<IProps> = (props) => {
       {children}
     </button>
   );
-};
+});

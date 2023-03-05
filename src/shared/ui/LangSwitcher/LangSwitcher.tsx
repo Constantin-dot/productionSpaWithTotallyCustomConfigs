@@ -1,11 +1,11 @@
-import { FC } from 'react';
+import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button, ButtonVariantEnum } from 'shared/ui/Button/Button';
 
 type PropsType = { className?: string, };
 
-export const LangSwitcher: FC<PropsType> = (props) => {
+export const LangSwitcher = memo((props: PropsType) => {
   const { className } = props;
   const { t, i18n } = useTranslation();
   const languageToggleHandler = () => {
@@ -21,4 +21,4 @@ export const LangSwitcher: FC<PropsType> = (props) => {
       {t('language')}
     </Button>
   );
-};
+});

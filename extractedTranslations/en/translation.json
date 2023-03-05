@@ -9,6 +9,7 @@
   "main": "main",
   "mainPageContent": "",
   "notFoundPage": "notFoundPage",
+  "pageTitle": "pageTitle",
   "passwordPlaceholder": "",
   "refreshBtnLable": "refreshBtnLable",
   "signIn": "signIn",
