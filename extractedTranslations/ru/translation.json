@@ -4,7 +4,10 @@
   "authErrorMessage": "authErrorMessage",
   "authorizationModalTitle": "authorizationModalTitle",
   "boundaryErrorMessage": "boundaryErrorMessage",
+  "editBtn": "editBtn",
+  "firstnamePlaceholder": "firstnamePlaceholder",
   "language": "language",
+  "lastnamePlaceholder": "lastnamePlaceholder",
   "loginPlaceholder": "loginPlaceholder",
   "main": "main",
   "mainPageContent": "mainPageContent",
@@ -13,5 +16,6 @@
   "passwordPlaceholder": "passwordPlaceholder",
   "refreshBtnLable": "refreshBtnLable",
   "signIn": "signIn",
-  "signOut": "signOut"
+  "signOut": "signOut",
+  "title": "title"
 }

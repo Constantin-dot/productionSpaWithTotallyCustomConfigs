@@ -11,7 +11,7 @@ export default {
   },
 } as ComponentMeta<typeof Sidebar>;
 
-const Template: ComponentStory<typeof Sidebar> = (args) => <Sidebar />;
+const Template: ComponentStory<typeof Sidebar> = () => <Sidebar />;
 
 export const Light = Template.bind({});
 Light.args = {};

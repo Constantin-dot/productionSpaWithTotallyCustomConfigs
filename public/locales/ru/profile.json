@@ -1,3 +1,6 @@
 {
-  "pageTitle": "Страница профайла"
+  "title": "Профиль",
+  "editBtn": "Редактировать",
+  "firstnamePlaceholder": "Ваше имя",
+  "lastnamePlaceholder": "Ваша фамилия"
 }

@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { IProfileSchema } from '../types/profile';
+import { fetchProfileData } from '../services/fetchProfileData/fetchProfileData';
+import { IProfile, IProfileSchema } from '../types/profile';
 
 const initialState: IProfileSchema = {
   isLoading: false,
@@ -11,20 +12,24 @@ const initialState: IProfileSchema = {
 export const profileSlice = createSlice({
   name: 'profile',
   initialState,
-  reducers: {
-    // setAuthData: (state, action: PayloadAction<IUser>) => {
-    //   state.authData = action.payload;
-    // },
-    // initAuthData: (state) => {
-    //   const user = localStorage.getItem(LOCAL_STORAGE_USER_KEY);
-    //   if (user) {
-    //     state.authData = JSON.parse(user);
-    //   }
-    // },
-    // logoutUser: (state) => {
-    //   state.authData = undefined;
-    //   localStorage.removeItem(LOCAL_STORAGE_USER_KEY);
-    // },
+  reducers: {},
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchProfileData.pending, (state) => {
+        state.error = undefined;
+        state.isLoading = true;
+      })
+      .addCase(fetchProfileData.fulfilled, (
+        state,
+        action: PayloadAction<IProfile>,
+      ) => {
+        state.isLoading = false;
+        state.data = action.payload;
+      })
+      .addCase(fetchProfileData.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload as string;
+      });
   },
 });
 

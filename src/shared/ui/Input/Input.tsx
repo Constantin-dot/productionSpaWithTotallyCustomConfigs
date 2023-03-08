@@ -1,5 +1,5 @@
 import {
-  ChangeEvent, FC, InputHTMLAttributes, memo, useEffect, useRef, useState,
+  ChangeEvent, InputHTMLAttributes, memo, useEffect, useRef, useState,
 } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './Input.module.scss';
@@ -22,7 +22,7 @@ export const Input = memo((props: IProps) => {
     type = 'text',
     ...otherProps
   } = props;
-  const ref = useRef<HTMLInputElement>();
+  const ref = useRef<HTMLInputElement>(null);
   const [isFocused, setIsFocused] = useState(false);
   const [innerValue, setInnerValue] = useState('');
 
@@ -46,10 +46,6 @@ export const Input = memo((props: IProps) => {
     setIsFocused(true);
   };
 
-  // const onSelect = (e: any) => {
-  //   setCaretPosition(e?.target?.selectionStart || 0);
-  // };
-
   return (
     <div className={classNames(cls.InputWrapper, {}, [className])}>
       {placeholder && (
@@ -69,7 +65,7 @@ export const Input = memo((props: IProps) => {
           {...otherProps}
         />
         {
-          (isFocused && innerValue.length === 0)
+          (isFocused && (innerValue.length === 0) && (value?.length === 0))
         && <span className={cls.caret} />
         }
       </div>

@@ -1,5 +1,5 @@
 import { ButtonHTMLAttributes, memo, ReactNode } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames, ModsType } from 'shared/lib/classNames/classNames';
 import cls from './Button.module.scss';
 
 export enum ButtonVariantEnum {
@@ -28,7 +28,7 @@ interface IProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 export const Button = memo((props: IProps) => {
   const {
     className,
-    variant,
+    variant = ButtonVariantEnum.OUTLINE,
     disabled,
     isSquare = false,
     size = ButtonSizeEnum.S,
@@ -36,7 +36,7 @@ export const Button = memo((props: IProps) => {
     ...otherProps
   } = props;
 
-  const mods: Record<string, boolean> = {
+  const mods: ModsType = {
     [cls.square]: isSquare,
     [cls[size]]: true,
     [cls.disabled]: disabled,

@@ -1,3 +1,6 @@
 {
-  "pageTitle": "Profile page"
+  "title": "Profile",
+  "editBtn": "Edit",
+  "firstnamePlaceholder": "Your first name",
+  "lastnamePlaceholder": "Your last name"
 }
