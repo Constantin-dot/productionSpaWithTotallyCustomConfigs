@@ -1,15 +1,16 @@
 import {
   ChangeEvent, InputHTMLAttributes, memo, useEffect, useRef, useState,
 } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames, ModsType } from 'shared/lib/classNames/classNames';
 import cls from './Input.module.scss';
 
-type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>;
+type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readonly'>;
 
 interface IProps extends HTMLInputProps {
   className?: string;
   value?: string;
   onChange?: (value: string) => void;
+  readonly?: boolean;
 }
 
 export const Input = memo((props: IProps) => {
@@ -20,6 +21,7 @@ export const Input = memo((props: IProps) => {
     placeholder,
     autoFocus,
     type = 'text',
+    readonly,
     ...otherProps
   } = props;
   const ref = useRef<HTMLInputElement>(null);
@@ -46,8 +48,12 @@ export const Input = memo((props: IProps) => {
     setIsFocused(true);
   };
 
+  const mods: ModsType = {
+    [cls.readonly]: readonly,
+  };
+
   return (
-    <div className={classNames(cls.InputWrapper, {}, [className])}>
+    <div className={classNames(cls.InputWrapper, mods, [className])}>
       {placeholder && (
         <div className={cls.placeholder}>
           {`${placeholder}>`}
@@ -62,6 +68,7 @@ export const Input = memo((props: IProps) => {
           onFocus={onFocus}
           onBlur={onBlur}
           className={cls.input}
+          readOnly={readonly}
           {...otherProps}
         />
         {

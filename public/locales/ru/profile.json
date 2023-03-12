@@ -1,6 +1,14 @@
 {
   "title": "Профиль",
   "editBtn": "Редактировать",
+  "cancelBtn": "Отменить",
+  "saveBtn": "Сохранить",
   "firstnamePlaceholder": "Ваше имя",
-  "lastnamePlaceholder": "Ваша фамилия"
+  "lastnamePlaceholder": "Ваша фамилия",
+  "agePlaceholder": "Ваш возраст",
+  "cityPlaceholder": "Ваш город",
+  "usernamePlaceholder": "Ваш никнейм",
+  "avatarPlaceholder": "Ваш аватар",
+  "error": "Произошла ошибка при загрузке профиля",
+  "errorTip": "Попробуйте обновить страницу"
 }

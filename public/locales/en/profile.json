@@ -1,6 +1,14 @@
 {
   "title": "Profile",
   "editBtn": "Edit",
+  "cancelBtn": "Cancel",
+  "saveBtn": "Save",
   "firstnamePlaceholder": "Your first name",
-  "lastnamePlaceholder": "Your last name"
+  "lastnamePlaceholder": "Your last name",
+  "agePlaceholder": "Your age",
+  "cityPlaceholder": "Your city",
+  "usernamePlaceholder": "Your nickname",
+  "avatarPlaceholder": "Your avatar",
+  "error": "It was error during request profile",
+  "errorTip": "Try to refresh the page"
 }

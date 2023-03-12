@@ -1,10 +1,16 @@
 {
   "about": "about",
   "aboutPageContent": "aboutPageContent",
+  "agePlaceholder": "agePlaceholder",
   "authErrorMessage": "",
   "authorizationModalTitle": "",
+  "avatarPlaceholder": "avatarPlaceholder",
   "boundaryErrorMessage": "boundaryErrorMessage",
+  "cancelBtn": "cancelBtn",
+  "cityPlaceholder": "cityPlaceholder",
   "editBtn": "editBtn",
+  "error": "error",
+  "errorTip": "errorTip",
   "firstnamePlaceholder": "firstnamePlaceholder",
   "language": "",
   "lastnamePlaceholder": "lastnamePlaceholder",
@@ -15,7 +21,9 @@
   "pageTitle": "pageTitle",
   "passwordPlaceholder": "",
   "refreshBtnLable": "refreshBtnLable",
+  "saveBtn": "saveBtn",
   "signIn": "signIn",
   "signOut": "",
-  "title": "title"
+  "title": "title",
+  "usernamePlaceholder": "usernamePlaceholder"
 }
