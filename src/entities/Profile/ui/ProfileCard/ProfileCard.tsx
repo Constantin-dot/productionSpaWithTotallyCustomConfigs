@@ -2,6 +2,7 @@ import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Input } from 'shared/ui/Input/Input';
 import { Loader } from 'shared/ui/Loader/Loader';
 import { Text, TextAlignEnum, TextVariantEnum } from 'shared/ui/Text/Text';
@@ -62,7 +63,7 @@ export const ProfileCard: FC<PropsType> = (props) => {
   return (
     <div className={classNames(cls.ProfileCard, {}, [className])}>
       <div className={cls.data}>
-        {data?.avatar && <img src={data.avatar} alt={`${data.username} avatar`} />}
+        {data?.avatar && <Avatar src={data.avatar} username={`${data.username} avatar`} />}
         <Input
           className={cls.input}
           value={data?.firstname}

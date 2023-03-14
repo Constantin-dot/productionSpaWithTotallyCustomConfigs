@@ -8,7 +8,7 @@
   "agePlaceholder": "Ваш возраст",
   "cityPlaceholder": "Ваш город",
   "usernamePlaceholder": "Ваш никнейм",
-  "avatarPlaceholder": "Ваш аватар",
+  "avatarPlaceholder": "Ссылка на ваш аватар",
   "error": "Произошла ошибка при загрузке профиля",
   "errorTip": "Попробуйте обновить страницу"
 }

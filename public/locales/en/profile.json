@@ -8,7 +8,7 @@
   "agePlaceholder": "Your age",
   "cityPlaceholder": "Your city",
   "usernamePlaceholder": "Your nickname",
-  "avatarPlaceholder": "Your avatar",
+  "avatarPlaceholder": "Link on your avatar",
   "error": "It was error during request profile",
   "errorTip": "Try to refresh the page"
 }
