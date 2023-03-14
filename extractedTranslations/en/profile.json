@@ -1,7 +1,15 @@
 {
+  "agePlaceholder": "",
+  "avatarPlaceholder": "",
+  "cancelBtn": "",
+  "cityPlaceholder": "",
   "editBtn": "",
+  "error": "",
+  "errorTip": "",
   "firstnamePlaceholder": "",
   "lastnamePlaceholder": "",
   "pageTitle": "",
-  "title": ""
+  "saveBtn": "",
+  "title": "",
+  "usernamePlaceholder": ""
 }

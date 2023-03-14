@@ -3,6 +3,12 @@
   border: 2px solid var(--inverted-bg-color);
 }
 
+.avatarWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
 .input {
   margin-top: 10px;
 }
@@ -13,4 +19,8 @@
   justify-content: center;
   align-items: center;
   height: 128px;
+}
+
+.editing {
+  border: 2px solid var(--inverted-primary-color);
 }

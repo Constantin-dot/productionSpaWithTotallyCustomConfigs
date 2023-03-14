@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames, ModsType } from 'shared/lib/classNames/classNames';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Input } from 'shared/ui/Input/Input';
 import { Loader } from 'shared/ui/Loader/Loader';
@@ -39,6 +39,10 @@ export const ProfileCard: FC<PropsType> = (props) => {
   const { t } = useTranslation('profile');
   const readonly = useSelector(getProfileReadonly);
 
+  const mods: ModsType = {
+    [cls.editing]: !readonly,
+  };
+
   if (isLoading) {
     return (
       <div className={classNames(cls.ProfileCard, {}, [className, cls.loading])}>
@@ -61,9 +65,13 @@ export const ProfileCard: FC<PropsType> = (props) => {
   }
 
   return (
-    <div className={classNames(cls.ProfileCard, {}, [className])}>
+    <div className={classNames(cls.ProfileCard, mods, [className])}>
       <div className={cls.data}>
-        {data?.avatar && <Avatar src={data.avatar} username={`${data.username} avatar`} />}
+        {data?.avatar && (
+          <div className={cls.avatarWrapper}>
+            <Avatar src={data.avatar} alt={`${data.username} avatar`} size={50} />
+          </div>
+        )}
         <Input
           className={cls.input}
           value={data?.firstname}
