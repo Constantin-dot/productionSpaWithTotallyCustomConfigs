@@ -2,13 +2,11 @@ import { CountryEnum, CountrySelect } from 'entities/Country';
 import { CurrencyEnum, CurrencySelect } from 'entities/Currency';
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useSelector } from 'react-redux';
 import { classNames, ModsType } from 'shared/lib/classNames/classNames';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Input } from 'shared/ui/Input/Input';
 import { Loader } from 'shared/ui/Loader/Loader';
 import { Text, TextAlignEnum, TextVariantEnum } from 'shared/ui/Text/Text';
-import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
 import { IProfile } from '../../model/types/profile';
 import cls from './ProfileCard.module.scss';
 
@@ -17,6 +15,7 @@ type PropsType = {
   data?: IProfile,
   isLoading?: boolean,
   error?: string,
+  readonly?: boolean,
   onFirstnameChangeHandler?: (value: string | number) => void,
   onLastnameChangeHandler?: (value: string | number) => void,
   onAgeChangeHandler?: (value: string | number) => void,
@@ -33,6 +32,7 @@ export const ProfileCard: FC<PropsType> = (props) => {
     data,
     isLoading,
     error,
+    readonly,
     onFirstnameChangeHandler,
     onLastnameChangeHandler,
     onAgeChangeHandler,
@@ -43,7 +43,6 @@ export const ProfileCard: FC<PropsType> = (props) => {
     onCountryChangeHandler,
   } = props;
   const { t } = useTranslation('profile');
-  const readonly = useSelector(getProfileReadonly);
 
   const mods: ModsType = {
     [cls.editing]: !readonly,

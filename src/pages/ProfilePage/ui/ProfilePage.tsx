@@ -5,6 +5,7 @@ import {
   getProfileData,
   getProfileError,
   getProfileIsLoading,
+  getProfileReadonly,
   getProfileValidateErrors,
   profileActions,
   ProfileCard,
@@ -35,6 +36,7 @@ const ProfilePage = memo((props: PropsType) => {
   const isLoading = useSelector(getProfileIsLoading);
   const error = useSelector(getProfileError);
   const validateErrors = useSelector(getProfileValidateErrors);
+  const readonly = useSelector(getProfileReadonly);
 
   const validateErrorTranslates = {
     [ProfileValidateErrorEnum.INCORRECT_USER_DATA]: t('incorrect_user_data'),
@@ -77,7 +79,9 @@ const ProfilePage = memo((props: PropsType) => {
   }, [dispatch]);
 
   useEffect(() => {
-    dispatch(fetchProfileData());
+    if (__PROJECT__ !== 'storybook') {
+      dispatch(fetchProfileData());
+    }
   }, [dispatch]);
 
   return (
@@ -91,6 +95,7 @@ const ProfilePage = memo((props: PropsType) => {
           data={data}
           isLoading={isLoading}
           error={error}
+          readonly={readonly}
           onFirstnameChangeHandler={onFirstnameChangeHandler}
           onLastnameChangeHandler={onLastnameChangeHandler}
           onAgeChangeHandler={onAgeChangeHandler}
