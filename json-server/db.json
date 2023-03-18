@@ -43,9 +43,9 @@
   "profile": {
     "firstname": "Ivan",
     "lastname": "Petrov",
-    "age": "22",
-    "currency": "RUB",
-    "country": "Russia",
+    "age": 22,
+    "currency": "EUR",
+    "country": "Armenia",
     "city": "Moscow",
     "username": "admin",
     "avatar": "https://cdn.jpegmini.com/user/images/slider_puffin_before_mobile.jpg"

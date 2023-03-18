@@ -1,23 +1,29 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'app/providers/StoreProvider';
 import { getProfileData } from '../../selectors/getProfileData/getProfileData';
-import { IProfile } from '../../types/profile';
+import { IProfile, ProfileValidateErrorEnum } from '../../types/profile';
+import { validateProfileData } from '../validateProfileData/validateProfileData';
 
 export const updateProfileData = createAsyncThunk<
   IProfile,
   void,
-  ThunkConfig<string>
+  ThunkConfig<ProfileValidateErrorEnum[]>
 >(
   'profile/updateProfileData',
   async (_, { extra, rejectWithValue, getState }) => {
     const formData = getProfileData(getState());
+    const errors = validateProfileData(formData);
+
+    if (errors.length) {
+      return rejectWithValue(errors);
+    }
 
     try {
       const response = await extra.api.put('/profile', formData);
 
       return response.data;
     } catch (error) {
-      return rejectWithValue('Something went wrong!');
+      return rejectWithValue([ProfileValidateErrorEnum.SERVER_ERROR]);
     }
   },
 );

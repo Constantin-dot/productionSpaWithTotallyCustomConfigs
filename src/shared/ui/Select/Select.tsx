@@ -13,6 +13,7 @@ type PropsType = {
   options?: Array<ISelectOption>,
   value?: string,
   onChange?: (value: string) => void,
+  readonly?: boolean,
 };
 
 export const Select = memo((props: PropsType) => {
@@ -22,9 +23,11 @@ export const Select = memo((props: PropsType) => {
     options,
     value,
     onChange,
+    readonly,
   } = props;
-  const mods: ModsType = {
 
+  const mods: ModsType = {
+    [cls.readonly]: readonly,
   };
 
   const optionsList = useMemo(() => options?.map((opt) => (
@@ -42,12 +45,13 @@ export const Select = memo((props: PropsType) => {
   };
 
   return (
-    <div className={classNames(cls.Wrapper, mods, [className])}>
-      {label && <span className={cls.label}>{`${label}>`}</span>}
+    <div className={classNames(cls.Wrapper, {}, [className])}>
+      {label && <span className={classNames(cls.label, mods, [className])}>{`${label}>`}</span>}
       <select
         className={cls.select}
         value={value}
         onChange={onChangeHandler}
+        disabled={readonly}
       >
         {optionsList}
       </select>

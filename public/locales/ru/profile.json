@@ -9,6 +9,13 @@
   "cityPlaceholder": "Ваш город",
   "usernamePlaceholder": "Ваш никнейм",
   "avatarPlaceholder": "Ссылка на ваш аватар",
+  "currencyPlaceholder": "Выбирете валюту",
+  "countryPlaceholder": "Выбирете страну",
   "error": "Произошла ошибка при загрузке профиля",
-  "errorTip": "Попробуйте обновить страницу"
+  "errorTip": "Попробуйте обновить страницу",
+  "incorrect_user_data": "Некорректно введены данные пользователя(имя или фамилия)!",
+  "incorrect_age": "Некорректно введен возраст!",
+  "incorrect_country": "Некорректно выбрано государство!",
+  "no_data": "Данные не введены!",
+  "server_error": "Ошибка сервера"
 }

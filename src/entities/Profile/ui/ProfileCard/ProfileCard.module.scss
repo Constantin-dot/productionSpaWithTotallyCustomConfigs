@@ -9,7 +9,15 @@
   justify-content: center;
 }
 
-.input {
+.infoBlock {
+  display: flex;
+  flex-direction: column;
+  max-height: calc(100vh - 340px);
+  overflow-y: auto;
+}
+
+.input,
+.select {
   margin-top: 10px;
 }
 

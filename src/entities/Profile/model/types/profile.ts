@@ -1,9 +1,18 @@
-import { CountryEnum, CurrencyEnum } from 'shared/const/common';
+import { CountryEnum } from 'entities/Country';
+import { CurrencyEnum } from 'entities/Currency';
+
+export enum ProfileValidateErrorEnum {
+  INCORRECT_USER_DATA = 'incorrect_user_data',
+  INCORRECT_AGE = 'incorrect_age',
+  INCORRECT_COUNTRY = 'incorrect_country',
+  NO_DATA = 'no_data',
+  SERVER_ERROR = 'server_error',
+}
 
 export interface IProfile {
   firstname?: string,
   lastname?: string,
-  age?: string,
+  age?: number,
   currency?: CurrencyEnum,
   country?: CountryEnum,
   city?: string,
@@ -17,4 +26,5 @@ export interface IProfileSchema {
   isLoading: boolean,
   error?: string,
   readonly: boolean,
+  validateErrors?: ProfileValidateErrorEnum[],
 }

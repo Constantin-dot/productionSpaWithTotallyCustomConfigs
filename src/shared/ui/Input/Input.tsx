@@ -8,9 +8,11 @@ type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onC
 
 interface IProps extends HTMLInputProps {
   className?: string;
-  value?: string;
-  onChange?: (value: string) => void;
+  value?: string | number;
+  onChange?: (value: string | number) => void;
   readonly?: boolean;
+  elipsis?: boolean;
+  width?: string;
 }
 
 export const Input = memo((props: IProps) => {
@@ -22,6 +24,8 @@ export const Input = memo((props: IProps) => {
     autoFocus,
     type = 'text',
     readonly,
+    elipsis,
+    width = '100%',
     ...otherProps
   } = props;
   const ref = useRef<HTMLInputElement>(null);
@@ -67,12 +71,13 @@ export const Input = memo((props: IProps) => {
           onChange={onChangeHandler}
           onFocus={onFocus}
           onBlur={onBlur}
-          className={cls.input}
+          className={classNames(cls.input, { [cls.elipsis]: elipsis }, [])}
           readOnly={readonly}
+          width={width}
           {...otherProps}
         />
         {
-          (isFocused && (innerValue.length === 0) && (value?.length === 0))
+          (isFocused && (innerValue.length === 0) && (value?.toString()?.length === 0))
         && <span className={cls.caret} />
         }
       </div>

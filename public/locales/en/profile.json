@@ -9,6 +9,13 @@
   "cityPlaceholder": "Your city",
   "usernamePlaceholder": "Your nickname",
   "avatarPlaceholder": "Link on your avatar",
+  "currencyPlaceholder": "Select a currnecy",
+  "countryPlaceholder": "Select a country",
   "error": "It was error during request profile",
-  "errorTip": "Try to refresh the page"
+  "errorTip": "Try to refresh the page",
+  "incorrect_user_data": "Incorrect user data!",
+  "incorrect_age": "Incorrect age!",
+  "incorrect_country": "Incorrect country!",
+  "no_data": "No data!",
+  "server_error": "Server error"
 }

@@ -1,3 +1,5 @@
+import { CountryEnum, CountrySelect } from 'entities/Country';
+import { CurrencyEnum, CurrencySelect } from 'entities/Currency';
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
@@ -15,12 +17,14 @@ type PropsType = {
   data?: IProfile,
   isLoading?: boolean,
   error?: string,
-  onFirstnameChangeHandler?: (value: string) => void,
-  onLastnameChangeHandler?: (value: string) => void,
-  onAgeChangeHandler?: (value: string) => void,
-  onCityChangeHandler?: (value: string) => void,
-  onUsernameChangeHandler?: (value: string) => void,
-  onAvatarChangeHandler?: (value: string) => void,
+  onFirstnameChangeHandler?: (value: string | number) => void,
+  onLastnameChangeHandler?: (value: string | number) => void,
+  onAgeChangeHandler?: (value: string | number) => void,
+  onCityChangeHandler?: (value: string | number) => void,
+  onUsernameChangeHandler?: (value: string | number) => void,
+  onAvatarChangeHandler?: (value: string | number) => void,
+  onCurrencyChangeHandler?: (value: CurrencyEnum) => void,
+  onCountryChangeHandler?: (value: CountryEnum) => void,
 };
 
 export const ProfileCard: FC<PropsType> = (props) => {
@@ -35,6 +39,8 @@ export const ProfileCard: FC<PropsType> = (props) => {
     onCityChangeHandler,
     onUsernameChangeHandler,
     onAvatarChangeHandler,
+    onCurrencyChangeHandler,
+    onCountryChangeHandler,
   } = props;
   const { t } = useTranslation('profile');
   const readonly = useSelector(getProfileReadonly);
@@ -69,51 +75,69 @@ export const ProfileCard: FC<PropsType> = (props) => {
       <div className={cls.data}>
         {data?.avatar && (
           <div className={cls.avatarWrapper}>
-            <Avatar src={data.avatar} alt={`${data.username} avatar`} size={50} />
+            <Avatar src={data.avatar} alt={`${data.username} avatar`} size={100} />
           </div>
         )}
-        <Input
-          className={cls.input}
-          value={data?.firstname}
-          placeholder={t('firstnamePlaceholder')}
-          readonly={readonly}
-          onChange={onFirstnameChangeHandler}
-        />
-        <Input
-          className={cls.input}
-          value={data?.lastname}
-          placeholder={t('lastnamePlaceholder')}
-          readonly={readonly}
-          onChange={onLastnameChangeHandler}
-        />
-        <Input
-          className={cls.input}
-          value={data?.age}
-          placeholder={t('agePlaceholder')}
-          readonly={readonly}
-          onChange={onAgeChangeHandler}
-        />
-        <Input
-          className={cls.input}
-          value={data?.city}
-          placeholder={t('cityPlaceholder')}
-          readonly={readonly}
-          onChange={onCityChangeHandler}
-        />
-        <Input
-          className={cls.input}
-          value={data?.username}
-          placeholder={t('usernamePlaceholder')}
-          readonly={readonly}
-          onChange={onUsernameChangeHandler}
-        />
-        <Input
-          className={cls.input}
-          value={data?.avatar}
-          placeholder={t('avatarPlaceholder')}
-          readonly={readonly}
-          onChange={onAvatarChangeHandler}
-        />
+        <div className={cls.infoBlock}>
+          <Input
+            className={cls.input}
+            value={data?.firstname}
+            placeholder={t('firstnamePlaceholder')}
+            readonly={readonly}
+            onChange={onFirstnameChangeHandler}
+          />
+          <Input
+            className={cls.input}
+            value={data?.lastname}
+            placeholder={t('lastnamePlaceholder')}
+            readonly={readonly}
+            onChange={onLastnameChangeHandler}
+          />
+          <Input
+            className={cls.input}
+            value={data?.age}
+            placeholder={t('agePlaceholder')}
+            readonly={readonly}
+            onChange={onAgeChangeHandler}
+          />
+          <Input
+            className={cls.input}
+            value={data?.city}
+            placeholder={t('cityPlaceholder')}
+            readonly={readonly}
+            onChange={onCityChangeHandler}
+          />
+          <Input
+            className={cls.input}
+            value={data?.username}
+            placeholder={t('usernamePlaceholder')}
+            readonly={readonly}
+            onChange={onUsernameChangeHandler}
+          />
+          <Input
+            className={cls.input}
+            value={data?.avatar}
+            placeholder={t('avatarPlaceholder')}
+            readonly={readonly}
+            onChange={onAvatarChangeHandler}
+            elipsis
+            width="250px"
+          />
+          <CurrencySelect
+            className={cls.select}
+            label={t('currencyPlaceholder')}
+            readonly={readonly}
+            value={data?.currency}
+            onChange={onCurrencyChangeHandler}
+          />
+          <CountrySelect
+            className={cls.select}
+            label={t('countryPlaceholder')}
+            readonly={readonly}
+            value={data?.country}
+            onChange={onCountryChangeHandler}
+          />
+        </div>
       </div>
     </div>
   );
