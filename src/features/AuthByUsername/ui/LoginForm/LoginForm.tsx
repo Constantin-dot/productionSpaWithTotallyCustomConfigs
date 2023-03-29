@@ -55,7 +55,7 @@ const LoginForm = memo((props: LoginFormPropsType) => {
   return (
     <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
       <div className={classNames(cls.LoginForm, {}, [className])}>
-        <Text title={t('authorizationModalTitle')} />
+        <p className={cls.header}>{t('authorizationModalTitle')}</p>
         {error && <Text text={t('authErrorMessage')} variant={TextVariantEnum.ERROR} />}
         <Input
           placeholder={t('loginPlaceholder')}

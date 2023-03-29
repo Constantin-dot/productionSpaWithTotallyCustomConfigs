@@ -2,16 +2,18 @@
 @import "./variables/global.scss";
 @import "./themes/dark.scss";
 @import "./themes/normal.scss";
-
-.app,
-.app_modal {
-  font: var(--font-m);
-  color: var(--primary-color);
-}
+@import "./themes/green.scss";
 
 .app {
+  font: var(--font-m);
+  color: var(--primary-color);
   background: var(--bg-color);
   min-height: 100vh;
+}
+
+.app_modal {
+  font: var(--font-m);
+  color: var(--inverted-primary-color);
 }
 
 .content-page {

@@ -4,10 +4,17 @@
   flex-direction: column;
 }
 
+.header {
+  font: var(--font-l);
+  margin-bottom: 20px;
+}
+
 .input {
   margin-bottom: 10px;
 }
 
 .loginBtn {
   margin-left: auto;
+  color: var(--inverted-primary-color);
+  border-color: var(--inverted-primary-color);
 }
