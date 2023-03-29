@@ -7,7 +7,9 @@ import cls from './Input.module.scss';
 type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readonly'>;
 
 interface IProps extends HTMLInputProps {
-  className?: string;
+  wrapperClassName?: string;
+  inputClassName?: string;
+  caretClassName?: string;
   value?: string | number;
   onChange?: (value: string | number) => void;
   readonly?: boolean;
@@ -17,7 +19,9 @@ interface IProps extends HTMLInputProps {
 
 export const Input = memo((props: IProps) => {
   const {
-    className,
+    wrapperClassName,
+    inputClassName,
+    caretClassName,
     value,
     onChange,
     placeholder,
@@ -57,7 +61,7 @@ export const Input = memo((props: IProps) => {
   };
 
   return (
-    <div className={classNames(cls.InputWrapper, mods, [className])}>
+    <div className={classNames(cls.InputWrapper, mods, [wrapperClassName])}>
       {placeholder && (
         <div className={cls.placeholder}>
           {`${placeholder}>`}
@@ -71,14 +75,14 @@ export const Input = memo((props: IProps) => {
           onChange={onChangeHandler}
           onFocus={onFocus}
           onBlur={onBlur}
-          className={classNames(cls.input, { [cls.elipsis]: elipsis }, [])}
+          className={classNames(cls.input, { [cls.elipsis]: elipsis }, [inputClassName])}
           readOnly={readonly}
           width={width}
           {...otherProps}
         />
         {
           (isFocused && (innerValue.length === 0) && (value?.toString()?.length === 0))
-        && <span className={cls.caret} />
+        && <span className={classNames(cls.caret, { [cls.elipsis]: elipsis }, [caretClassName])} />
         }
       </div>
     </div>

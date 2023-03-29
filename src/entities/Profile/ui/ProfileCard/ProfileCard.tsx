@@ -79,42 +79,42 @@ export const ProfileCard: FC<PropsType> = (props) => {
         )}
         <div className={cls.infoBlock}>
           <Input
-            className={cls.input}
+            wrapperClassName={cls.input}
             value={data?.firstname}
             placeholder={t('firstnamePlaceholder')}
             readonly={readonly}
             onChange={onFirstnameChangeHandler}
           />
           <Input
-            className={cls.input}
+            wrapperClassName={cls.input}
             value={data?.lastname}
             placeholder={t('lastnamePlaceholder')}
             readonly={readonly}
             onChange={onLastnameChangeHandler}
           />
           <Input
-            className={cls.input}
+            wrapperClassName={cls.input}
             value={data?.age}
             placeholder={t('agePlaceholder')}
             readonly={readonly}
             onChange={onAgeChangeHandler}
           />
           <Input
-            className={cls.input}
+            wrapperClassName={cls.input}
             value={data?.city}
             placeholder={t('cityPlaceholder')}
             readonly={readonly}
             onChange={onCityChangeHandler}
           />
           <Input
-            className={cls.input}
+            wrapperClassName={cls.input}
             value={data?.username}
             placeholder={t('usernamePlaceholder')}
             readonly={readonly}
             onChange={onUsernameChangeHandler}
           />
           <Input
-            className={cls.input}
+            wrapperClassName={cls.input}
             value={data?.avatar}
             placeholder={t('avatarPlaceholder')}
             readonly={readonly}
