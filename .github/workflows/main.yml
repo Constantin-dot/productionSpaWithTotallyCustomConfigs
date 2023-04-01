@@ -35,7 +35,7 @@ jobs:
         run: npm run storybook:build
         if: always()
       - name: approve snapshots
-        run: npx loki update --storiesFilter="^widget\\/Sidebar Light|widget\\/Sidebar Dark|widget\\/Sidebar Not Auth\$" --reactUri="file:./storybook-static"
+        run: npx loki update
       - name: screenshot testing
         run: npm run test:ui:ci
         if: always()
