@@ -1,8 +1,9 @@
 import React from 'react';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
-import AboutIcon from 'shared/assets/icons/home.svg';
-import MainIcon from 'shared/assets/icons/list.svg';
+import MainIcon from 'shared/assets/icons/home.svg';
+import AboutIcon from 'shared/assets/icons/list.svg';
 import ProfileIcon from 'shared/assets/icons/profile.svg';
+import ArticlesIcon from 'shared/assets/icons/doc.svg';
 
 export interface ISidebarItem {
   path: string;
@@ -26,6 +27,12 @@ export const SidebarItemList: ISidebarItem[] = [
     path: RoutePath.profile,
     text: 'profile',
     Icon: ProfileIcon,
+    authOnly: true,
+  },
+  {
+    path: RoutePath.articles,
+    text: 'articles',
+    Icon: ArticlesIcon,
     authOnly: true,
   },
 ];
