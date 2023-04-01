@@ -31,11 +31,11 @@ jobs:
       - name: unit testing
         run: npm run test:unit
         if: always()
-      - name: approve snapshots
-        run: npx loki update --storiesFilter="^entities\\/ProfileCard Primary|features\\/LoginForm Dark Theme|pages\\/ProfilePage Light Theme|pages\\/ProfilePage Dark Theme\$" --reactUri="file:./storybook-static"
       - name: build storybook
         run: npm run storybook:build
         if: always()
+      - name: approve snapshots
+        run: npx loki update --storiesFilter="^entities\\/ProfileCard Primary|features\\/LoginForm Dark Theme|pages\\/ProfilePage Light Theme|pages\\/ProfilePage Dark Theme\$" --reactUri="file:./storybook-static"
       - name: screenshot testing
         run: npm run test:ui:ci
         if: always()
