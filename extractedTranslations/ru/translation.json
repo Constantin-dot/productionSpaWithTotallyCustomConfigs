@@ -2,6 +2,7 @@
   "about": "about",
   "aboutPageContent": "aboutPageContent",
   "agePlaceholder": "agePlaceholder",
+  "articleRequestError": "articleRequestError",
   "authErrorMessage": "authErrorMessage",
   "authorizationModalTitle": "authorizationModalTitle",
   "avatarPlaceholder": "avatarPlaceholder",

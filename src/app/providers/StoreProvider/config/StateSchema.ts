@@ -8,6 +8,7 @@ import { IProfileSchema } from 'entities/Profile';
 import { IUserSchema } from 'entities/User';
 import { ILoginSchema } from 'features/AuthByUsername';
 import { NavigateOptions, To } from 'react-router-dom';
+import { IArticleDetailsSchema } from 'entities/Article';
 
 export interface IStateSchema {
   counter: ICounterState;
@@ -16,6 +17,7 @@ export interface IStateSchema {
   // async reducers
   loginForm?: ILoginSchema;
   profile?: IProfileSchema;
+  articleDetails?: IArticleDetailsSchema;
 }
 
 export type StateSchemaKeyType = keyof IStateSchema;
