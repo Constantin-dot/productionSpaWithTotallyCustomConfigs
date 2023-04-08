@@ -1,4 +1,4 @@
-import { memo, useEffect } from 'react';
+import { memo, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
@@ -9,6 +9,8 @@ import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
 import { Text, TextAlignEnum, TextSizeEnum } from 'shared/ui/Text/Text';
 import EyeIcon from 'shared/assets/icons/eye.svg';
 import ClarityIcon from 'shared/assets/icons/clarity.svg';
+import { Icon } from 'shared/ui/Icon/Icon';
+import { ArticleBlockType, ArticleBlockTypeEnum } from 'entities/Article/model/types/article';
 import {
   getArticleDetailsData,
   getArticleDetailsError,
@@ -17,6 +19,9 @@ import {
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
 import cls from './ArticleDetails.module.scss';
+import { ArticleTextBlock } from '../ArticleTextBlock/ArticleTextBlock';
+import { ArticleCodeBlock } from '../ArticleCodeBlock/ArticleCodeBlock';
+import { ArticleImageBlock } from '../ArticleImageBlock/ArticleImageBlock';
 
 const reducers: ReducersListType = {
   articleDetails: articleDetailsReducer,
@@ -35,8 +40,41 @@ export const ArticleDetails = memo((props: PropsType) => {
   const article = useSelector(getArticleDetailsData);
   const error = useSelector(getArticleDetailsError);
 
+  const renderBlockHandler = useCallback((block: ArticleBlockType) => {
+    switch (block.type) {
+    case ArticleBlockTypeEnum.CODE:
+      return (
+        <ArticleCodeBlock
+          key={block.id}
+          block={block}
+          className={cls.block}
+        />
+      );
+    case ArticleBlockTypeEnum.IMAGE:
+      return (
+        <ArticleImageBlock
+          key={block.id}
+          block={block}
+          className={cls.block}
+        />
+      );
+    case ArticleBlockTypeEnum.TEXT:
+      return (
+        <ArticleTextBlock
+          key={block.id}
+          block={block}
+          className={cls.block}
+        />
+      );
+    default:
+      return null;
+    }
+  }, []);
+
   useEffect(() => {
-    dispatch(fetchArticleById(id));
+    if (__PROJECT__ !== 'storybook') {
+      dispatch(fetchArticleById(id));
+    }
   }, [dispatch, id]);
 
   let content;
@@ -97,13 +135,14 @@ export const ArticleDetails = memo((props: PropsType) => {
           size={TextSizeEnum.L}
         />
         <div className={cls.articleInfo}>
-          <EyeIcon className={cls.icon} />
+          <Icon Svg={EyeIcon} className={cls.icon} />
           <Text text={String(article?.views) ?? ''} />
         </div>
         <div className={cls.articleInfo}>
-          <ClarityIcon className={cls.icon} />
+          <Icon Svg={ClarityIcon} className={cls.icon} />
           <Text text={article?.createdAt ?? ''} />
         </div>
+        {article?.blocks.map(renderBlockHandler)}
       </>
     );
   }

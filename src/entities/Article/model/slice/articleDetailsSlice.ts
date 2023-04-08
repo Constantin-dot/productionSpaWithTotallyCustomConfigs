@@ -12,14 +12,7 @@ const initialState: IArticleDetailsSchema = {
 export const articleDetailsSlice = createSlice({
   name: 'articleDetails',
   initialState,
-  reducers: {
-    // increment: (state) => {
-    //   state.value += 1;
-    // },
-    // decrement: (state) => {
-    //   state.value -= 1;
-    // },
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(fetchArticleById.pending, (state) => {

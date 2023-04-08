@@ -1,7 +1,7 @@
 export enum ArticleBlockTypeEnum {
-  TEXT = 'text',
-  IMAGE = 'image',
-  CODE = 'code',
+  TEXT = 'TEXT',
+  IMAGE = 'IMAGE',
+  CODE = 'CODE',
 }
 
 export interface IArticleBaseBlock {

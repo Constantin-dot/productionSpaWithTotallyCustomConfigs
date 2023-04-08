@@ -13,5 +13,7 @@
   "loginPlaceholder": "Введите логин",
   "passwordPlaceholder": "Введите пароль",
   "authorizationModalTitle": "Форма авторизации",
-  "authErrorMessage": "Вы ввели неверные данные"
+  "authErrorMessage": "Вы ввели неверные данные",
+  "copy": "Копипровать",
+  "hasNotComments": "Комментарии отсутствуют"
 }

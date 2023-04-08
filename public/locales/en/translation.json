@@ -13,5 +13,7 @@
   "loginPlaceholder": "Enter login",
   "passwordPlaceholder": "Enter password",
   "authorizationModalTitle": "Authorization form",
-  "authErrorMessage": "You entered incorrect data"
+  "authErrorMessage": "You entered incorrect data",
+  "copy": "Copy",
+  "hasNotComments": "There isn't comments"
 }
