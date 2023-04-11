@@ -12,12 +12,14 @@ import {
   profileReducer,
 } from 'entities/Profile';
 import { ProfileValidateErrorEnum } from 'entities/Profile/model/types/profile';
-import { memo, useCallback, useEffect } from 'react';
+import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducersListType } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { Text, TextVariantEnum } from 'shared/ui/Text/Text';
 import cls from './ProfilePage.module.scss';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
@@ -32,6 +34,7 @@ const ProfilePage = memo((props: PropsType) => {
   const { className } = props;
   const { t } = useTranslation('profile');
   const dispatch = useAppDispatch();
+  const { id } = useParams<{ id: string }>();
   const data = useSelector(getProfileData);
   const isLoading = useSelector(getProfileIsLoading);
   const error = useSelector(getProfileError);
@@ -78,11 +81,9 @@ const ProfilePage = memo((props: PropsType) => {
     dispatch(profileActions.updateProfile({ country: value }));
   }, [dispatch]);
 
-  useEffect(() => {
-    if (__PROJECT__ !== 'storybook') {
-      dispatch(fetchProfileData());
-    }
-  }, [dispatch]);
+  useInitialEffect(() => {
+    dispatch(fetchProfileData(id));
+  });
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
