@@ -7,8 +7,12 @@ import { CommentList } from 'entities/Comment';
 import { Text } from 'shared/ui/Text/Text';
 import { DynamicModuleLoader, ReducersListType } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useSelector } from 'react-redux';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { articleDetailsCommentsReducer, getArticleComments } from '../../model/slices/ArticleDetailsCommentsSlice';
 import cls from './ArticleDetailsPage.module.scss';
+import { getArticleCommentsIsLoading } from '../../model/selectors/comments';
 
 type PropsType = {className?: string,};
 
@@ -19,8 +23,14 @@ const reducers: ReducersListType = {
 const ArticleDetailsPage: FC<PropsType> = (props) => {
   const { className } = props;
   const { t } = useTranslation('article');
+  const dispatch = useAppDispatch();
   const { id } = useParams<{id: string}>();
   const comments = useSelector(getArticleComments.selectAll);
+  const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
+
+  useInitialEffect(() => {
+    dispatch(fetchCommentsByArticleId(id));
+  });
 
   if (!id) {
     return (
@@ -37,7 +47,7 @@ const ArticleDetailsPage: FC<PropsType> = (props) => {
         <Text title={t('comments')} className={cls.commentTitle} />
         <CommentList
           comments={comments}
-          // isLoading
+          isLoading={commentsIsLoading}
         />
       </div>
     </DynamicModuleLoader>

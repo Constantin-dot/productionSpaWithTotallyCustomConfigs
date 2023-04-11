@@ -1,4 +1,4 @@
-import { memo, useCallback, useEffect } from 'react';
+import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
@@ -11,6 +11,7 @@ import EyeIcon from 'shared/assets/icons/eye.svg';
 import ClarityIcon from 'shared/assets/icons/clarity.svg';
 import { Icon } from 'shared/ui/Icon/Icon';
 import { ArticleBlockType, ArticleBlockTypeEnum } from 'entities/Article/model/types/article';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import {
   getArticleDetailsData,
   getArticleDetailsError,
@@ -71,11 +72,9 @@ export const ArticleDetails = memo((props: PropsType) => {
     }
   }, []);
 
-  useEffect(() => {
-    if (__PROJECT__ !== 'storybook') {
-      dispatch(fetchArticleById(id));
-    }
-  }, [dispatch, id]);
+  useInitialEffect(() => {
+    dispatch(fetchArticleById(id));
+  });
 
   let content;
 

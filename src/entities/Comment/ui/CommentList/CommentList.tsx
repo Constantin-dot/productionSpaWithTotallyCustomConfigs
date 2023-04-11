@@ -25,7 +25,12 @@ export const CommentList: FC<PropsType> = (props) => {
       {
         comments?.length
           ? comments.map((comment) => (
-            <CommentCard comment={comment} className={cls.comment} isLoading={isLoading} />
+            <CommentCard
+              key={comment.id}
+              comment={comment}
+              className={cls.comment}
+              isLoading={isLoading}
+            />
           ))
           : <Text text={t('hasNotComments')} />
       }
