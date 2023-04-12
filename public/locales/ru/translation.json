@@ -15,5 +15,7 @@
   "authorizationModalTitle": "Форма авторизации",
   "authErrorMessage": "Вы ввели неверные данные",
   "copy": "Копипровать",
-  "hasNotComments": "Комментарии отсутствуют"
+  "hasNotComments": "Комментарии отсутствуют",
+  "enterComment": "Введите комментарий",
+  "sendComment": "Отправить"
 }

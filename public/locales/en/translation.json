@@ -15,5 +15,7 @@
   "authorizationModalTitle": "Authorization form",
   "authErrorMessage": "You entered incorrect data",
   "copy": "Copy",
-  "hasNotComments": "There isn't comments"
+  "hasNotComments": "There isn't comments",
+  "enterComment": "Enter comment here",
+  "sendComment": "Send"
 }

@@ -9,6 +9,7 @@ import { DynamicModuleLoader, ReducersListType } from 'shared/lib/components/Dyn
 import { useSelector } from 'react-redux';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { AddCommentForm } from 'features/AddCommentForm';
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { articleDetailsCommentsReducer, getArticleComments } from '../../model/slices/ArticleDetailsCommentsSlice';
 import cls from './ArticleDetailsPage.module.scss';
@@ -45,6 +46,7 @@ const ArticleDetailsPage: FC<PropsType> = (props) => {
       <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
         <ArticleDetails id={id} />
         <Text title={t('comments')} className={cls.commentTitle} />
+        <AddCommentForm />
         <CommentList
           comments={comments}
           isLoading={commentsIsLoading}

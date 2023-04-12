@@ -16,7 +16,7 @@ export const DynamicModuleLoader: FC<PropsType> = (props) => {
   const {
     children,
     reducers,
-    removeAfterUnmount,
+    removeAfterUnmount = true,
   } = props;
   const dispatch = useDispatch();
 
