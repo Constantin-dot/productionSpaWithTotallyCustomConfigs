@@ -5,6 +5,7 @@ import { ProfileValidateErrorEnum } from '../../types/profile';
 import { updateProfileData } from './updateProfileData';
 
 const data = {
+  id: '1',
   username: 'admin',
   age: 30,
   country: CountryEnum.Gorgia,
