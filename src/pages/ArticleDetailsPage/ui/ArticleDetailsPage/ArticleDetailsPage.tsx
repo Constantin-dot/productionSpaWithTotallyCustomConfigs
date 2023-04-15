@@ -14,9 +14,11 @@ import {
   addCommentForArticle,
 } from '../../model/services/addCommentForArticle/addCommentForArticle';
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
-import { articleDetailsCommentsReducer, getArticleComments } from '../../model/slices/ArticleDetailsCommentsSlice';
+import { articleDetailsCommentsReducer, getArticleComments } from '../../model/slices/articleDetailsCommentsSlice';
 import cls from './ArticleDetailsPage.module.scss';
-import { getArticleCommentsIsLoading } from '../../model/selectors/comments';
+import {
+  getArticleCommentsIsLoading,
+} from '../../model/selectors/getArticleCommentsIsLoading/getArticleCommentsIsLoading';
 
 type PropsType = {className?: string,};
 
