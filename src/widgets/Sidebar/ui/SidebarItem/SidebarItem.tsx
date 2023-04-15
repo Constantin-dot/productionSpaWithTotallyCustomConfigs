@@ -1,10 +1,10 @@
 import { getUserAuthData } from 'entities/User';
-import { FC, memo } from 'react';
+import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { AppLink, AppLinkVariantEnum } from 'shared/ui/AppLink/AppLink';
-import { ISidebarItem } from '../../model/items';
+import { ISidebarItem } from '../../model/types/sidebar';
 import cls from './SidebarItem.module.scss';
 
 type PropsType = {
