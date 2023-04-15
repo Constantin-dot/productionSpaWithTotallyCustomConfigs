@@ -44,3 +44,8 @@ export interface IArticle {
   type: Array<ArticleTypeEnum>;
   blocks: Array<ArticleBlockType>;
 }
+
+export enum ArticleListViewVariantEnum {
+  LIST = 'list',
+  CARDS = 'cards'
+}
