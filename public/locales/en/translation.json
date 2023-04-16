@@ -17,5 +17,6 @@
   "copy": "Copy",
   "hasNotComments": "There isn't comments",
   "enterComment": "Enter comment here",
-  "sendComment": "Send"
+  "sendComment": "Send",
+  "readForward": "Read forward..."
 }

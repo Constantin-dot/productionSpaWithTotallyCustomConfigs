@@ -2,6 +2,7 @@ import { FC } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { ArticleListViewVariantEnum, IArticle } from '../../model/types/article';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
+import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
 import cls from './ArticleList.module.scss';
 
 type PropsType = {
@@ -11,20 +12,36 @@ type PropsType = {
   view?: ArticleListViewVariantEnum,
 };
 
+const getSkeletons = (view: ArticleListViewVariantEnum) => new Array(view === ArticleListViewVariantEnum.CARDS ? 9 : 3)
+  .fill(0)
+  .map((_, index) => (<ArticleListItemSkeleton view={view} key={index} />));
+
 export const ArticleList: FC<PropsType> = (props) => {
   const {
     className,
     articles,
-    isLoading,
+    isLoading, // = true,
     view = ArticleListViewVariantEnum.CARDS,
   } = props;
 
   const renderArticle = (article: IArticle) => (
-    <ArticleListItem article={article} view={view} />
+    <ArticleListItem
+      article={article}
+      view={view}
+      key={article.id}
+    />
   );
 
+  if (isLoading) {
+    return (
+      <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
+        {getSkeletons(view)}
+      </div>
+    );
+  }
+
   return (
-    <div className={classNames(cls.ArticleList, {}, [className])}>
+    <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
       {
         articles.length > 0
           ? articles.map(renderArticle)
