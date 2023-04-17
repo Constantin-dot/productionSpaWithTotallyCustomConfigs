@@ -20,8 +20,8 @@ export const ArticleList: FC<PropsType> = (props) => {
   const {
     className,
     articles,
-    isLoading, // = true,
-    view = ArticleListViewVariantEnum.CARDS,
+    isLoading,
+    view = ArticleListViewVariantEnum.LIST,
   } = props;
 
   const renderArticle = (article: IArticle) => (

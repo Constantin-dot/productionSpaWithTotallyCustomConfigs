@@ -19,28 +19,18 @@ export const ArticleListItemSkeleton = memo((props: PropsType) => {
   if (view === ArticleListViewVariantEnum.LIST) {
     return (
       <div className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
-        {/* <Card className={cls.card}>
+        <Card className={cls.card}>
           <div className={cls.header}>
-            <Avatar size={30} src={article.user.avatar ?? ''} alt="author avatar" />
-            <Text text={article.user.username} className={cls.username} />
-            <Text text={article.createdAt} className={cls.date} />
+            <Skeleton border="50%" width={30} height={30} />
+            <Skeleton width={150} height={16} className={cls.username} />
+            <Skeleton width={150} height={16} className={cls.date} />
           </div>
-          <Text title={article.title} className={cls.title} />
-          <img src={article.img} className={cls.img} alt={article.title} />
-          {
-            textBlock && (
-              <ArticleTextBlock block={textBlock} className={cls.textBlock} />
-            )
-          }
+          <Skeleton width={250} height={24} className={cls.title} />
+          <Skeleton height={200} className={cls.img} />
           <div className={cls.footer}>
-            <Button
-              variant={ButtonVariantEnum.OUTLINE}
-              onClick={onOpenArticle}
-            >
-              {t('readForward')}
-            </Button>
+            <Skeleton height={36} width={200} />
           </div>
-        </Card> */}
+        </Card>
       </div>
     );
   }
