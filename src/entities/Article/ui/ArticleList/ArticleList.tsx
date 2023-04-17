@@ -9,7 +9,7 @@ type PropsType = {
   className?: string,
   articles: Array<IArticle>,
   isLoading?: boolean,
-  view?: ArticleListViewVariantEnum,
+  view: ArticleListViewVariantEnum,
 };
 
 const getSkeletons = (view: ArticleListViewVariantEnum) => new Array(view === ArticleListViewVariantEnum.CARDS ? 9 : 3)
@@ -21,7 +21,7 @@ export const ArticleList: FC<PropsType> = (props) => {
     className,
     articles,
     isLoading,
-    view = ArticleListViewVariantEnum.LIST,
+    view,
   } = props;
 
   const renderArticle = (article: IArticle) => (
