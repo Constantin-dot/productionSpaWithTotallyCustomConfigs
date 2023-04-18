@@ -1,6 +1,8 @@
 import { createEntityAdapter, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { IStateSchema } from 'app/providers/StoreProvider';
 import { ArticleListViewVariantEnum, IArticle } from 'entities/Article';
+import { ARTICLES_VIEW_LOCAL_STORAGE_KEY } from 'shared/const/localstorage';
+import { fetchArticlesList } from '../services/fetchArticlesList/fetchArticlesList';
 import { IArticlesPageSchema } from '../types/articlesPageSchema';
 
 const articlesAdapter = createEntityAdapter<IArticle>({
@@ -23,23 +25,27 @@ export const articlesPageSlice = createSlice({
   reducers: {
     setView: (state, action: PayloadAction<ArticleListViewVariantEnum>) => {
       state.view = action.payload;
+      localStorage.setItem(ARTICLES_VIEW_LOCAL_STORAGE_KEY, action.payload);
+    },
+    initState: (state) => {
+      state.view = localStorage.getItem(ARTICLES_VIEW_LOCAL_STORAGE_KEY) as ArticleListViewVariantEnum;
     },
   },
   extraReducers: (builder) => {
-    // builder
-    //   .addCase(fetchArticleById.pending, (state) => {
-    //     state.isLoading = true;
-    //     state.error = undefined;
-    //   })
-    //   .addCase(fetchArticleById.fulfilled, (state, action: PayloadAction<IArticle>) => {
-    //     state.isLoading = false;
-    //     state.error = undefined;
-    //     state.data = action.payload;
-    //   })
-    //   .addCase(fetchArticleById.rejected, (state, action) => {
-    //     state.isLoading = false;
-    //     state.error = action.payload;
-    //   });
+    builder
+      .addCase(fetchArticlesList.pending, (state) => {
+        state.isLoading = true;
+        state.error = undefined;
+      })
+      .addCase(fetchArticlesList.fulfilled, (state, action: PayloadAction<Array<IArticle>>) => {
+        state.isLoading = false;
+        state.error = undefined;
+        articlesAdapter.setAll(state, action.payload);
+      })
+      .addCase(fetchArticlesList.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      });
   },
 });
 
