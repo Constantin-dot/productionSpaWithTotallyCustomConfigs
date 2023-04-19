@@ -20,6 +20,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducersListType } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { Page } from 'shared/ui/Page/Page';
 import { Text, TextVariantEnum } from 'shared/ui/Text/Text';
 import cls from './ProfilePage.module.scss';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
@@ -87,7 +88,7 @@ const ProfilePage = memo((props: PropsType) => {
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-      <div className={classNames(cls.ProfilePage, {}, [className])}>
+      <Page className={classNames(cls.ProfilePage, {}, [className])}>
         <ProfilePageHeader />
         {validateErrors?.length && validateErrors.map((err) => (
           <Text variant={TextVariantEnum.ERROR} text={validateErrorTranslates[err]} key={err} />
@@ -106,7 +107,7 @@ const ProfilePage = memo((props: PropsType) => {
           onCurrencyChangeHandler={onCurrencyChangeHandler}
           onCountryChangeHandler={onCountryChangeHandler}
         />
-      </div>
+      </Page>
     </DynamicModuleLoader>
   );
 });

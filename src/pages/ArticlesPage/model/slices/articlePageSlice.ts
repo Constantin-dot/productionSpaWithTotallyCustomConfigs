@@ -21,14 +21,21 @@ export const articlesPageSlice = createSlice({
     view: ArticleListViewVariantEnum.CARDS,
     ids: [],
     entities: {},
+    page: 1,
+    hasMore: true,
   }),
   reducers: {
     setView: (state, action: PayloadAction<ArticleListViewVariantEnum>) => {
       state.view = action.payload;
       localStorage.setItem(ARTICLES_VIEW_LOCAL_STORAGE_KEY, action.payload);
     },
+    setPage: (state, action: PayloadAction<number>) => {
+      state.page = action.payload;
+    },
     initState: (state) => {
-      state.view = localStorage.getItem(ARTICLES_VIEW_LOCAL_STORAGE_KEY) as ArticleListViewVariantEnum;
+      const view = localStorage.getItem(ARTICLES_VIEW_LOCAL_STORAGE_KEY) as ArticleListViewVariantEnum;
+      state.view = view;
+      state.limit = view === ArticleListViewVariantEnum.LIST ? 4 : 9;
     },
   },
   extraReducers: (builder) => {

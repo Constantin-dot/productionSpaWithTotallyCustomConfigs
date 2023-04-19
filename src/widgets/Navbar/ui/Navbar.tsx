@@ -31,7 +31,7 @@ export const Navbar = memo(({ className }: INavbarProps) => {
 
   if (authData) {
     return (
-      <div className={classNames(cls.Navbar, {}, [className])}>
+      <header className={classNames(cls.Navbar, {}, [className])}>
 
         <Button
           variant={ButtonVariantEnum.CLEAR_INVERTED}
@@ -40,12 +40,12 @@ export const Navbar = memo(({ className }: INavbarProps) => {
         >
           {t('signOut')}
         </Button>
-      </div>
+      </header>
     );
   }
 
   return (
-    <div className={classNames(cls.Navbar, {}, [className])}>
+    <header className={classNames(cls.Navbar, {}, [className])}>
 
       <Button
         variant={ButtonVariantEnum.CLEAR_INVERTED}
@@ -60,6 +60,6 @@ export const Navbar = memo(({ className }: INavbarProps) => {
           onClose={onCloseModal}
         />
       )}
-    </div>
+    </header>
   );
 });

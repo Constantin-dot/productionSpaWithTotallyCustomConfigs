@@ -6,6 +6,7 @@ import { DynamicModuleLoader, ReducersListType } from 'shared/lib/components/Dyn
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { getArticlesPageView } from 'pages/ArticlesPage/model/selectors/getArticlesPageView/getArticlesPageView';
+import { Page } from 'shared/ui/Page/Page';
 import { articlesPageActions, articlesPageReducer, getArticles } from '../../model/slices/articlePageSlice';
 import cls from './ArticlesPage.module.scss';
 import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
@@ -32,20 +33,20 @@ const ArticlesPage: FC<PropsType> = (props) => {
   }, [dispatch]);
 
   useInitialEffect(() => {
-    dispatch(fetchArticlesList());
     dispatch(articlesPageActions.initState());
+    dispatch(fetchArticlesList({ page: 1 }));
   });
 
   return (
     <DynamicModuleLoader reducers={reducers}>
-      <div className={classNames(cls.ArticlesPage, {}, [className])}>
+      <Page className={classNames(cls.ArticlesPage, {}, [className])}>
         <ArticleViewSelector view={view} onViewClick={onChangeView} />
         <ArticleList
           view={view}
           articles={articles}
           isLoading={isLoading}
         />
-      </div>
+      </Page>
     </DynamicModuleLoader>
   );
 };

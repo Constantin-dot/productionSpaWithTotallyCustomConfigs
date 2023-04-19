@@ -12,6 +12,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { AddCommentForm } from 'features/AddCommentForm';
 import { Button, ButtonVariantEnum } from 'shared/ui/Button/Button';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { Page } from 'shared/ui/Page/Page';
 import {
   addCommentForArticle,
 } from '../../model/services/addCommentForArticle/addCommentForArticle';
@@ -59,7 +60,7 @@ const ArticleDetailsPage: FC<PropsType> = (props) => {
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-      <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
+      <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
         <Button
           variant={ButtonVariantEnum.OUTLINE}
           onClick={onBackToList}
@@ -73,7 +74,7 @@ const ArticleDetailsPage: FC<PropsType> = (props) => {
           comments={comments}
           isLoading={commentsIsLoading}
         />
-      </div>
+      </Page>
     </DynamicModuleLoader>
   );
 };
