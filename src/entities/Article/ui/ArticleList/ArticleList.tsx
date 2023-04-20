@@ -32,14 +32,6 @@ export const ArticleList: FC<PropsType> = (props) => {
     />
   );
 
-  if (isLoading) {
-    return (
-      <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
-        {getSkeletons(view)}
-      </div>
-    );
-  }
-
   return (
     <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
       {
@@ -47,6 +39,7 @@ export const ArticleList: FC<PropsType> = (props) => {
           ? articles.map(renderArticle)
           : null
       }
+      {isLoading && getSkeletons(view)}
     </div>
   );
 };

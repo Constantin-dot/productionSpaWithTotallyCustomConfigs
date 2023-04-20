@@ -28,7 +28,7 @@ export const Sidebar = memo((props: PropsType) => {
   )), [collapsed, sidebarItemsList]);
 
   return (
-    <div
+    <menu
       data-testid="sidebar"
       className={classNames(
         cls.Sidebar,
@@ -53,6 +53,6 @@ export const Sidebar = memo((props: PropsType) => {
           {collapsed ? '>' : '<'}
         </Button>
       </div>
-    </div>
+    </menu>
   );
 });
