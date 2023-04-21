@@ -14,6 +14,7 @@ import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchA
 import { getArticlesPageIsLoading } from '../../model/selectors/getArticlesPageIsLoading/getArticlesPageIsLoading';
 import { getArticlesPageError } from '../../model/selectors/getArticlesPageError/getArticlesPageError';
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
+import { getArticlesPageInited } from '../../model/selectors/getArticlesPageInited/getArticlesPageInited';
 
 type PropsType = {className?: string,};
 
@@ -29,6 +30,7 @@ const ArticlesPage: FC<PropsType> = (props) => {
   const isLoading = useSelector(getArticlesPageIsLoading);
   const error = useSelector(getArticlesPageError);
   const view = useSelector(getArticlesPageView);
+  const inited = useSelector(getArticlesPageInited);
 
   const onChangeView = useCallback((view: ArticleListViewVariantEnum) => {
     dispatch(articlesPageActions.setView(view));
@@ -39,8 +41,10 @@ const ArticlesPage: FC<PropsType> = (props) => {
   }, [dispatch]);
 
   useInitialEffect(() => {
-    dispatch(articlesPageActions.initState());
-    dispatch(fetchArticlesList({ page: 1 }));
+    if (!inited) {
+      dispatch(articlesPageActions.initState());
+      dispatch(fetchArticlesList({ page: 1 }));
+    }
   });
 
   if (error) {
@@ -50,7 +54,7 @@ const ArticlesPage: FC<PropsType> = (props) => {
   }
 
   return (
-    <DynamicModuleLoader reducers={reducers}>
+    <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
       <Page
         className={classNames(cls.ArticlesPage, {}, [className])}
         onScrollEnd={onLoadNextPart}
