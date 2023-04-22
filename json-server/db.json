@@ -293,14 +293,14 @@
     },
     {
       "id": "8",
-      "title": "test 8",
+      "title": "test 8 SCIENCE",
       "subtitle": "Что нового в Java за 2022 год?",
       "img": "https://d-russia.ru/wp-content/uploads/2021/04/java.jpg",
-      "views": 523,
-      "createdAt": "22.01.2023",
+      "views": 999,
+      "createdAt": "30.01.2023",
       "userId": "1",
       "type": [
-        "IT"
+        "SCIENCE"
       ],
       "blocks": [
         {
@@ -317,14 +317,14 @@
     },
     {
       "id": "7",
-      "title": "test 7",
+      "title": "test 7 ECONOMICS",
       "subtitle": "Что нового в Java за 2022 год?",
       "img": "https://d-russia.ru/wp-content/uploads/2021/04/java.jpg",
-      "views": 523,
-      "createdAt": "22.01.2023",
+      "views": 731,
+      "createdAt": "01.01.2023",
       "userId": "1",
       "type": [
-        "IT"
+        "ECONOMICS"
       ],
       "blocks": [
         {
@@ -344,8 +344,8 @@
       "title": "test6",
       "subtitle": "Что нового в Java за 2022 год?",
       "img": "https://d-russia.ru/wp-content/uploads/2021/04/java.jpg",
-      "views": 523,
-      "createdAt": "22.01.2023",
+      "views": 1000,
+      "createdAt": "22.02.2023",
       "userId": "1",
       "type": [
         "IT"
@@ -365,14 +365,14 @@
     },
     {
       "id": "5",
-      "title": "test 5",
+      "title": "SCIENCE News",
       "subtitle": "Что нового в Java за 2022 год?",
       "img": "https://d-russia.ru/wp-content/uploads/2021/04/java.jpg",
-      "views": 523,
-      "createdAt": "22.01.2023",
+      "views": 200,
+      "createdAt": "15.03.2023",
       "userId": "1",
       "type": [
-        "IT"
+        "SCIENCE"
       ],
       "blocks": [
         {
@@ -389,14 +389,14 @@
     },
     {
       "id": "4",
-      "title": "test 4",
+      "title": "Economics reserch",
       "subtitle": "Что нового в Java за 2022 год?",
       "img": "https://d-russia.ru/wp-content/uploads/2021/04/java.jpg",
-      "views": 523,
-      "createdAt": "22.01.2023",
+      "views": 100,
+      "createdAt": "01.03.2023",
       "userId": "1",
       "type": [
-        "IT"
+        "ECONOMICS"
       ],
       "blocks": [
         {

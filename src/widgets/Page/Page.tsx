@@ -58,7 +58,7 @@ export const Page = (props: PropsType) => {
       onScroll={isSaveScroll ? onScrollHandler : undefined}
     >
       {children}
-      <div ref={triggerRef} />
+      {onScrollEnd && <div className={cls.trigger} ref={triggerRef} />}
     </section>
   );
 };

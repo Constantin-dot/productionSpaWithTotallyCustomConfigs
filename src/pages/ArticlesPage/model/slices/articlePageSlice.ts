@@ -1,6 +1,7 @@
 import { createEntityAdapter, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { IStateSchema } from 'app/providers/StoreProvider';
 import { ArticleListViewVariantEnum, IArticle } from 'entities/Article';
+import { ArticleSortFieldEnum } from 'entities/Article/model/types/article';
 import { ARTICLES_VIEW_LOCAL_STORAGE_KEY } from 'shared/const/localstorage';
 import { fetchArticlesList } from '../services/fetchArticlesList/fetchArticlesList';
 import { IArticlesPageSchema } from '../types/articlesPageSchema';
@@ -19,9 +20,13 @@ export const articlesPageSlice = createSlice({
     isLoading: false,
     error: undefined,
     view: ArticleListViewVariantEnum.CARDS,
+    order: 'asc',
+    sort: ArticleSortFieldEnum.CREATED,
+    search: '',
     ids: [],
     entities: {},
     page: 1,
+    limit: 4,
     hasMore: true,
     _inited: false,
   }),
