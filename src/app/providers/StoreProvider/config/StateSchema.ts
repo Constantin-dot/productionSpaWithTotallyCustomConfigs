@@ -27,12 +27,14 @@ export interface IStateSchema {
 }
 
 export type StateSchemaKeyType = keyof IStateSchema;
+export type MountedReducersType = OptionalRecord<StateSchemaKeyType, boolean>;
 
 export interface IReducerManager {
   getReducerMap: () => ReducersMapObject<IStateSchema>;
   reduce: (state: IStateSchema, action: AnyAction) => CombinedState<IStateSchema>;
   add: (key: StateSchemaKeyType, reducer: Reducer) => void;
   remove: (key: StateSchemaKeyType) => void;
+  getMountedReducers: () => MountedReducersType;
 }
 
 export interface IReduxStoreWithManager extends EnhancedStore<IStateSchema> {

@@ -7,14 +7,13 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { Page } from 'shared/ui/Page/Page';
 import { Text, TextAlignEnum } from 'shared/ui/Text/Text';
+import { initArticlesPage } from 'pages/ArticlesPage/model/services/initArticlesPage/initArticlesPage';
 import { getArticlesPageView } from '../../model/selectors/getArticlesPageView/getArticlesPageView';
 import { articlesPageActions, articlesPageReducer, getArticles } from '../../model/slices/articlePageSlice';
 import cls from './ArticlesPage.module.scss';
-import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
 import { getArticlesPageIsLoading } from '../../model/selectors/getArticlesPageIsLoading/getArticlesPageIsLoading';
 import { getArticlesPageError } from '../../model/selectors/getArticlesPageError/getArticlesPageError';
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
-import { getArticlesPageInited } from '../../model/selectors/getArticlesPageInited/getArticlesPageInited';
 
 type PropsType = {className?: string,};
 
@@ -30,7 +29,6 @@ const ArticlesPage: FC<PropsType> = (props) => {
   const isLoading = useSelector(getArticlesPageIsLoading);
   const error = useSelector(getArticlesPageError);
   const view = useSelector(getArticlesPageView);
-  const inited = useSelector(getArticlesPageInited);
 
   const onChangeView = useCallback((view: ArticleListViewVariantEnum) => {
     dispatch(articlesPageActions.setView(view));
@@ -41,10 +39,7 @@ const ArticlesPage: FC<PropsType> = (props) => {
   }, [dispatch]);
 
   useInitialEffect(() => {
-    if (!inited) {
-      dispatch(articlesPageActions.initState());
-      dispatch(fetchArticlesList({ page: 1 }));
-    }
+    dispatch(initArticlesPage());
   });
 
   if (error) {
