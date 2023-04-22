@@ -12,11 +12,12 @@ import { IArticleDetailsSchema } from 'entities/Article';
 import { IArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage';
 import { IAddCommentFormSchema } from 'features/AddCommentForm';
 import { IArticlesPageSchema } from 'pages/ArticlesPage';
+import { IUiSchema } from 'features/UI';
 
 export interface IStateSchema {
   counter: ICounterState;
   user: IUserSchema;
-
+  ui: IUiSchema;
   // async reducers
   loginForm?: ILoginSchema;
   profile?: IProfileSchema;

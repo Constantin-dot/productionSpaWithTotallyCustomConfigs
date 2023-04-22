@@ -5,7 +5,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducersListType } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { Page } from 'shared/ui/Page/Page';
+import { Page } from 'widgets/Page/Page';
 import { Text, TextAlignEnum } from 'shared/ui/Text/Text';
 import { initArticlesPage } from 'pages/ArticlesPage/model/services/initArticlesPage/initArticlesPage';
 import { getArticlesPageView } from '../../model/selectors/getArticlesPageView/getArticlesPageView';
@@ -52,6 +52,7 @@ const ArticlesPage: FC<PropsType> = (props) => {
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
       <Page
         className={classNames(cls.ArticlesPage, {}, [className])}
+        isSaveScroll
         onScrollEnd={onLoadNextPart}
       >
         <ArticleViewSelector view={view} onViewClick={onChangeView} />
