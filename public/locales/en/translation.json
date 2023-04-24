@@ -18,5 +18,13 @@
   "hasNotComments": "There isn't comments",
   "enterComment": "Enter comment here",
   "sendComment": "Send",
-  "readForward": "Read forward..."
+  "readForward": "Read forward...",
+  "sortBy": "Sort by",
+  "by": "By",
+  "search": "Search",
+  "asc": "Asc",
+  "desc": "Desc",
+  "createdAt": "Creating date",
+  "title": "Title",
+  "views": "Amount of views"
 }

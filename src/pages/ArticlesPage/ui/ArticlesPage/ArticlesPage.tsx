@@ -1,4 +1,4 @@
-import { ArticleList, ArticleListViewVariantEnum, ArticleViewSelector } from 'entities/Article';
+import { ArticleList } from 'entities/Article';
 import { FC, memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
@@ -9,11 +9,12 @@ import { Page } from 'widgets/Page/Page';
 import { Text, TextAlignEnum } from 'shared/ui/Text/Text';
 import { initArticlesPage } from 'pages/ArticlesPage/model/services/initArticlesPage/initArticlesPage';
 import { getArticlesPageView } from '../../model/selectors/getArticlesPageView/getArticlesPageView';
-import { articlesPageActions, articlesPageReducer, getArticles } from '../../model/slices/articlePageSlice';
+import { articlesPageReducer, getArticles } from '../../model/slices/articlePageSlice';
 import cls from './ArticlesPage.module.scss';
 import { getArticlesPageIsLoading } from '../../model/selectors/getArticlesPageIsLoading/getArticlesPageIsLoading';
 import { getArticlesPageError } from '../../model/selectors/getArticlesPageError/getArticlesPageError';
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
+import { ArticlePageFilters } from '../ArticlePageFilters/ArticlePageFilters';
 
 type PropsType = {className?: string,};
 
@@ -29,10 +30,6 @@ const ArticlesPage: FC<PropsType> = (props) => {
   const isLoading = useSelector(getArticlesPageIsLoading);
   const error = useSelector(getArticlesPageError);
   const view = useSelector(getArticlesPageView);
-
-  const onChangeView = useCallback((view: ArticleListViewVariantEnum) => {
-    dispatch(articlesPageActions.setView(view));
-  }, [dispatch]);
 
   const onLoadNextPart = useCallback(() => {
     dispatch(fetchNextArticlesPage());
@@ -55,11 +52,12 @@ const ArticlesPage: FC<PropsType> = (props) => {
         isSaveScroll
         onScrollEnd={onLoadNextPart}
       >
-        <ArticleViewSelector view={view} onViewClick={onChangeView} />
+        <ArticlePageFilters />
         <ArticleList
           view={view}
           articles={articles}
           isLoading={isLoading}
+          className={cls.list}
         />
       </Page>
     </DynamicModuleLoader>
