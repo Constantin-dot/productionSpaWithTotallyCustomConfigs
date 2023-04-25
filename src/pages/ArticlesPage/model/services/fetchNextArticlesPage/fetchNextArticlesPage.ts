@@ -18,8 +18,8 @@ ThunkConfig<string>
     const isLoading = getArticlesPageIsLoading(getState());
 
     if ((__PROJECT__ !== 'storybook') && hasMore && !isLoading) {
-      dispatch(fetchArticlesList({ page: page + 1 }));
       dispatch(articlesPageActions.setPage(page + 1));
+      dispatch(fetchArticlesList({}));
     }
   },
 );
