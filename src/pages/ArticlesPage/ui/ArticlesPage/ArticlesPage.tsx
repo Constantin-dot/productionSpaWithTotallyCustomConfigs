@@ -8,6 +8,7 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEf
 import { Page } from 'widgets/Page/Page';
 import { Text, TextAlignEnum } from 'shared/ui/Text/Text';
 import { initArticlesPage } from 'pages/ArticlesPage/model/services/initArticlesPage/initArticlesPage';
+import { useSearchParams } from 'react-router-dom';
 import { getArticlesPageView } from '../../model/selectors/getArticlesPageView/getArticlesPageView';
 import { articlesPageReducer, getArticles } from '../../model/slices/articlePageSlice';
 import cls from './ArticlesPage.module.scss';
@@ -31,12 +32,14 @@ const ArticlesPage: FC<PropsType> = (props) => {
   const error = useSelector(getArticlesPageError);
   const view = useSelector(getArticlesPageView);
 
+  const [searchParams] = useSearchParams();
+
   const onLoadNextPart = useCallback(() => {
     dispatch(fetchNextArticlesPage());
   }, [dispatch]);
 
   useInitialEffect(() => {
-    dispatch(initArticlesPage());
+    dispatch(initArticlesPage(searchParams));
   });
 
   if (error) {
