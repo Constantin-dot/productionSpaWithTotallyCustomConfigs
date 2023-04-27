@@ -1,6 +1,8 @@
 import { createEntityAdapter, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { IStateSchema } from 'app/providers/StoreProvider';
-import { ArticleListViewVariantEnum, ArticleSortFieldEnum, IArticle } from 'entities/Article';
+import {
+  ArticleListViewVariantEnum, ArticleSortFieldEnum, ArticleTypeEnum, IArticle,
+} from 'entities/Article';
 import { ARTICLES_VIEW_LOCAL_STORAGE_KEY } from 'shared/const/localstorage';
 import { SortOrderType } from 'shared/types';
 import { fetchArticlesList } from '../services/fetchArticlesList/fetchArticlesList';
@@ -28,6 +30,7 @@ export const articlesPageSlice = createSlice({
     page: 1,
     limit: 4,
     hasMore: true,
+    type: ArticleTypeEnum.ALL,
     _inited: false,
   }),
   reducers: {
@@ -46,6 +49,9 @@ export const articlesPageSlice = createSlice({
     },
     setSearch: (state, action: PayloadAction<string>) => {
       state.search = action.payload;
+    },
+    setType: (state, action: PayloadAction<ArticleTypeEnum>) => {
+      state.type = action.payload;
     },
     initState: (state) => {
       const view = localStorage.getItem(ARTICLES_VIEW_LOCAL_STORAGE_KEY) as ArticleListViewVariantEnum;

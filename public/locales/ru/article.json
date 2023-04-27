@@ -1,5 +1,9 @@
 {
   "articleRequestError": "Извините, эта статья не найдена",
   "comments": "Комментарии",
-  "backToList": "Назад к списку"
+  "backToList": "Назад к списку",
+  "SCIENCE": "Наука",
+  "ECONOMICS": "Экономика",
+  "ALL": "Все",
+  "hasNotArticles": "Статьи не найдены"
 }

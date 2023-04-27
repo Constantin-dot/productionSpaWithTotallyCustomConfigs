@@ -1,5 +1,10 @@
 import {
-  ArticleListViewVariantEnum, ArticleSortFieldEnum, ArticleSortSelector, ArticleViewSelector,
+  ArticleListViewVariantEnum,
+  ArticleSortFieldEnum,
+  ArticleSortSelector,
+  ArticleTypeEnum,
+  ArticleTypeTabs,
+  ArticleViewSelector,
 } from 'entities/Article';
 import { memo, useCallback } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
@@ -10,6 +15,7 @@ import { Card } from 'shared/ui/Card/Card';
 import { Input } from 'shared/ui/Input/Input';
 import { SortOrderType } from 'shared/types';
 import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
+import { ITabItem } from 'shared/ui/Tabs/Tabs';
 import { getArticlePageSort } from '../../model/selectors/getArticlePageSort/getArticlePageSort';
 import { getArticlePageOrder } from '../../model/selectors/getArticlePageOrder/getArticlePageOrder';
 import { getArticlePageSearch } from '../../model/selectors/getArticlePageSearch/getArticlePageSearch';
@@ -17,6 +23,7 @@ import { getArticlesPageView } from '../../model/selectors/getArticlesPageView/g
 import { articlesPageActions } from '../../model/slices/articlePageSlice';
 import cls from './ArticlePageFilters.module.scss';
 import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
+import { getArcticlesType } from '../../model/selectors/getArcticlesType/getArcticlesType';
 
 type PropsType = {className?: string,};
 
@@ -29,6 +36,7 @@ export const ArticlePageFilters = memo((props: PropsType) => {
   const sort = useSelector(getArticlePageSort);
   const order = useSelector(getArticlePageOrder);
   const search = useSelector(getArticlePageSearch);
+  const type = useSelector(getArcticlesType);
 
   const fetchData = useCallback(() => {
     dispatch(fetchArticlesList({ replace: true }));
@@ -60,6 +68,12 @@ export const ArticlePageFilters = memo((props: PropsType) => {
     debouncedFetchData();
   }, [dispatch, debouncedFetchData]);
 
+  const onChangeType = useCallback((tab: ITabItem) => {
+    dispatch(articlesPageActions.setType(tab.value as ArticleTypeEnum));
+    dispatch(articlesPageActions.setPage(1));
+    fetchData();
+  }, [dispatch, fetchData]);
+
   return (
     <div className={classNames(cls.ArticlePageFilters, {}, [className])}>
       <div className={cls.sortWrapper}>
@@ -78,6 +92,11 @@ export const ArticlePageFilters = memo((props: PropsType) => {
           onChange={onChangeSearch}
         />
       </Card>
+      <ArticleTypeTabs
+        className={cls.tabs}
+        value={type}
+        onTabClick={onChangeType}
+      />
     </div>
   );
 });

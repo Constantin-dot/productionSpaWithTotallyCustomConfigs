@@ -3,7 +3,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { Card, CardVariantEnum } from '../Card/Card';
 import cls from './Tabs.module.scss';
 
-interface ITabItem {
+export interface ITabItem {
   value: string;
   content: ReactNode;
 }

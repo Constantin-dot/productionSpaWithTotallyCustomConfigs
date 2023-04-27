@@ -1,5 +1,7 @@
 import { FC } from 'react';
+import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { Text, TextSizeEnum } from 'shared/ui/Text/Text';
 import { ArticleListViewVariantEnum, IArticle } from '../../model/types/article';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
@@ -23,6 +25,7 @@ export const ArticleList: FC<PropsType> = (props) => {
     isLoading,
     view,
   } = props;
+  const { t } = useTranslation('article');
 
   const renderArticle = (article: IArticle) => (
     <ArticleListItem
@@ -31,6 +34,17 @@ export const ArticleList: FC<PropsType> = (props) => {
       key={article.id}
     />
   );
+
+  if (!isLoading && !articles.length) {
+    return (
+      <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
+        <Text
+          title={t('hasNotArticles')}
+          size={TextSizeEnum.L}
+        />
+      </div>
+    );
+  }
 
   return (
     <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>

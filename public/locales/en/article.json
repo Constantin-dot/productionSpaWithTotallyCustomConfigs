@@ -1,5 +1,10 @@
 {
   "articleRequestError": "Sorry, this article not found",
   "comments": "Comments",
-  "backToList": "Back to list"
+  "backToList": "Back to list",
+  "IT": "IT",
+  "SCIENCE": "Scince",
+  "ECONOMICS": "Economics",
+  "ALL": "All",
+  "hasNotArticles": "It has not any articles."
 }

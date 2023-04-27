@@ -1,5 +1,7 @@
 import { EntityState } from '@reduxjs/toolkit';
-import { ArticleListViewVariantEnum, ArticleSortFieldEnum, IArticle } from 'entities/Article';
+import {
+  ArticleListViewVariantEnum, ArticleSortFieldEnum, ArticleTypeEnum, IArticle,
+} from 'entities/Article';
 import { SortOrderType } from 'shared/types';
 
 export interface IArticlesPageSchema extends EntityState<IArticle> {
@@ -12,5 +14,6 @@ export interface IArticlesPageSchema extends EntityState<IArticle> {
   page: number;
   limit: number;
   hasMore: boolean;
+  type: ArticleTypeEnum;
   _inited?: boolean;
 }
