@@ -26,5 +26,6 @@
   "desc": "Desc",
   "createdAt": "Creating date",
   "title": "Title",
-  "views": "Amount of views"
+  "views": "Amount of views",
+  "createArticle": "Create article"
 }

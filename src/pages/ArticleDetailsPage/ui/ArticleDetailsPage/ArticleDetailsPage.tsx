@@ -26,6 +26,7 @@ import { getArticleRecommendations } from '../../model/slices/articleDetailsReco
 import { getArticleRecommendationsIsLoading } from '../../model/selectors/getArticleRecommendationsIsLoading/getArticleRecommendationsIsLoading';
 import { fetchArticleRecommendations } from '../../model/services/fetchArticleRecommendations/fetchArticleRecommendations';
 import { articleDetailsPageReducer } from '../../model/slices';
+import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 
 type PropsType = {className?: string,};
 
@@ -37,16 +38,12 @@ const ArticleDetailsPage: FC<PropsType> = (props) => {
   const { className } = props;
   const { t } = useTranslation('article');
   const dispatch = useAppDispatch();
-  const navigate = useNavigate();
+
   const { id } = useParams<{id: string}>();
   const comments = useSelector(getArticleComments.selectAll);
   const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
   const recommendations = useSelector(getArticleRecommendations.selectAll);
   const recommendationsIsLoading = useSelector(getArticleRecommendationsIsLoading);
-
-  const onBackToList = useCallback(() => {
-    navigate(RoutePath.articles);
-  }, [navigate]);
 
   const onSendComment = useCallback((text: string) => {
     dispatch(addCommentForArticle(text));
@@ -68,12 +65,7 @@ const ArticleDetailsPage: FC<PropsType> = (props) => {
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
       <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
-        <Button
-          variant={ButtonVariantEnum.OUTLINE}
-          onClick={onBackToList}
-        >
-          {t('backToList')}
-        </Button>
+        <ArticleDetailsPageHeader />
         <ArticleDetails id={id} />
         <Text
           size={TextSizeEnum.L}

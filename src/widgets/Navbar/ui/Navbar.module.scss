@@ -2,6 +2,7 @@
   width: 100%;
   height: var(--navbar-height);
   background: var(--inverted-bg-color);
+  border-bottom: 1px solid var(--bg-color);
   display: flex;
   align-items: center;
   padding: 20px;
@@ -9,4 +10,13 @@
 
 .links {
   margin-left: auto;
+}
+
+.appName {
+  width: var(--sidebar-widht);
+  margin-left: 15px;
+}
+
+.createLink {
+  margin-left: 15px;
 }
