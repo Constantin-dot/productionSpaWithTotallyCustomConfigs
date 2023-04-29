@@ -1,10 +1,10 @@
-import { ArticleDetails } from 'entities/Article';
+import { ArticleDetails, ArticleList, ArticleListViewVariantEnum } from 'entities/Article';
 import { FC, memo, useCallback } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { CommentList } from 'entities/Comment';
-import { Text } from 'shared/ui/Text/Text';
+import { Text, TextSizeEnum } from 'shared/ui/Text/Text';
 import { DynamicModuleLoader, ReducersListType } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useSelector } from 'react-redux';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
@@ -17,16 +17,20 @@ import {
   addCommentForArticle,
 } from '../../model/services/addCommentForArticle/addCommentForArticle';
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
-import { articleDetailsCommentsReducer, getArticleComments } from '../../model/slices/articleDetailsCommentsSlice';
+import { getArticleComments } from '../../model/slices/articleDetailsCommentsSlice';
 import cls from './ArticleDetailsPage.module.scss';
 import {
   getArticleCommentsIsLoading,
 } from '../../model/selectors/getArticleCommentsIsLoading/getArticleCommentsIsLoading';
+import { getArticleRecommendations } from '../../model/slices/articleDetailsRecommendationsSlice';
+import { getArticleRecommendationsIsLoading } from '../../model/selectors/getArticleRecommendationsIsLoading/getArticleRecommendationsIsLoading';
+import { fetchArticleRecommendations } from '../../model/services/fetchArticleRecommendations/fetchArticleRecommendations';
+import { articleDetailsPageReducer } from '../../model/slices';
 
 type PropsType = {className?: string,};
 
 const reducers: ReducersListType = {
-  articleDetailsComments: articleDetailsCommentsReducer,
+  articleDetailsPage: articleDetailsPageReducer,
 };
 
 const ArticleDetailsPage: FC<PropsType> = (props) => {
@@ -37,6 +41,8 @@ const ArticleDetailsPage: FC<PropsType> = (props) => {
   const { id } = useParams<{id: string}>();
   const comments = useSelector(getArticleComments.selectAll);
   const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
+  const recommendations = useSelector(getArticleRecommendations.selectAll);
+  const recommendationsIsLoading = useSelector(getArticleRecommendationsIsLoading);
 
   const onBackToList = useCallback(() => {
     navigate(RoutePath.articles);
@@ -48,6 +54,7 @@ const ArticleDetailsPage: FC<PropsType> = (props) => {
 
   useInitialEffect(() => {
     dispatch(fetchCommentsByArticleId(id));
+    dispatch(fetchArticleRecommendations());
   });
 
   if (!id) {
@@ -68,7 +75,23 @@ const ArticleDetailsPage: FC<PropsType> = (props) => {
           {t('backToList')}
         </Button>
         <ArticleDetails id={id} />
-        <Text title={t('comments')} className={cls.commentTitle} />
+        <Text
+          size={TextSizeEnum.L}
+          title={t('recommend')}
+          className={cls.recommendationsTitle}
+        />
+        <ArticleList
+          articles={recommendations}
+          isLoading={recommendationsIsLoading}
+          className={cls.recommendations}
+          view={ArticleListViewVariantEnum.CARDS}
+          target="_blank"
+        />
+        <Text
+          size={TextSizeEnum.L}
+          title={t('comments')}
+          className={cls.commentsTitle}
+        />
         <AddCommentForm onSendComment={onSendComment} />
         <CommentList
           comments={comments}

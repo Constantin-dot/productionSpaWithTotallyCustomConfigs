@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, HTMLAttributeAnchorTarget } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Text, TextSizeEnum } from 'shared/ui/Text/Text';
@@ -11,7 +11,8 @@ type PropsType = {
   className?: string,
   articles: Array<IArticle>,
   isLoading?: boolean,
-  view: ArticleListViewVariantEnum,
+  view?: ArticleListViewVariantEnum,
+  target?: HTMLAttributeAnchorTarget,
 };
 
 const getSkeletons = (view: ArticleListViewVariantEnum) => new Array(view === ArticleListViewVariantEnum.CARDS ? 9 : 3)
@@ -23,7 +24,8 @@ export const ArticleList: FC<PropsType> = (props) => {
     className,
     articles,
     isLoading,
-    view,
+    view = ArticleListViewVariantEnum.LIST,
+    target,
   } = props;
   const { t } = useTranslation('article');
 
@@ -32,6 +34,7 @@ export const ArticleList: FC<PropsType> = (props) => {
       article={article}
       view={view}
       key={article.id}
+      target={target}
     />
   );
 

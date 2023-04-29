@@ -5,8 +5,10 @@ import { getArticleCommentsIsLoading } from './getArticleCommentsIsLoading';
 describe('getArticleCommentsIsLoading.test', () => {
   test('should return isLoading', () => {
     const state: DeepPartial<IStateSchema> = {
-      articleDetailsComments: {
-        isLoading: true,
+      articleDetailsPage: {
+        comments: {
+          isLoading: true,
+        },
       },
     };
     expect(getArticleCommentsIsLoading(state as IStateSchema)).toEqual(true);
@@ -14,7 +16,9 @@ describe('getArticleCommentsIsLoading.test', () => {
 
   test('should work with empty state', () => {
     const state: DeepPartial<IStateSchema> = {
-      articleDetailsComments: {},
+      articleDetailsPage: {
+        comments: {},
+      },
     };
     expect(getArticleCommentsIsLoading(state as IStateSchema)).toEqual(false);
   });

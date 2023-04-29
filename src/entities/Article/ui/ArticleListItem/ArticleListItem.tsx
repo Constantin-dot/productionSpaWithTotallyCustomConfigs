@@ -1,4 +1,4 @@
-import { memo, useCallback } from 'react';
+import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Text } from 'shared/ui/Text/Text';
 import EyeIcon from 'shared/assets/icons/eye.svg';
@@ -7,8 +7,8 @@ import { Card } from 'shared/ui/Card/Card';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Button, ButtonVariantEnum } from 'shared/ui/Button/Button';
 import { useTranslation } from 'react-i18next';
-import { useNavigate } from 'react-router-dom';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { AppLink } from 'shared/ui/AppLink/AppLink';
 import {
   ArticleBlockTypeEnum,
   ArticleListViewVariantEnum,
@@ -22,6 +22,7 @@ type PropsType = {
   className?: string,
   article: IArticle,
   view: ArticleListViewVariantEnum,
+  target?: HTMLAttributeAnchorTarget,
 }
 
 export const ArticleListItem = memo((props: PropsType) => {
@@ -29,13 +30,9 @@ export const ArticleListItem = memo((props: PropsType) => {
     className,
     article,
     view,
+    target,
   } = props;
   const { t } = useTranslation();
-  const navigate = useNavigate();
-
-  const onOpenArticle = useCallback(() => {
-    navigate(RoutePath.article_details + article.id);
-  }, [article.id, navigate]);
 
   const types = <Text text={article.type.join(', ')} className={cls.types} />;
   const views = (
@@ -65,12 +62,13 @@ export const ArticleListItem = memo((props: PropsType) => {
             )
           }
           <div className={cls.footer}>
-            <Button
-              variant={ButtonVariantEnum.OUTLINE}
-              onClick={onOpenArticle}
-            >
-              {t('readForward')}
-            </Button>
+            <AppLink target={target} to={RoutePath.article_details + article.id}>
+              <Button
+                variant={ButtonVariantEnum.OUTLINE}
+              >
+                {t('readForward')}
+              </Button>
+            </AppLink>
             {views}
           </div>
         </Card>
@@ -79,8 +77,12 @@ export const ArticleListItem = memo((props: PropsType) => {
   }
 
   return (
-    <div className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
-      <Card className={cls.card} onClick={onOpenArticle}>
+    <AppLink
+      target={target}
+      to={RoutePath.article_details + article.id}
+      className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
+    >
+      <Card className={cls.card}>
         <div className={cls.imageWrapper}>
           <img src={article.img} className={cls.img} alt={article.type.join(', ')} />
           <Text text={article.createdAt} className={cls.date} />
@@ -91,6 +93,6 @@ export const ArticleListItem = memo((props: PropsType) => {
         </div>
         <Text title={article.title} className={cls.title} />
       </Card>
-    </div>
+    </AppLink>
   );
 });

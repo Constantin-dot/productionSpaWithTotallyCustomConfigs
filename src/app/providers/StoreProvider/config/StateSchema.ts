@@ -9,7 +9,7 @@ import { IUserSchema } from 'entities/User';
 import { ILoginSchema } from 'features/AuthByUsername';
 import { NavigateOptions, To } from 'react-router-dom';
 import { IArticleDetailsSchema } from 'entities/Article';
-import { IArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage';
+import { IArticleDetailsPageSchema } from 'pages/ArticleDetailsPage';
 import { IAddCommentFormSchema } from 'features/AddCommentForm';
 import { IArticlesPageSchema } from 'pages/ArticlesPage';
 import { IUiSchema } from 'features/UI';
@@ -22,9 +22,9 @@ export interface IStateSchema {
   loginForm?: ILoginSchema;
   profile?: IProfileSchema;
   articleDetails?: IArticleDetailsSchema;
-  articleDetailsComments?: IArticleDetailsCommentsSchema;
   addCommentForm?: IAddCommentFormSchema;
   articlesPage?: IArticlesPageSchema;
+  articleDetailsPage?: IArticleDetailsPageSchema;
 }
 
 export type StateSchemaKeyType = keyof IStateSchema;

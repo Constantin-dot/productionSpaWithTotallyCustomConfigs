@@ -4,7 +4,7 @@ import { FC, useEffect } from 'react';
 import { useDispatch, useStore } from 'react-redux';
 
 export type ReducersListType = {
-  [name in StateSchemaKeyType]?: Reducer;
+  [name in StateSchemaKeyType]?: Reducer<NonNullable<IStateSchema[name]>>;
 }
 
 type PropsType = {
