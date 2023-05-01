@@ -15,21 +15,23 @@ import {
   addCommentForArticle,
 } from '../../model/services/addCommentForArticle/addCommentForArticle';
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
-import { getArticleComments } from '../../model/slices/articleDetailsCommentsSlice';
+import { articleDetailsCommentsReducer, getArticleComments } from '../../model/slices/articleDetailsCommentsSlice';
 import cls from './ArticleDetailsPage.module.scss';
 import {
   getArticleCommentsIsLoading,
 } from '../../model/selectors/getArticleCommentsIsLoading/getArticleCommentsIsLoading';
-import { getArticleRecommendations } from '../../model/slices/articleDetailsRecommendationsSlice';
+import { articleDetailsRecommendationsReducer, getArticleRecommendations } from '../../model/slices/articleDetailsRecommendationsSlice';
 import { getArticleRecommendationsIsLoading } from '../../model/selectors/getArticleRecommendationsIsLoading/getArticleRecommendationsIsLoading';
 import { fetchArticleRecommendations } from '../../model/services/fetchArticleRecommendations/fetchArticleRecommendations';
-import { articleDetailsPageReducer } from '../../model/slices';
+// import { articleDetailsPageReducer } from '../../model/slices/index';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 
 type PropsType = {className?: string,};
 
 const reducers: ReducersListType = {
-  articleDetailsPage: articleDetailsPageReducer,
+  // articleDetailsPage: articleDetailsPageReducer,
+  articleDetailsComments: articleDetailsCommentsReducer,
+  articleDetailsRecommendations: articleDetailsRecommendationsReducer,
 };
 
 const ArticleDetailsPage: FC<PropsType> = (props) => {

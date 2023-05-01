@@ -9,7 +9,11 @@ import { IUserSchema } from 'entities/User';
 import { ILoginSchema } from 'features/AuthByUsername';
 import { NavigateOptions, To } from 'react-router-dom';
 import { IArticleDetailsSchema } from 'entities/Article';
-import { IArticleDetailsPageSchema } from 'pages/ArticleDetailsPage';
+import {
+  IArticleDetailsCommentsSchema,
+  // IArticleDetailsPageSchema,
+  IArticleDetailsRecommendationsSchema,
+} from 'pages/ArticleDetailsPage';
 import { IAddCommentFormSchema } from 'features/AddCommentForm';
 import { IArticlesPageSchema } from 'pages/ArticlesPage';
 import { IUiSchema } from 'features/UI';
@@ -24,7 +28,9 @@ export interface IStateSchema {
   articleDetails?: IArticleDetailsSchema;
   addCommentForm?: IAddCommentFormSchema;
   articlesPage?: IArticlesPageSchema;
-  articleDetailsPage?: IArticleDetailsPageSchema;
+  articleDetailsComments?: IArticleDetailsCommentsSchema;
+  articleDetailsRecommendations?: IArticleDetailsRecommendationsSchema;
+  // articleDetailsPage?: IArticleDetailsPageSchema;
 }
 
 export type StateSchemaKeyType = keyof IStateSchema;
