@@ -9,12 +9,11 @@ const recommendationsAdapter = createEntityAdapter<IArticle>({
 });
 
 export const getArticleRecommendations = recommendationsAdapter.getSelectors<IStateSchema>(
-  (state) => state.articleDetailsRecommendations || recommendationsAdapter.getInitialState(),
-  // (state) => state.articleDetailsPage?.recommendations || recommendationsAdapter.getInitialState(),
+  (state) => state.articleDetailsPage?.recommendations || recommendationsAdapter.getInitialState(),
 );
 
 export const articleDetailsRecommendationsSlice = createSlice({
-  name: 'articleDetailsRecommendations',
+  name: 'articleDetailsRecommendationsSlice',
   initialState: recommendationsAdapter.getInitialState<IArticleDetailsRecommendationsSchema>({
     isLoading: false,
     error: undefined,
@@ -46,5 +45,4 @@ export const articleDetailsRecommendationsSlice = createSlice({
   },
 });
 
-export const { actions: articleDetailsRecommendationsActions } = articleDetailsRecommendationsSlice;
 export const { reducer: articleDetailsRecommendationsReducer } = articleDetailsRecommendationsSlice;

@@ -10,9 +10,7 @@ import { ILoginSchema } from 'features/AuthByUsername';
 import { NavigateOptions, To } from 'react-router-dom';
 import { IArticleDetailsSchema } from 'entities/Article';
 import {
-  IArticleDetailsCommentsSchema,
-  // IArticleDetailsPageSchema,
-  IArticleDetailsRecommendationsSchema,
+  IArticleDetailsPageSchema,
 } from 'pages/ArticleDetailsPage';
 import { IAddCommentFormSchema } from 'features/AddCommentForm';
 import { IArticlesPageSchema } from 'pages/ArticlesPage';
@@ -28,9 +26,7 @@ export interface IStateSchema {
   articleDetails?: IArticleDetailsSchema;
   addCommentForm?: IAddCommentFormSchema;
   articlesPage?: IArticlesPageSchema;
-  articleDetailsComments?: IArticleDetailsCommentsSchema;
-  articleDetailsRecommendations?: IArticleDetailsRecommendationsSchema;
-  // articleDetailsPage?: IArticleDetailsPageSchema;
+  articleDetailsPage?: IArticleDetailsPageSchema;
 }
 
 export type StateSchemaKeyType = keyof IStateSchema;
