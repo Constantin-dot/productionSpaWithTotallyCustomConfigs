@@ -9,7 +9,6 @@ import { Button, ButtonVariantEnum } from 'shared/ui/Button/Button';
 import { useTranslation } from 'react-i18next';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
-import { ARTICLE_LIST_ITEM_SESSIONSTORAGE_IDX } from 'shared/const/sessionstorage';
 import {
   ArticleBlockTypeEnum,
   ArticleListViewVariantEnum,
@@ -24,7 +23,6 @@ type PropsType = {
   article: IArticle,
   view: ArticleListViewVariantEnum,
   target?: HTMLAttributeAnchorTarget,
-  index: number,
 }
 
 export const ArticleListItem = memo((props: PropsType) => {
@@ -33,7 +31,6 @@ export const ArticleListItem = memo((props: PropsType) => {
     article,
     view,
     target,
-    index,
   } = props;
   const { t } = useTranslation();
   const types = <Text text={article.type.join(', ')} className={cls.types} />;
@@ -43,10 +40,6 @@ export const ArticleListItem = memo((props: PropsType) => {
       <Icon Svg={EyeIcon} className={cls.icon} />
     </>
   );
-
-  const onBtnClickHandler = () => {
-    sessionStorage.setItem(ARTICLE_LIST_ITEM_SESSIONSTORAGE_IDX, JSON.stringify(index));
-  };
 
   if (view === ArticleListViewVariantEnum.LIST) {
     const textBlock = article.blocks.find((block) => block.type === ArticleBlockTypeEnum.TEXT) as IArticleTextBlock;
@@ -71,7 +64,6 @@ export const ArticleListItem = memo((props: PropsType) => {
             <AppLink target={target} to={RoutePath.article_details + article.id}>
               <Button
                 variant={ButtonVariantEnum.OUTLINE}
-                onClick={onBtnClickHandler}
               >
                 {t('readForward')}
               </Button>
@@ -89,7 +81,7 @@ export const ArticleListItem = memo((props: PropsType) => {
       to={RoutePath.article_details + article.id}
       className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
     >
-      <Card className={cls.card} onClick={onBtnClickHandler}>
+      <Card className={cls.card}>
         <div className={cls.imageWrapper}>
           <img src={article.img} className={cls.img} alt={article.type.join(', ')} />
           <Text text={article.createdAt} className={cls.date} />

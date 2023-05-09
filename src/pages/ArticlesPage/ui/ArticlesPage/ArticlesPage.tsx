@@ -7,12 +7,15 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEf
 import { Text, TextAlignEnum } from 'shared/ui/Text/Text';
 import { initArticlesPage } from 'pages/ArticlesPage/model/services/initArticlesPage/initArticlesPage';
 import { useSearchParams } from 'react-router-dom';
+import { Page } from 'widgets/Page/Page';
+import { classNames } from 'shared/lib/classNames/classNames';
 import { getArticlesPageView } from '../../model/selectors/getArticlesPageView/getArticlesPageView';
 import { articlesPageReducer, getArticles } from '../../model/slices/articlePageSlice';
 import cls from './ArticlesPage.module.scss';
 import { getArticlesPageIsLoading } from '../../model/selectors/getArticlesPageIsLoading/getArticlesPageIsLoading';
 import { getArticlesPageError } from '../../model/selectors/getArticlesPageError/getArticlesPageError';
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
+import { ArticlePageFilters } from '../ArticlePageFilters/ArticlePageFilters';
 
 type PropsType = {className?: string,};
 
@@ -45,22 +48,21 @@ const ArticlesPage: FC<PropsType> = (props) => {
     );
   }
 
-  // <Page
-  //     className={classNames(cls.ArticlesPage, {}, [className])}
-  //     isSaveScroll
-  //     onScrollEnd={onLoadNextPart}
-  //   >
-
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
-
-      <ArticleList
-        view={view}
-        articles={articles}
-        isLoading={isLoading}
-        className={cls.list}
-        onLoadNextPart={onLoadNextPart}
-      />
+      <Page
+        className={classNames(cls.ArticlesPage, {}, [className])}
+        isSaveScroll
+        onScrollEnd={onLoadNextPart}
+      >
+        <ArticlePageFilters />
+        <ArticleList
+          view={view}
+          articles={articles}
+          isLoading={isLoading}
+          className={cls.list}
+        />
+      </Page>
     </DynamicModuleLoader>
   );
 };
