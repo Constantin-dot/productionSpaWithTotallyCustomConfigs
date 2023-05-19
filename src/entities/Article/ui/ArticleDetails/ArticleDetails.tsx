@@ -10,8 +10,8 @@ import { Text, TextAlignEnum, TextSizeEnum } from 'shared/ui/Text/Text';
 import EyeIcon from 'shared/assets/icons/eye.svg';
 import ClarityIcon from 'shared/assets/icons/clarity.svg';
 import { Icon } from 'shared/ui/Icon/Icon';
-import { ArticleBlockType, ArticleBlockTypeEnum } from 'entities/Article/model/types/article';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { ArticleBlockType, ArticleBlockTypeEnum } from '../../model/types/article';
 import {
   getArticleDetailsData,
   getArticleDetailsError,

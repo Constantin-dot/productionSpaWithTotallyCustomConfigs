@@ -1,8 +1,8 @@
-import { ArticleTypeEnum } from 'entities/Article/model/types/article';
 import { FC, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { ITabItem, Tabs } from 'shared/ui/Tabs/Tabs';
+import { ArticleTypeEnum } from '../../model/types/article';
 
 type PropsType = {
   className?: string,

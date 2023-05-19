@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { Button, ButtonVariantEnum } from 'shared/ui/Button/Button';
+import { Button, ButtonVariantEnum } from './Button';
 
 describe('custom button component', () => {
   test('base component testing', () => {
