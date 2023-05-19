@@ -9,8 +9,10 @@ export default ({ config }: {config: webpack.Configuration}) => {
     html: '',
     entry: '',
     src: path.resolve(__dirname, '..', '..', 'src'),
+    locales: path.resolve(__dirname, 'public', 'locales'),
+    buildLocales: path.resolve(__dirname, 'build', 'locales'),
   };
-  // config!.resolve!.modules!.push(paths.src);
+
   if (config!.resolve!.modules) {
     config!.resolve!.modules = [
       path.resolve(__dirname, '../../src'),
@@ -18,6 +20,7 @@ export default ({ config }: {config: webpack.Configuration}) => {
     ];
   }
 
+  config!.resolve!.modules!.unshift(paths.src);
   config!.resolve!.extensions!.push('.ts', '.tsx');
 
   const rules = config!.module!.rules as RuleSetRule[];
