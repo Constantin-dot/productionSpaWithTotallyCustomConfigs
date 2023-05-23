@@ -11,6 +11,7 @@ import EyeIcon from 'shared/assets/icons/eye.svg';
 import ClarityIcon from 'shared/assets/icons/clarity.svg';
 import { Icon } from 'shared/ui/Icon/Icon';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { HStack, VStack } from 'shared/ui/Stack';
 import { ArticleBlockType, ArticleBlockTypeEnum } from '../../model/types/article';
 import {
   getArticleDetailsData,
@@ -81,29 +82,26 @@ export const ArticleDetails = memo((props: PropsType) => {
   if (isLoading) {
     content = (
       <>
+        <HStack justify="center" max>
+          <Skeleton
+            width={200}
+            height={200}
+            border="50%"
+          />
+        </HStack>
         <Skeleton
-          className={cls.avatar}
-          width={200}
-          height={200}
-          border="50%"
-        />
-        <Skeleton
-          className={cls.title}
           width={300}
           height={32}
         />
         <Skeleton
-          className={cls.skeleton}
           width={600}
           height={24}
         />
         <Skeleton
-          className={cls.skeleton}
           width="100%"
           height={200}
         />
         <Skeleton
-          className={cls.skeleton}
           width="100%"
           height={200}
         />
@@ -119,28 +117,29 @@ export const ArticleDetails = memo((props: PropsType) => {
   } else {
     content = (
       <>
-        <div className={cls.avatarWrapper}>
+        <HStack justify="center" max>
           <Avatar
             size={200}
             src={article?.img ?? ''}
-            className={cls.avatar}
             alt={article?.title ?? ''}
           />
-        </div>
+        </HStack>
         <Text
           className={cls.title}
           title={article?.title}
           text={article?.subtitle}
           size={TextSizeEnum.L}
         />
-        <div className={cls.articleInfo}>
-          <Icon Svg={EyeIcon} className={cls.icon} />
-          <Text text={String(article?.views) ?? ''} />
-        </div>
-        <div className={cls.articleInfo}>
-          <Icon Svg={ClarityIcon} className={cls.icon} />
-          <Text text={article?.createdAt ?? ''} />
-        </div>
+        <VStack gap="8" align="start" max>
+          <HStack gap="8">
+            <Icon Svg={EyeIcon} />
+            <Text text={String(article?.views) ?? ''} />
+          </HStack>
+          <HStack gap="8">
+            <Icon Svg={ClarityIcon} />
+            <Text text={article?.createdAt ?? ''} />
+          </HStack>
+        </VStack>
         {article?.blocks.map(renderBlockHandler)}
       </>
     );
@@ -148,9 +147,9 @@ export const ArticleDetails = memo((props: PropsType) => {
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-      <div className={classNames(cls.ArticleDetails, {}, [className])}>
+      <VStack gap="16" justify="start" align="start" className={classNames(cls.ArticleDetails, {}, [className])}>
         {content}
-      </div>
+      </VStack>
     </DynamicModuleLoader>
   );
 });

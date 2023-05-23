@@ -6,7 +6,8 @@ import { DynamicModuleLoader, ReducersListType } from 'shared/lib/components/Dyn
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Button } from 'shared/ui/Button/Button';
 import { Input } from 'shared/ui/Input/Input';
-import { getAddCommentFormError, getAddCommentFormText } from '../model/selectors/addCommentFormSelectors';
+import { HStack } from 'shared/ui/Stack';
+import { getAddCommentFormText } from '../model/selectors/addCommentFormSelectors';
 import { addCommentFormActions, addCommentFormReducer } from '../model/slices/addCommentFormSlice';
 import cls from './AddCommentForm.module.scss';
 
@@ -27,7 +28,7 @@ const AddCommentForm: FC<AddCommentFormPropsType> = (props) => {
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const text = useSelector(getAddCommentFormText);
-  const error = useSelector(getAddCommentFormError);
+  // const error = useSelector(getAddCommentFormError);
 
   const onCommentTextChange = useCallback((value: string | number) => {
     dispatch(addCommentFormActions.setText(value.toString()));
@@ -40,7 +41,7 @@ const AddCommentForm: FC<AddCommentFormPropsType> = (props) => {
 
   return (
     <DynamicModuleLoader reducers={reducers}>
-      <div className={classNames(cls.AddCommentForm, {}, [className])}>
+      <HStack justify="between" max className={classNames(cls.AddCommentForm, {}, [className])}>
         <Input
           placeholder={t('enterComment')}
           value={text}
@@ -50,7 +51,7 @@ const AddCommentForm: FC<AddCommentFormPropsType> = (props) => {
         <Button onClick={onSendHandler}>
           {t('sendComment')}
         </Button>
-      </div>
+      </HStack>
     </DynamicModuleLoader>
   );
 };

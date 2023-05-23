@@ -22,6 +22,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { Page } from 'widgets/Page/Page';
 import { Text, TextVariantEnum } from 'shared/ui/Text/Text';
+import { VStack } from 'shared/ui/Stack';
 import cls from './ProfilePage.module.scss';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
@@ -89,24 +90,26 @@ const ProfilePage = memo((props: PropsType) => {
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
       <Page className={classNames(cls.ProfilePage, {}, [className])}>
-        <ProfilePageHeader />
-        {validateErrors?.length && validateErrors.map((err) => (
-          <Text variant={TextVariantEnum.ERROR} text={validateErrorTranslates[err]} key={err} />
-        ))}
-        <ProfileCard
-          data={data}
-          isLoading={isLoading}
-          error={error}
-          readonly={readonly}
-          onFirstnameChangeHandler={onFirstnameChangeHandler}
-          onLastnameChangeHandler={onLastnameChangeHandler}
-          onAgeChangeHandler={onAgeChangeHandler}
-          onCityChangeHandler={onCityChangeHandler}
-          onUsernameChangeHandler={onUsernameChangeHandler}
-          onAvatarChangeHandler={onAvatarChangeHandler}
-          onCurrencyChangeHandler={onCurrencyChangeHandler}
-          onCountryChangeHandler={onCountryChangeHandler}
-        />
+        <VStack gap="16" max>
+          <ProfilePageHeader />
+          {validateErrors?.length && validateErrors.map((err) => (
+            <Text variant={TextVariantEnum.ERROR} text={validateErrorTranslates[err]} key={err} />
+          ))}
+          <ProfileCard
+            data={data}
+            isLoading={isLoading}
+            error={error}
+            readonly={readonly}
+            onFirstnameChangeHandler={onFirstnameChangeHandler}
+            onLastnameChangeHandler={onLastnameChangeHandler}
+            onAgeChangeHandler={onAgeChangeHandler}
+            onCityChangeHandler={onCityChangeHandler}
+            onUsernameChangeHandler={onUsernameChangeHandler}
+            onAvatarChangeHandler={onAvatarChangeHandler}
+            onCurrencyChangeHandler={onCurrencyChangeHandler}
+            onCountryChangeHandler={onCountryChangeHandler}
+          />
+        </VStack>
       </Page>
     </DynamicModuleLoader>
   );

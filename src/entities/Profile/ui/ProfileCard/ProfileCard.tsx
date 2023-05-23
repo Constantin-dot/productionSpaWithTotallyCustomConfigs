@@ -7,6 +7,7 @@ import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Input } from 'shared/ui/Input/Input';
 import { Loader } from 'shared/ui/Loader/Loader';
 import { Text, TextAlignEnum, TextVariantEnum } from 'shared/ui/Text/Text';
+import { HStack, VStack } from 'shared/ui/Stack';
 import { IProfile } from '../../model/types/profile';
 import cls from './ProfileCard.module.scss';
 
@@ -50,94 +51,90 @@ export const ProfileCard: FC<PropsType> = (props) => {
 
   if (isLoading) {
     return (
-      <div className={classNames(cls.ProfileCard, {}, [className, cls.loading])}>
+      <HStack justify="center" max className={classNames(cls.ProfileCard, {}, [className, cls.loading])}>
         <Loader />
-      </div>
+      </HStack>
     );
   }
 
   if (error) {
     return (
-      <div className={classNames(cls.ProfileCard, {}, [className, cls.error])}>
+      <HStack justify="center" max className={classNames(cls.ProfileCard, {}, [className, cls.error])}>
         <Text
           variant={TextVariantEnum.ERROR}
           title={t('error')}
           text={t('errorTip')}
           align={TextAlignEnum.CENTER}
         />
-      </div>
+      </HStack>
     );
   }
 
   return (
-    <div className={classNames(cls.ProfileCard, mods, [className])}>
-      <div className={cls.data}>
-        {data?.avatar && (
-          <div className={cls.avatarWrapper}>
-            <Avatar src={data.avatar} alt={`${data.username} avatar`} size={100} />
-          </div>
-        )}
-        <div className={cls.infoBlock}>
-          <Input
-            wrapperClassName={cls.input}
-            value={data?.firstname}
-            placeholder={t('firstnamePlaceholder')}
-            readonly={readonly}
-            onChange={onFirstnameChangeHandler}
-          />
-          <Input
-            wrapperClassName={cls.input}
-            value={data?.lastname}
-            placeholder={t('lastnamePlaceholder')}
-            readonly={readonly}
-            onChange={onLastnameChangeHandler}
-          />
-          <Input
-            wrapperClassName={cls.input}
-            value={data?.age}
-            placeholder={t('agePlaceholder')}
-            readonly={readonly}
-            onChange={onAgeChangeHandler}
-          />
-          <Input
-            wrapperClassName={cls.input}
-            value={data?.city}
-            placeholder={t('cityPlaceholder')}
-            readonly={readonly}
-            onChange={onCityChangeHandler}
-          />
-          <Input
-            wrapperClassName={cls.input}
-            value={data?.username}
-            placeholder={t('usernamePlaceholder')}
-            readonly={readonly}
-            onChange={onUsernameChangeHandler}
-          />
-          <Input
-            wrapperClassName={cls.input}
-            value={data?.avatar}
-            placeholder={t('avatarPlaceholder')}
-            readonly={readonly}
-            onChange={onAvatarChangeHandler}
-            elipsis
-            width="250px"
-          />
-          <CurrencySelect
-            className={cls.select}
-            label={t('currencyPlaceholder')}
-            readonly={readonly}
-            value={data?.currency}
-            onChange={onCurrencyChangeHandler}
-          />
-          <CountrySelect
-            className={cls.select}
-            label={t('countryPlaceholder')}
-            readonly={readonly}
-            value={data?.country}
-            onChange={onCountryChangeHandler}
-          />
-        </div>
-      </div>
-    </div>
+    <VStack gap="16" align="start" max className={classNames(cls.ProfileCard, mods, [className])}>
+      {data?.avatar && (
+        <HStack justify="center" max>
+          <Avatar src={data.avatar} alt={`${data.username} avatar`} size={100} />
+        </HStack>
+      )}
+      <Input
+        wrapperClassName={cls.input}
+        value={data?.firstname}
+        placeholder={t('firstnamePlaceholder')}
+        readonly={readonly}
+        onChange={onFirstnameChangeHandler}
+      />
+      <Input
+        wrapperClassName={cls.input}
+        value={data?.lastname}
+        placeholder={t('lastnamePlaceholder')}
+        readonly={readonly}
+        onChange={onLastnameChangeHandler}
+      />
+      <Input
+        wrapperClassName={cls.input}
+        value={data?.age}
+        placeholder={t('agePlaceholder')}
+        readonly={readonly}
+        onChange={onAgeChangeHandler}
+      />
+      <Input
+        wrapperClassName={cls.input}
+        value={data?.city}
+        placeholder={t('cityPlaceholder')}
+        readonly={readonly}
+        onChange={onCityChangeHandler}
+      />
+      <Input
+        wrapperClassName={cls.input}
+        value={data?.username}
+        placeholder={t('usernamePlaceholder')}
+        readonly={readonly}
+        onChange={onUsernameChangeHandler}
+      />
+      <Input
+        wrapperClassName={cls.input}
+        value={data?.avatar}
+        placeholder={t('avatarPlaceholder')}
+        readonly={readonly}
+        onChange={onAvatarChangeHandler}
+        elipsis
+        width="250px"
+      />
+      <CurrencySelect
+        className={cls.select}
+        label={t('currencyPlaceholder')}
+        readonly={readonly}
+        value={data?.currency}
+        onChange={onCurrencyChangeHandler}
+      />
+      <CountrySelect
+        className={cls.select}
+        label={t('countryPlaceholder')}
+        readonly={readonly}
+        value={data?.country}
+        onChange={onCountryChangeHandler}
+      />
+    </VStack>
   );
 };

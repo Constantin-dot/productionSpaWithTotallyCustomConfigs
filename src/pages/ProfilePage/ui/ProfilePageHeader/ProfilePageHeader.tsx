@@ -9,7 +9,7 @@ import {
   getProfileData, getProfileReadonly, profileActions, updateProfileData,
 } from 'entities/Profile';
 import { getUserAuthData } from 'entities/User';
-import cls from './ProfilePageHeader.module.scss';
+import { HStack } from 'shared/ui/Stack';
 
 type PropsType = {className?: string,};
 
@@ -35,20 +35,19 @@ export const ProfilePageHeader = memo((props: PropsType) => {
   }, [dispatch]);
 
   return (
-    <div className={classNames(cls.ProfilePageHeader, {}, [className])}>
+    <HStack justify="between" max className={classNames('', {}, [className])}>
       <Text title={t('title')} />
       {canEdit && (
-        <div className={cls.btnsWrapper}>
+        <div>
           {readonly ? (
             <Button
-              className={cls.editBtn}
               variant={ButtonVariantEnum.OUTLINE}
               onClick={onEditHandler}
             >
               {t('editBtn')}
             </Button>
           ) : (
-            <div className={cls.btnsBlock}>
+            <HStack gap="8">
               <Button
                 variant={ButtonVariantEnum.OUTLINE_RED}
                 onClick={onCancelHandler}
@@ -56,16 +55,15 @@ export const ProfilePageHeader = memo((props: PropsType) => {
                 {t('cancelBtn')}
               </Button>
               <Button
-                className={cls.saveBtn}
                 variant={ButtonVariantEnum.OUTLINE}
                 onClick={onSaveHandler}
               >
                 {t('saveBtn')}
               </Button>
-            </div>
+            </HStack>
           ) }
         </div>
       )}
-    </div>
+    </HStack>
   );
 });

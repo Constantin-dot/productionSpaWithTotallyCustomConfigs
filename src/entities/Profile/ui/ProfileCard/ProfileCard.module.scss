@@ -3,30 +3,9 @@
   border: 2px solid var(--inverted-bg-color);
 }
 
-.avatarWrapper {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-
-.infoBlock {
-  display: flex;
-  flex-direction: column;
-  max-height: calc(100vh - 340px);
-  overflow-y: auto;
-}
-
-.input,
-.select {
-  margin-top: 10px;
-}
-
 .loading,
 .error {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 128px;
+  height: 300px;
 }
 
 .editing {

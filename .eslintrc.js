@@ -51,6 +51,10 @@ module.exports = {
         'data-testid',
         'to',
         'target',
+        'justify',
+        'align',
+        'direction',
+        'gap',
       ],
     }],
     'max-len': ['error', {

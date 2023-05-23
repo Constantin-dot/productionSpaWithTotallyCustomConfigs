@@ -4,6 +4,7 @@ import { Button, ButtonVariantEnum } from 'shared/ui/Button/Button';
 import { ThemeSwticher } from 'features/ThemeSwitcher/ThemeSwticher';
 import { useSelector } from 'react-redux';
 import { LangSwitcher } from 'features/LangSwitcher/LangSwitcher';
+import { VStack } from 'shared/ui/Stack';
 import cls from './Sidebar.module.scss';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
 import { getSidebarItems } from '../../model/selectors/getSidebarItems';
@@ -37,9 +38,9 @@ export const Sidebar = memo((props: PropsType) => {
         [className],
       )}
     >
-      <div className={cls.items}>
+      <VStack gap="8" align="start" className={cls.items}>
         {itemsList}
-      </div>
+      </VStack>
       <div className={cls.switchers}>
         <ThemeSwticher />
         <LangSwitcher />
