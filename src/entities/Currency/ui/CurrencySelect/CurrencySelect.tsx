@@ -1,5 +1,6 @@
 import { memo, useCallback } from 'react';
 import { Select } from 'shared/ui/Select/Select';
+import { ListBox } from 'shared/ui/ListBox/ListBox';
 import { CurrencyEnum } from '../../model/types/currency';
 
 type PropsType = {
@@ -30,13 +31,15 @@ export const CurrencySelect = memo((props: PropsType) => {
   }, [onChange]);
 
   return (
-    <Select
-      className={className}
-      label={label}
-      options={options}
-      readonly={readonly}
+    <ListBox
+      items={options}
       value={value}
+      defaultValue="Select a value"
       onChange={onChangeHandler}
+      className={className}
+      readonly={readonly}
+      label={label}
+      direction="top"
     />
   );
 });
