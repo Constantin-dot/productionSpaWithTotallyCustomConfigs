@@ -8,6 +8,9 @@
   background: none;
   border: none;
   outline: none;
+  font: var(--font-m);
+  color: var(--primary-color);
+  cursor: pointer;
 }
 
 .label {
@@ -45,6 +48,7 @@
 .item {
   color: var(--bg-color);
   padding: 10px 20px;
+  cursor: pointer;
 }
 
 .active {

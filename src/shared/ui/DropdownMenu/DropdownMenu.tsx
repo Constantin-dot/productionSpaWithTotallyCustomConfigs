@@ -46,7 +46,7 @@ export const DropdownMenu = (props: PropsType) => {
       </Menu.Button>
       <Menu.Items className={classNames(cls.menu, {}, menuClasses)}>
         {
-          items.map((item) => {
+          items.map((item, index) => {
             const content = ({ active }: { active: boolean }) => (
               <button
                 type="button"
@@ -63,7 +63,9 @@ export const DropdownMenu = (props: PropsType) => {
                 <Menu.Item
                   as={AppLink}
                   to={item.href}
+                  refName="href"
                   disabled={item.disabled}
+                  key={index}
                 >
                   {content}
                 </Menu.Item>
@@ -74,6 +76,7 @@ export const DropdownMenu = (props: PropsType) => {
               <Menu.Item
                 as={Fragment}
                 disabled={item.disabled}
+                key={index}
               >
                 {content}
               </Menu.Item>
