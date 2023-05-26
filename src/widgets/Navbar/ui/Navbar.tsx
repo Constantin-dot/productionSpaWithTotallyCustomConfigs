@@ -8,6 +8,8 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { AppLink, AppLinkVariantEnum } from 'shared/ui/AppLink/AppLink';
 import { Button, ButtonVariantEnum } from 'shared/ui/Button/Button';
 import { Text, TextVariantEnum } from 'shared/ui/Text/Text';
+import { DropdownMenu } from 'shared/ui/DropdownMenu/DropdownMenu';
+import { Avatar } from 'shared/ui/Avatar/Avatar';
 import cls from './Navbar.module.scss';
 
 interface INavbarProps {
@@ -52,13 +54,21 @@ export const Navbar = memo(({ className }: INavbarProps) => {
             {t('createArticle')}
           </Button>
         </AppLink>
-        <Button
-          variant={ButtonVariantEnum.CLEAR_INVERTED}
-          className={cls.links}
-          onClick={onLogoutHandler}
-        >
-          {t('signOut')}
-        </Button>
+        <DropdownMenu
+          items={[
+            {
+              content: t('signOut'),
+              onClick: onLogoutHandler,
+            },
+            {
+              content: t('profile'),
+              href: RoutePath.profile + authData.id,
+            },
+          ]}
+          trigger={<Avatar size={30} src={authData.avatar ?? ''} alt="main dropdown menu" />}
+          className={cls.dropdownMenu}
+          direction="bottomLeft"
+        />
       </header>
     );
   }
