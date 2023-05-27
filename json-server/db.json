@@ -454,6 +454,12 @@
       "userId": "2",
       "text": "dfhsfgs",
       "id": "w96jLoi"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "hey hey hey",
+      "id": "dwpbIeI"
     }
   ],
   "users": [
@@ -478,7 +484,7 @@
       "firstname": "Ivan",
       "lastname": "Petrov",
       "age": 22,
-      "currency": "EUR",
+      "currency": "USD",
       "country": "Armenia",
       "city": "Erevan",
       "username": "admin",

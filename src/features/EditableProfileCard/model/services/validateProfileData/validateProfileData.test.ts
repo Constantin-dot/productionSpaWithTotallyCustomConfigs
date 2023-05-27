@@ -1,7 +1,7 @@
 import { CountryEnum } from 'entities/Country';
 import { CurrencyEnum } from 'entities/Currency';
-import { ProfileValidateErrorEnum } from '../../types/profile';
 import { validateProfileData } from './validateProfileData';
+import { ProfileValidateErrorEnum } from '../../types/EditableProfileCardSchema';
 
 const data = {
   username: 'admin',

@@ -4,7 +4,6 @@ import {
 import { CombinedState, Dispatch } from 'redux';
 import { AxiosInstance } from 'axios';
 import { ICounterState } from 'entities/Counter';
-import { IProfileSchema } from 'entities/Profile';
 import { IUserSchema } from 'entities/User';
 import { ILoginSchema } from 'features/AuthByUsername';
 import { NavigateOptions, To } from 'react-router-dom';
@@ -15,11 +14,14 @@ import {
 import { IAddCommentFormSchema } from 'features/AddCommentForm';
 import { IArticlesPageSchema } from 'pages/ArticlesPage';
 import { IUiSchema } from 'features/UI';
+import { rtkApi } from 'shared/api/rtkApi';
+import { IProfileSchema } from 'features/EditableProfileCard';
 
 export interface IStateSchema {
   counter: ICounterState;
   user: IUserSchema;
   ui: IUiSchema;
+  [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>;
   // async reducers
   loginForm?: ILoginSchema;
   profile?: IProfileSchema;

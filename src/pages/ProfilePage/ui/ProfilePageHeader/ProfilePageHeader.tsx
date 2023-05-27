@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import {
   getProfileData, getProfileReadonly, profileActions, updateProfileData,
-} from 'entities/Profile';
+} from 'features/EditableProfileCard';
 import { getUserAuthData } from 'entities/User';
 import { HStack } from 'shared/ui/Stack';
 
