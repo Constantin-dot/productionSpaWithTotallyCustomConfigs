@@ -6,11 +6,10 @@ import { useSelector } from 'react-redux';
 import { ProfileCard } from 'entities/Profile';
 import { CurrencyEnum } from 'entities/Currency';
 import { CountryEnum } from 'entities/Country';
-import { useParams } from 'react-router-dom';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { Text, TextVariantEnum } from 'shared/ui/Text/Text';
 import { DynamicModuleLoader, ReducersListType } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import cls from './EditableProfileCard.module.scss';
+import { VStack } from 'shared/ui/Stack';
 import { profileActions, profileReducer } from '../../model/slice/profileSlice';
 import { fetchProfileData } from '../../model/services/fetchProfileData/fetchProfileData';
 import { getProfileValidateErrors } from '../../model/selectors/getProfileValidateErrors/getProfileValidateErrors';
@@ -19,6 +18,7 @@ import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading/g
 import { getProfileError } from '../../model/selectors/getProfileError/getProfileError';
 import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
 import { ProfileValidateErrorEnum } from '../../model/types/EditableProfileCardSchema';
+import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
 
 const reducers: ReducersListType = {
   profile: profileReducer,
@@ -26,13 +26,13 @@ const reducers: ReducersListType = {
 
 interface EditableProfileCardProps {
   className?: string;
+  id: string;
 }
 
 export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
-  const { className } = props;
+  const { className, id } = props;
   const { t } = useTranslation('profile');
   const dispatch = useAppDispatch();
-  const { id } = useParams<{ id: string }>();
 
   const validateErrors = useSelector(getProfileValidateErrors);
   const data = useSelector(getProfileData);
@@ -86,7 +86,8 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-      <div className={classNames(cls.EditableProfileCard, {}, [className])}>
+      <VStack gap="16" max className={classNames('', {}, [className])}>
+        <EditableProfileCardHeader />
         {validateErrors?.length && validateErrors.map((err: ProfileValidateErrorEnum) => (
           <Text
             variant={TextVariantEnum.ERROR}
@@ -108,7 +109,7 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
           onCurrencyChangeHandler={onCurrencyChangeHandler}
           onCountryChangeHandler={onCountryChangeHandler}
         />
-      </div>
+      </VStack>
     </DynamicModuleLoader>
   );
 });

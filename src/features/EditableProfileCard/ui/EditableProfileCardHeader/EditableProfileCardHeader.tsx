@@ -5,15 +5,16 @@ import { Text } from 'shared/ui/Text/Text';
 import { Button, ButtonVariantEnum } from 'shared/ui/Button/Button';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import {
-  getProfileData, getProfileReadonly, profileActions, updateProfileData,
-} from 'features/EditableProfileCard';
 import { getUserAuthData } from 'entities/User';
 import { HStack } from 'shared/ui/Stack';
+import { getProfileData } from '../../model/selectors/getProfileData/getProfileData';
+import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
+import { profileActions } from '../../model/slice/profileSlice';
+import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
 
 type PropsType = {className?: string,};
 
-export const ProfilePageHeader = memo((props: PropsType) => {
+export const EditableProfileCardHeader = memo((props: PropsType) => {
   const { className } = props;
   const { t } = useTranslation('profile');
   const dispatch = useAppDispatch();

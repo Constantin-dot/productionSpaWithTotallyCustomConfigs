@@ -1,22 +1,21 @@
 import { memo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Page } from 'widgets/Page/Page';
-import { VStack } from 'shared/ui/Stack';
 import { EditableProfileCard } from 'features/EditableProfileCard';
+import { useParams } from 'react-router-dom';
 import cls from './ProfilePage.module.scss';
-import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
-type PropsType = {className?: string,};
+type PropsType = {
+  className?: string,
+};
 
 const ProfilePage = memo((props: PropsType) => {
   const { className } = props;
+  const { id } = useParams<{ id: string }>();
 
   return (
     <Page className={classNames(cls.ProfilePage, {}, [className])}>
-      <VStack gap="16" max>
-        <ProfilePageHeader />
-        <EditableProfileCard />
-      </VStack>
+      <EditableProfileCard id={id ?? ''} />
     </Page>
   );
 });
