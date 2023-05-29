@@ -83,6 +83,7 @@ export const ProfileCard: FC<PropsType> = (props) => {
         placeholder={t('firstnamePlaceholder')}
         readonly={readonly}
         onChange={onFirstnameChangeHandler}
+        data-testid="ProfileCard.firstname"
       />
       <Input
         wrapperClassName={cls.input}
@@ -90,6 +91,7 @@ export const ProfileCard: FC<PropsType> = (props) => {
         placeholder={t('lastnamePlaceholder')}
         readonly={readonly}
         onChange={onLastnameChangeHandler}
+        data-testid="ProfileCard.lastname"
       />
       <Input
         wrapperClassName={cls.input}
@@ -97,6 +99,7 @@ export const ProfileCard: FC<PropsType> = (props) => {
         placeholder={t('agePlaceholder')}
         readonly={readonly}
         onChange={onAgeChangeHandler}
+        data-testid="ProfileCard.age"
       />
       <Input
         wrapperClassName={cls.input}
@@ -104,6 +107,7 @@ export const ProfileCard: FC<PropsType> = (props) => {
         placeholder={t('cityPlaceholder')}
         readonly={readonly}
         onChange={onCityChangeHandler}
+        data-testid="ProfileCard.city"
       />
       <Input
         wrapperClassName={cls.input}
@@ -111,6 +115,7 @@ export const ProfileCard: FC<PropsType> = (props) => {
         placeholder={t('usernamePlaceholder')}
         readonly={readonly}
         onChange={onUsernameChangeHandler}
+        data-testid="ProfileCard.username"
       />
       <Input
         wrapperClassName={cls.input}
@@ -120,6 +125,7 @@ export const ProfileCard: FC<PropsType> = (props) => {
         onChange={onAvatarChangeHandler}
         elipsis
         width="250px"
+        data-testid="ProfileCard.avatarPath"
       />
       <CurrencySelect
         className={cls.select}
