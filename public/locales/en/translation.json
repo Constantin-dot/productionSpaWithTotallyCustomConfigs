@@ -27,5 +27,7 @@
   "createdAt": "Creating date",
   "title": "Title",
   "views": "Amount of views",
-  "createArticle": "Create article"
+  "createArticle": "Create article",
+  "admin": "Admin panel",
+  "pageAccesDenied": "You have not access to this page!"
 }

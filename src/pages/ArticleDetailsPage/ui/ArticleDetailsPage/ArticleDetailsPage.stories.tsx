@@ -25,6 +25,7 @@ const article: IArticle = {
   user: {
     id: '1',
     username: 'Ulbi tv',
+    role: ['ADMIN'],
   },
   blocks: [
     {

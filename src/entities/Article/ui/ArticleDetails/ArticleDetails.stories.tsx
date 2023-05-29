@@ -18,6 +18,7 @@ const article: IArticle = {
   user: {
     id: '1',
     username: 'admin',
+    role: ['ADMIN'],
   },
   title: 'Javascript news',
   subtitle: 'Что нового в JS за 2022 год?',

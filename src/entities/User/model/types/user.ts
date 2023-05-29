@@ -1,7 +1,9 @@
+export type UserRoleVariant = 'ADMIN' | 'MANAGER' | 'USER';
 export interface IUser {
   id: string;
   username: string;
   avatar?: string;
+  role: Array<UserRoleVariant>;
 }
 
 export interface IUserSchema {

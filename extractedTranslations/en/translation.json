@@ -1,6 +1,7 @@
 {
   "about": "about",
   "aboutPageContent": "aboutPageContent",
+  "admin": "admin",
   "agePlaceholder": "agePlaceholder",
   "all": "all",
   "articleRequestError": "",
@@ -39,6 +40,7 @@
   "mainPageContent": "",
   "no_data": "no_data",
   "notFoundPage": "notFoundPage",
+  "pageAccesDenied": "pageAccesDenied",
   "pageTitle": "pageTitle",
   "passwordPlaceholder": "",
   "profile": "",
