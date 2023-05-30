@@ -80,7 +80,7 @@ export const ProfileCard: FC<PropsType> = (props) => {
       <Input
         wrapperClassName={cls.input}
         value={data?.firstname}
-        placeholder={t('firstnamePlaceholder')}
+        placeholder={t('firstnamePlaceholder') ?? ''}
         readonly={readonly}
         onChange={onFirstnameChangeHandler}
         data-testid="ProfileCard.firstname"
@@ -88,7 +88,7 @@ export const ProfileCard: FC<PropsType> = (props) => {
       <Input
         wrapperClassName={cls.input}
         value={data?.lastname}
-        placeholder={t('lastnamePlaceholder')}
+        placeholder={t('lastnamePlaceholder') ?? ''}
         readonly={readonly}
         onChange={onLastnameChangeHandler}
         data-testid="ProfileCard.lastname"
@@ -96,7 +96,7 @@ export const ProfileCard: FC<PropsType> = (props) => {
       <Input
         wrapperClassName={cls.input}
         value={data?.age}
-        placeholder={t('agePlaceholder')}
+        placeholder={t('agePlaceholder') ?? ''}
         readonly={readonly}
         onChange={onAgeChangeHandler}
         data-testid="ProfileCard.age"
@@ -104,7 +104,7 @@ export const ProfileCard: FC<PropsType> = (props) => {
       <Input
         wrapperClassName={cls.input}
         value={data?.city}
-        placeholder={t('cityPlaceholder')}
+        placeholder={t('cityPlaceholder') ?? ''}
         readonly={readonly}
         onChange={onCityChangeHandler}
         data-testid="ProfileCard.city"
@@ -112,7 +112,7 @@ export const ProfileCard: FC<PropsType> = (props) => {
       <Input
         wrapperClassName={cls.input}
         value={data?.username}
-        placeholder={t('usernamePlaceholder')}
+        placeholder={t('usernamePlaceholder') ?? ''}
         readonly={readonly}
         onChange={onUsernameChangeHandler}
         data-testid="ProfileCard.username"
@@ -120,7 +120,7 @@ export const ProfileCard: FC<PropsType> = (props) => {
       <Input
         wrapperClassName={cls.input}
         value={data?.avatar}
-        placeholder={t('avatarPlaceholder')}
+        placeholder={t('avatarPlaceholder') ?? ''}
         readonly={readonly}
         onChange={onAvatarChangeHandler}
         elipsis

@@ -58,7 +58,7 @@ const LoginForm = memo((props: LoginFormPropsType) => {
         <p className={cls.header}>{t('authorizationModalTitle')}</p>
         {error && <Text text={t('authErrorMessage')} variant={TextVariantEnum.ERROR} />}
         <Input
-          placeholder={t('loginPlaceholder')}
+          placeholder={t('loginPlaceholder') ?? ''}
           autoFocus
           wrapperClassName={cls.inputWrapper}
           inputClassName={cls.inputInner}
@@ -67,7 +67,7 @@ const LoginForm = memo((props: LoginFormPropsType) => {
           value={username}
         />
         <Input
-          placeholder={t('passwordPlaceholder')}
+          placeholder={t('passwordPlaceholder') ?? ''}
           wrapperClassName={cls.inputWrapper}
           inputClassName={cls.inputInner}
           caretClassName={cls.inputCaret}

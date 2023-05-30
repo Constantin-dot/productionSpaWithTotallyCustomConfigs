@@ -9,7 +9,7 @@ export interface ISelectOption<T extends string> {
 
 type PropsType<T extends string> = {
   className?: string,
-  label?: string,
+  label?: string | null,
   options?: ISelectOption<T>[],
   value?: T,
   onChange?: (value: T) => void,

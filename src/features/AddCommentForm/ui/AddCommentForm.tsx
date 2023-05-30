@@ -43,7 +43,7 @@ const AddCommentForm: FC<AddCommentFormPropsType> = (props) => {
     <DynamicModuleLoader reducers={reducers}>
       <HStack justify="between" max className={classNames(cls.AddCommentForm, {}, [className])}>
         <Input
-          placeholder={t('enterComment')}
+          placeholder={t('enterComment') ?? ''}
           value={text}
           onChange={onCommentTextChange}
           wrapperClassName={cls.input}

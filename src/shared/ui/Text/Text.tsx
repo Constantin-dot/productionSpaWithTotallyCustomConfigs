@@ -23,8 +23,8 @@ export enum TextSizeEnum {
 
 type PropsType = {
   className?: string,
-  title?: string,
-  text?: string,
+  title?: string | null,
+  text?: string | null,
   variant?: TextVariantEnum,
   align?: TextAlignEnum,
   size?: TextSizeEnum,

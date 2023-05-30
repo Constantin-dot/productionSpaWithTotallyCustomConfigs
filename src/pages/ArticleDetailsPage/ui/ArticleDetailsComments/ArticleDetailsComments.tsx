@@ -13,14 +13,13 @@ import { getArticleCommentsIsLoading } from '../../model/selectors/getArticleCom
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 
 type PropsType = {
-  id: string;
-  className?: string;
+  id?: string;
 };
 
 export const ArticleDetailsComments = memo((props: PropsType) => {
   const { t } = useTranslation('article');
   const dispatch = useAppDispatch();
-  const { id, className } = props;
+  const { id } = props;
 
   const comments = useSelector(getArticleComments.selectAll);
   const commentsIsLoading = useSelector(getArticleCommentsIsLoading);

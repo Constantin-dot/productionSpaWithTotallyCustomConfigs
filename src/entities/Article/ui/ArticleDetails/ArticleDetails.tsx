@@ -30,7 +30,7 @@ const reducers: ReducersListType = {
 };
 
 type PropsType = {
-  id: string,
+  id?: string,
   className?: string,
 };
 
@@ -133,11 +133,11 @@ export const ArticleDetails = memo((props: PropsType) => {
         <VStack gap="8" align="start" max>
           <HStack gap="8">
             <Icon Svg={EyeIcon} />
-            <Text text={String(article?.views) ?? ''} />
+            <Text text={String(article?.views)} />
           </HStack>
           <HStack gap="8">
             <Icon Svg={ClarityIcon} />
-            <Text text={article?.createdAt ?? ''} />
+            <Text text={article?.createdAt} />
           </HStack>
         </VStack>
         {article?.blocks.map(renderBlockHandler)}
