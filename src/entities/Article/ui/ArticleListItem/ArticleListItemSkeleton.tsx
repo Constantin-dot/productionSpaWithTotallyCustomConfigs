@@ -3,7 +3,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
 import { Card } from 'shared/ui/Card/Card';
 import cls from './ArticleListItem.module.scss';
-import { ArticleListViewVariantEnum } from '../../model/types/article';
+import { ArticleListViewVariantEnum } from '../../model/consts/consts';
 
 type PropsType = {
   className?: string,

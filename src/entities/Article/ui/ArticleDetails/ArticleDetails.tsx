@@ -12,7 +12,8 @@ import ClarityIcon from 'shared/assets/icons/clarity.svg';
 import { Icon } from 'shared/ui/Icon/Icon';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { HStack, VStack } from 'shared/ui/Stack';
-import { ArticleBlockType, ArticleBlockTypeEnum } from '../../model/types/article';
+import type { ArticleBlockType } from '../../model/types/article';
+import { ArticleBlockTypeEnum } from '../../model/consts/consts';
 import {
   getArticleDetailsData,
   getArticleDetailsError,

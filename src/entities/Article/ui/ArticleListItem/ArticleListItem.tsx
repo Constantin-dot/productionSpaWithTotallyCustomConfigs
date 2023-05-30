@@ -12,6 +12,8 @@ import { AppLink } from 'shared/ui/AppLink/AppLink';
 import {
   ArticleBlockTypeEnum,
   ArticleListViewVariantEnum,
+} from '../../model/consts/consts';
+import type {
   IArticle,
   IArticleTextBlock,
 } from '../../model/types/article';

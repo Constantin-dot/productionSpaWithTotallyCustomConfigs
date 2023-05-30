@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { ArticleListViewVariantEnum } from '../../model/types/article';
+import { ArticleListViewVariantEnum } from '../../model/consts/consts';
 import { ArticleList } from './ArticleList';
 
 export default {

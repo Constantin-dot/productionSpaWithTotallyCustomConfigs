@@ -4,6 +4,6 @@ export { ArticleViewSelector } from './ui/ArticleViewSelector/ArticleViewSelecto
 export { ArticleSortSelector } from './ui/ArticleSortSelector/ArticleSortSelector';
 export { ArticleTypeTabs } from './ui/ArticleTypeTabs/ArticleTypeTabs';
 export type { IArticle } from './model/types/article';
-export { ArticleListViewVariantEnum, ArticleSortFieldEnum, ArticleTypeEnum } from './model/types/article';
+export { ArticleListViewVariantEnum, ArticleSortFieldEnum, ArticleTypeEnum } from './model/consts/consts';
 export type { IArticleDetailsSchema } from './model/types/articleDetailsSchema';
 export { getArticleDetailsData } from './model/selectors/articleDetails';
