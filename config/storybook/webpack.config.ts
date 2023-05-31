@@ -9,8 +9,8 @@ export default ({ config }: {config: webpack.Configuration}) => {
     html: '',
     entry: '',
     src: path.resolve(__dirname, '..', '..', 'src'),
-    locales: '', // path.resolve(__dirname, 'public', 'locales', 'en'),
-    buildLocales: '', // path.resolve(__dirname, 'build', 'locales', 'en'),
+    locales: path.resolve(__dirname, 'public', 'locales'),
+    buildLocales: path.resolve(__dirname, 'build', 'locales'),
   };
 
   if (config!.resolve!.modules) {

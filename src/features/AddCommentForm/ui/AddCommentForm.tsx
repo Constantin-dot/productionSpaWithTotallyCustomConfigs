@@ -28,7 +28,6 @@ const AddCommentForm: FC<AddCommentFormPropsType> = (props) => {
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const text = useSelector(getAddCommentFormText);
-  // const error = useSelector(getAddCommentFormError);
 
   const onCommentTextChange = useCallback((value: string | number) => {
     dispatch(addCommentFormActions.setText(value.toString()));
