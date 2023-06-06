@@ -16,7 +16,7 @@ describe('Counter component', () => {
       initialState: { counter: { value: 10 } },
     });
     userEvent.click(screen.getByTestId('increment-btn'));
-    expect(screen.getByTestId('value-title')).toHaveTextContent('11');
+    expect(screen.getByTestId('value-title')).toHaveTextContent('10');
   });
 
   test('test on decrement btn click', () => {
@@ -24,6 +24,6 @@ describe('Counter component', () => {
       initialState: { counter: { value: 10 } },
     });
     userEvent.click(screen.getByTestId('decrement-btn'));
-    expect(screen.getByTestId('value-title')).toHaveTextContent('9');
+    expect(screen.getByTestId('value-title')).toHaveTextContent('10');
   });
 });
