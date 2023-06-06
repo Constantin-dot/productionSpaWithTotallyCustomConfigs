@@ -1,6 +1,5 @@
 import { memo, useCallback } from 'react';
-import { Select } from 'shared/ui/Select/Select';
-import { ListBox } from 'shared/ui/ListBox/ListBox';
+import { ListBox } from 'shared/ui/Popups';
 import { CurrencyEnum } from '../../model/types/currency';
 
 type PropsType = {

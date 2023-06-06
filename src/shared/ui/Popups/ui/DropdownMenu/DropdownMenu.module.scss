@@ -1,0 +1,17 @@
+.menu {
+  position: absolute;
+  background: var(--card-bg);
+  z-index: 10000;
+  border-radius: 8px;
+  border: 1px solid var(--primary-color);
+}
+
+.item {
+  padding: 10px 25px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: var(--primary-color);
+  font: var(--font-s);
+  width: 150px;
+}
