@@ -1,8 +1,9 @@
 import { useTheme } from 'app/providers/ThemeProvider';
-import React, {
-  FC, MutableRefObject, ReactNode, useCallback, useEffect, useRef, useState,
+import {
+  FC, ReactNode,
 } from 'react';
 import { classNames, ModsType } from 'shared/lib/classNames/classNames';
+import { useModal } from 'shared/lib/hooks/useModal/useModal';
 import { Portal } from '../Portal/Portal';
 import cls from './Modal.module.scss';
 import { Overlay } from '../Overlay/Overlay';
@@ -25,44 +26,16 @@ export const Modal: FC<PropsType> = (props) => {
     onClose,
     isLazy,
   } = props;
-
-  const [isClosing, setIsClosing] = useState(false);
-  const [isMounted, setIsMounted] = useState(false);
-  const timerRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
   const { theme } = useTheme();
-
-  const closeHandler = useCallback(() => {
-    if (onClose) {
-      setIsClosing(true);
-      timerRef.current = setTimeout(() => {
-        onClose();
-        setIsClosing(false);
-      }, ANIMATION_DELAY);
-    }
-  }, [onClose]);
-
-  const onKeyDown = useCallback((e: KeyboardEvent) => {
-    if (e.key === 'Escape') {
-      closeHandler();
-    }
-  }, [closeHandler]);
-
-  useEffect(() => {
-    if (isOpen) {
-      window.addEventListener('keydown', onKeyDown);
-    }
-
-    return () => {
-      clearTimeout(timerRef.current);
-      window.removeEventListener('keydown', onKeyDown);
-    };
-  }, [isOpen, onKeyDown]);
-
-  useEffect(() => {
-    if (isOpen) {
-      setIsMounted(true);
-    }
-  }, [isOpen]);
+  const {
+    isClosing,
+    isMounted,
+    close,
+  } = useModal({
+    onClose,
+    isOpen,
+    animationDelay: ANIMATION_DELAY,
+  });
 
   const mods: ModsType = {
     [cls.opened]: isOpen,
@@ -76,7 +49,7 @@ export const Modal: FC<PropsType> = (props) => {
   return (
     <Portal>
       <div className={classNames(cls.Modal, mods, [className, theme, 'app_modal'])}>
-        <Overlay onClick={closeHandler} />
+        <Overlay onClick={close} />
         <div
           className={cls.content}
         >
