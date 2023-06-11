@@ -1,10 +1,10 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Theme } from 'app/providers/ThemeProvider';
-import { CountryEnum } from 'entities/Country';
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import AvatarImg from 'shared/assets/tests/avatar.png';
-import { CurrencyEnum } from 'entities/Currency';
+import { Theme } from '@/app/providers/ThemeProvider';
+import { CountryEnum } from '@/entities/Country';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import AvatarImg from '@/shared/assets/tests/avatar.png';
+import { CurrencyEnum } from '@/entities/Currency';
 import ProfilePage from './ProfilePage';
 
 export default {

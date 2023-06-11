@@ -1,6 +1,6 @@
-import { CountryEnum } from 'entities/Country';
-import { CurrencyEnum } from 'entities/Currency';
-import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
+import { CountryEnum } from '@/entities/Country';
+import { CurrencyEnum } from '@/entities/Currency';
+import { TestAsyncThunk } from '@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 import { updateProfileData } from './updateProfileData';
 import { ProfileValidateErrorEnum } from '../../consts/consts';
 

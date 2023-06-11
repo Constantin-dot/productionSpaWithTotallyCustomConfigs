@@ -1,5 +1,5 @@
 import { memo, useCallback } from 'react';
-import { ListBox } from 'shared/ui/Popups';
+import { ListBox } from '@/shared/ui/Popups';
 import { CountryEnum } from '../../model/types/country';
 
 type PropsType = {

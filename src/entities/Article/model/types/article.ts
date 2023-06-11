@@ -1,4 +1,4 @@
-import { IUser } from 'entities/User';
+import { IUser } from '@/entities/User';
 import type { ArticleBlockTypeEnum, ArticleTypeEnum } from '../consts/consts';
 
 export interface IArticleBaseBlock {

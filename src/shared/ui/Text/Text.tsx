@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { classNames, ModsType } from 'shared/lib/classNames/classNames';
+import { classNames, ModsType } from '@/shared/lib/classNames/classNames';
 import cls from './Text.module.scss';
 
 export enum TextVariantEnum {

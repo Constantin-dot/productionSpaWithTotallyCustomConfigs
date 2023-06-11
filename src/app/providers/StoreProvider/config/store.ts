@@ -1,11 +1,11 @@
 import {
   CombinedState, configureStore, Reducer, ReducersMapObject,
 } from '@reduxjs/toolkit';
-import { counterReducer } from 'entities/Counter/model/slice/counterSlice';
-import { userReducer } from 'entities/User';
-import { uiReducer } from 'features/UI';
-import { $api } from 'shared/api/api';
-import { rtkApi } from 'shared/api/rtkApi';
+import { counterReducer } from '@/entities/Counter/model/slice/counterSlice';
+import { userReducer } from '@/entities/User';
+import { uiReducer } from '@/features/UI';
+import { $api } from '@/shared/api/api';
+import { rtkApi } from '@/shared/api/rtkApi';
 import { createReducerManager } from './reducerManager';
 import { IStateSchema, ThunkExtraArguments } from './StateSchema';
 

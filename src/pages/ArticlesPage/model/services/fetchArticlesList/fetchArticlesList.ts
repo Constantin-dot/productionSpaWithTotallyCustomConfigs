@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { ThunkConfig } from 'app/providers/StoreProvider';
-import { ArticleTypeEnum, IArticle } from 'entities/Article';
-import { addQueryParams } from 'shared/lib/url/addQueryParams/addQueryParams';
+import { ThunkConfig } from '@/app/providers/StoreProvider';
+import { ArticleTypeEnum, IArticle } from '@/entities/Article';
+import { addQueryParams } from '@/shared/lib/url/addQueryParams/addQueryParams';
 import { getArcticlesType } from '../../selectors/getArcticlesType/getArcticlesType';
 import { getArticlePageOrder } from '../../selectors/getArticlePageOrder/getArticlePageOrder';
 import { getArticlePageSearch } from '../../selectors/getArticlePageSearch/getArticlePageSearch';

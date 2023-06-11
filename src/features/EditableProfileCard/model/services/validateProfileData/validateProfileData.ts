@@ -1,4 +1,4 @@
-import { IProfile } from 'entities/Profile';
+import { IProfile } from '@/entities/Profile';
 import { ProfileValidateErrorEnum } from '../../consts/consts';
 
 export const validateProfileData = (profile?: IProfile) => {
