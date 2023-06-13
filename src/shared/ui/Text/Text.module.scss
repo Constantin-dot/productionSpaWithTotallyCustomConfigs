@@ -7,21 +7,21 @@
 }
 
 .inverted {
-  .title {
+  &.title {
     color: var(--inverted-primary-color);
   }
 
-  .text {
+  &.text {
     color: var(--inverted-secondary-color);
   }
 }
 
 .error {
-  .title {
+  &.title {
     color: var(--red-light);
   }
 
-  .text {
+  &.text {
     color: var(--red-dark);
   }
 }

@@ -33,6 +33,26 @@
   animation: blink 1s forwards infinite;
 }
 
+.inverted {
+  &.input {
+    text-shadow: 0 0 0 var(--inverted-primary-color);
+  }
+
+  &.caret {
+    background-color: var(--inverted-secondary-color);
+  }
+}
+
+.error {
+  &.input {
+    text-shadow: 0 0 0 var(--red-light);
+  }
+
+  &.caret {
+    background-color: var(--red-dark);
+  }
+}
+
 .readonly {
   opacity: 0.7;
 }

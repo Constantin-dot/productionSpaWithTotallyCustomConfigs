@@ -54,7 +54,6 @@ export const Text = memo((props: PropsType) => {
   const HeaderTag = mapSizeToHeaderTag[size];
 
   const mods: ModsType = {
-    [cls[variant]]: true,
     [cls[align]]: true,
     [cls[size]]: true,
   };
@@ -63,7 +62,7 @@ export const Text = memo((props: PropsType) => {
     <div className={classNames(cls.Text, mods, [className])}>
       {title && (
         <HeaderTag
-          className={cls.title}
+          className={classNames(cls.title, { [cls[variant]]: true }, [])}
           data-testid={`${dataTestId}.Header`}
         >
           {title}
@@ -71,7 +70,7 @@ export const Text = memo((props: PropsType) => {
       )}
       {text && (
         <p
-          className={cls.text}
+          className={classNames(cls.text, { [cls[variant]]: true }, [])}
           data-testid={`${dataTestId}.Paragraph`}
         >
           {text}

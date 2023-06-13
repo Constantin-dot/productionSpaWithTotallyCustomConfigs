@@ -6,6 +6,7 @@
   align-items: center;
   padding: 10px 15px;
   width: fit-content;
+  border-radius: 3px;
 
   &:hover {
     opacity: 0.7;
@@ -34,6 +35,12 @@
 .outline_red {
   border: 1px solid var(--red-light);
   color: var(--red-dark);
+  background: none;
+}
+
+.outlineInverted {
+  border: 1px solid var(--inverted-primary-color);
+  color: var(--inverted-primary-color);
   background: none;
 }
 

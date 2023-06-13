@@ -4,12 +4,17 @@ import {
 import { classNames, ModsType } from '@/shared/lib/classNames/classNames';
 import cls from './Input.module.scss';
 
+export enum InputVariantEnum {
+  PRIMARY = 'primary',
+  INVERTED = 'inverted',
+  ERROR = 'error',
+}
+
 type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readonly'>;
 
 interface IProps extends HTMLInputProps {
-  wrapperClassName?: string;
-  inputClassName?: string;
-  caretClassName?: string;
+  className?: string;
+  variant?: InputVariantEnum,
   value?: string | number;
   onChange?: (value: string | number) => void;
   readonly?: boolean;
@@ -19,10 +24,9 @@ interface IProps extends HTMLInputProps {
 
 export const Input = memo((props: IProps) => {
   const {
-    wrapperClassName,
-    inputClassName,
-    caretClassName,
-    value,
+    className,
+    variant = InputVariantEnum.PRIMARY,
+    value = '',
     onChange,
     placeholder,
     autoFocus,
@@ -34,7 +38,7 @@ export const Input = memo((props: IProps) => {
   } = props;
   const ref = useRef<HTMLInputElement>(null);
   const [isFocused, setIsFocused] = useState(false);
-  const [innerValue, setInnerValue] = useState('');
+  const [innerValue, setInnerValue] = useState(value);
 
   useEffect(() => {
     if (autoFocus) {
@@ -60,8 +64,13 @@ export const Input = memo((props: IProps) => {
     [cls.readonly]: readonly,
   };
 
+  const subElemsMods: ModsType = {
+    [cls.elipsis]: elipsis,
+    [cls[variant]]: true,
+  };
+
   return (
-    <div className={classNames(cls.InputWrapper, mods, [wrapperClassName])}>
+    <div className={classNames(cls.InputWrapper, mods, [className])}>
       {placeholder && (
         <div className={cls.placeholder}>
           {`${placeholder}>`}
@@ -71,18 +80,18 @@ export const Input = memo((props: IProps) => {
         <input
           ref={ref}
           type={type}
-          value={value}
+          value={innerValue}
           onChange={onChangeHandler}
           onFocus={onFocus}
           onBlur={onBlur}
-          className={classNames(cls.input, { [cls.elipsis]: elipsis }, [inputClassName])}
+          className={classNames(cls.input, subElemsMods, [])}
           readOnly={readonly}
           width={width}
           {...otherProps}
         />
         {
-          (isFocused && (innerValue.length === 0) && (value?.toString()?.length === 0))
-        && <span className={classNames(cls.caret, { [cls.elipsis]: elipsis }, [caretClassName])} />
+          (isFocused && (innerValue?.toString()?.length === 0))
+        && <span className={classNames(cls.caret, subElemsMods, [])} />
         }
       </div>
     </div>

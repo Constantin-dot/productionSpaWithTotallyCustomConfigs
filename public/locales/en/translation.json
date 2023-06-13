@@ -29,5 +29,8 @@
   "views": "Amount of views",
   "createArticle": "Create article",
   "admin": "Admin panel",
-  "pageAccesDenied": "You have not access to this page!"
+  "pageAccesDenied": "You have not access to this page!",
+  "yourFeedback": "Your feedback",
+  "close": "Close",
+  "send": "Send"
 }

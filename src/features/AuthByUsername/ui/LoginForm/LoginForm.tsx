@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button, ButtonVariantEnum } from '@/shared/ui/Button/Button';
-import { Input } from '@/shared/ui/Input/Input';
+import { Input, InputVariantEnum } from '@/shared/ui/Input/Input';
 import { Text, TextVariantEnum } from '@/shared/ui/Text/Text';
 import { DynamicModuleLoader, ReducersListType } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
@@ -60,17 +60,15 @@ const LoginForm = memo((props: LoginFormPropsType) => {
         <Input
           placeholder={t('loginPlaceholder') ?? ''}
           autoFocus
-          wrapperClassName={cls.inputWrapper}
-          inputClassName={cls.inputInner}
-          caretClassName={cls.inputCaret}
+          className={cls.input}
+          variant={InputVariantEnum.INVERTED}
           onChange={onUsernameChangeHandler}
           value={username}
         />
         <Input
           placeholder={t('passwordPlaceholder') ?? ''}
-          wrapperClassName={cls.inputWrapper}
-          inputClassName={cls.inputInner}
-          caretClassName={cls.inputCaret}
+          className={cls.input}
+          variant={InputVariantEnum.INVERTED}
           onChange={onPasswordChangeHandler}
           value={password}
         />

@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { BugButton } from '@/app/providers/ErrorBoundary';
 import { HStack, VStack } from '@/shared/ui/Stack';
 import { Page } from '@/widgets/Page/Page';
+import { RatingCard } from '@/entities/Rating';
 
 const MainPage = memo(() => {
   const { t } = useTranslation('main');
@@ -14,6 +15,11 @@ const MainPage = memo(() => {
           {t('mainPageContent')}
           <BugButton />
         </HStack>
+        <RatingCard
+          title="What do you think about the article?"
+          feedbackTitle="Please, stay here you oppinion about the article."
+          hasFeedback
+        />
       </VStack>
     </Page>
   );

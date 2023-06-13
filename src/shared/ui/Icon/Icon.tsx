@@ -1,18 +1,19 @@
-import { FC } from 'react';
+import { FC, SVGProps, VFC } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './Icon.module.scss';
 
-type PropsType = {
+interface IPropsType extends SVGProps<SVGSVGElement> {
   className?: string,
-  Svg: React.VFC<React.SVGProps<SVGSVGElement>>,
+  Svg: VFC<SVGProps<SVGSVGElement>>,
   inverted?: boolean,
-};
+}
 
-export const Icon: FC<PropsType> = (props) => {
+export const Icon: FC<IPropsType> = (props) => {
   const {
     className,
     Svg,
     inverted,
+    ...otherProps
   } = props;
 
   return (
@@ -22,6 +23,7 @@ export const Icon: FC<PropsType> = (props) => {
         {},
         [className],
       )}
+      {...otherProps}
     />
   );
 };
