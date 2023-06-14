@@ -3,4 +3,12 @@
   max-height: 300px;
   width: 500px;
   overflow-y: auto;
+
+  &::-webkit-scrollbar-track {
+    background-color: var(--card-bg);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-color: var(--card-bg);
+  }
 }

@@ -45,7 +45,7 @@ export const NotificationButton = memo((props: PropsType) => {
       <MobileView>
         {trigger}
         <Drawer isOpen={isDOpen} onClose={onCloseDrawer}>
-          <NotificationList />
+          <NotificationList isInvertedItemColor />
         </Drawer>
       </MobileView>
     </div>

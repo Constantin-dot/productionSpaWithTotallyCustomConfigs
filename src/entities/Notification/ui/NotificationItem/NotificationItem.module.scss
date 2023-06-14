@@ -1,4 +1,9 @@
 .NotificationItem,
 .link {
   width: 100%;
+  text-decoration-color: var(--primary-color);
+}
+
+.inverted {
+  text-decoration-color: var(--inverted-primary-color);
 }

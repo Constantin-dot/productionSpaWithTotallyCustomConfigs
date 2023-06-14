@@ -38,7 +38,7 @@ export const Input = memo((props: IProps) => {
   } = props;
   const ref = useRef<HTMLInputElement>(null);
   const [isFocused, setIsFocused] = useState(false);
-  const [innerValue, setInnerValue] = useState(value);
+  const [innerValue, setInnerValue] = useState('');
 
   useEffect(() => {
     if (autoFocus) {
@@ -80,7 +80,7 @@ export const Input = memo((props: IProps) => {
         <input
           ref={ref}
           type={type}
-          value={innerValue}
+          value={value}
           onChange={onChangeHandler}
           onFocus={onFocus}
           onBlur={onBlur}
@@ -90,7 +90,7 @@ export const Input = memo((props: IProps) => {
           {...otherProps}
         />
         {
-          (isFocused && (innerValue?.toString()?.length === 0))
+          (isFocused && (innerValue?.toString()?.length === 0) && (value?.toString()?.length === 0))
         && <span className={classNames(cls.caret, subElemsMods, [])} />
         }
       </div>

@@ -5,6 +5,7 @@ import cls from './Card.module.scss';
 export enum CardVariantEnum {
   NORMAL = 'normal',
   OUTLINED = 'outlined',
+  OUTLINED_INVERTED = 'outlined_inverted',
 }
 
 interface IProps extends HTMLAttributes<HTMLDivElement> {

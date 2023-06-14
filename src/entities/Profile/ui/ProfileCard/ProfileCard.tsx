@@ -78,7 +78,7 @@ export const ProfileCard: FC<PropsType> = (props) => {
         </HStack>
       )}
       <Input
-        wrapperClassName={cls.input}
+        className={cls.input}
         value={data?.firstname}
         placeholder={t('firstnamePlaceholder') ?? ''}
         readonly={readonly}
@@ -86,7 +86,7 @@ export const ProfileCard: FC<PropsType> = (props) => {
         data-testid="ProfileCard.firstname"
       />
       <Input
-        wrapperClassName={cls.input}
+        className={cls.input}
         value={data?.lastname}
         placeholder={t('lastnamePlaceholder') ?? ''}
         readonly={readonly}
@@ -94,7 +94,7 @@ export const ProfileCard: FC<PropsType> = (props) => {
         data-testid="ProfileCard.lastname"
       />
       <Input
-        wrapperClassName={cls.input}
+        className={cls.input}
         value={data?.age}
         placeholder={t('agePlaceholder') ?? ''}
         readonly={readonly}
@@ -102,7 +102,7 @@ export const ProfileCard: FC<PropsType> = (props) => {
         data-testid="ProfileCard.age"
       />
       <Input
-        wrapperClassName={cls.input}
+        className={cls.input}
         value={data?.city}
         placeholder={t('cityPlaceholder') ?? ''}
         readonly={readonly}
@@ -110,7 +110,7 @@ export const ProfileCard: FC<PropsType> = (props) => {
         data-testid="ProfileCard.city"
       />
       <Input
-        wrapperClassName={cls.input}
+        className={cls.input}
         value={data?.username}
         placeholder={t('usernamePlaceholder') ?? ''}
         readonly={readonly}
@@ -118,7 +118,7 @@ export const ProfileCard: FC<PropsType> = (props) => {
         data-testid="ProfileCard.username"
       />
       <Input
-        wrapperClassName={cls.input}
+        className={cls.input}
         value={data?.avatar}
         placeholder={t('avatarPlaceholder') ?? ''}
         readonly={readonly}

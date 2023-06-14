@@ -8,10 +8,11 @@ import { NotificationItem } from '../NotificationItem/NotificationItem';
 
 type PropsType = {
   className?: string,
+  isInvertedItemColor?: boolean,
 };
 
 export const NotificationList = memo((props: PropsType) => {
-  const { className } = props;
+  const { className, isInvertedItemColor } = props;
   const { data, isLoading } = useNotifications(null, { pollingInterval: 5000 });
 
   if (isLoading) {
@@ -28,7 +29,7 @@ export const NotificationList = memo((props: PropsType) => {
     <VStack gap="16" max className={classNames(cls.NotificationList, {}, [className])}>
       {
         data?.map((item) => (
-          <NotificationItem key={item.id} item={item} />
+          <NotificationItem key={item.id} item={item} isInvertedItemColor={isInvertedItemColor} />
         ))
       }
     </VStack>
