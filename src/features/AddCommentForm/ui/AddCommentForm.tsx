@@ -45,7 +45,7 @@ const AddCommentForm: FC<AddCommentFormPropsType> = (props) => {
           placeholder={t('enterComment') ?? ''}
           value={text}
           onChange={onCommentTextChange}
-          wrapperClassName={cls.input}
+          className={cls.input}
         />
         <Button onClick={onSendHandler}>
           {t('sendComment')}
