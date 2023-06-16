@@ -12,6 +12,7 @@ interface IProps extends HTMLAttributes<HTMLDivElement> {
   className?: string,
   children: ReactNode,
   variant?: CardVariantEnum,
+  max?: boolean,
 }
 
 export const Card: FC<IProps> = (props) => {
@@ -19,11 +20,12 @@ export const Card: FC<IProps> = (props) => {
     className,
     children,
     variant = CardVariantEnum.NORMAL,
+    max,
     ...otherProps
   } = props;
 
   return (
-    <div className={classNames(cls.Card, {}, [className, cls[variant]])} {...otherProps}>
+    <div className={classNames(cls.Card, { [cls.max]: max }, [className, cls[variant]])} {...otherProps}>
       {children}
     </div>
   );

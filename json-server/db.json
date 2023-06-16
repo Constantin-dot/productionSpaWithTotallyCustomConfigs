@@ -1,4 +1,103 @@
 {
+  "article-ratings": [
+    {
+      "id": "1",
+      "rate": 4,
+      "feedback": "It's perfect article!",
+      "userId": "2",
+      "articleId": "1"
+    },
+    {
+      "id": "2",
+      "rate": 5,
+      "feedback": "",
+      "userId": "1",
+      "articleId": "2"
+    },
+    {
+      "userId": "2",
+      "articleId": "2",
+      "rate": 3,
+      "id": "17W3MEw"
+    },
+    {
+      "userId": "2",
+      "articleId": "7",
+      "rate": 5,
+      "id": "rjKTrTI"
+    },
+    {
+      "userId": "2",
+      "articleId": "4",
+      "rate": 2,
+      "id": "4m4CNFw"
+    },
+    {
+      "userId": "2",
+      "articleId": "5",
+      "rate": 1,
+      "id": "pzfj7ui"
+    },
+    {
+      "userId": "2",
+      "articleId": "3",
+      "rate": 2,
+      "id": "E8zY1D_"
+    },
+    {
+      "userId": "2",
+      "articleId": "10",
+      "rate": 3,
+      "id": "AxhP1GK"
+    },
+    {
+      "userId": "2",
+      "articleId": "9",
+      "rate": 2,
+      "id": "7Eh3MHS"
+    },
+    {
+      "userId": "2",
+      "articleId": "6",
+      "rate": 3,
+      "id": "2F0aiKT"
+    },
+    {
+      "userId": "2",
+      "articleId": "8",
+      "rate": 2,
+      "id": "EFkJ0d4"
+    },
+    {
+      "userId": "1",
+      "articleId": "3",
+      "rate": 3,
+      "feedback": "",
+      "id": "aslN7mr"
+    },
+    {
+      "userId": "1",
+      "articleId": "10",
+      "rate": 3,
+      "id": "cVADgwW"
+    }
+  ],
+  "profile-ratings": [
+    {
+      "id": "1",
+      "rate": 4,
+      "feedback": "+++",
+      "userId": "2",
+      "profileId": "1"
+    },
+    {
+      "id": "2",
+      "rate": 5,
+      "feedback": "!?",
+      "userId": "1",
+      "profileId": "2"
+    }
+  ],
   "notifications": [
     {
       "id": "1",

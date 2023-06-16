@@ -15,11 +15,6 @@ const MainPage = memo(() => {
           {t('mainPageContent')}
           <BugButton />
         </HStack>
-        <RatingCard
-          title="What do you think about the article?"
-          feedbackTitle="Please, stay here you oppinion about the article."
-          hasFeedback
-        />
       </VStack>
     </Page>
   );

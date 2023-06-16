@@ -8,5 +8,7 @@
   "ALL": "All",
   "hasNotArticles": "It has not any articles.",
   "recommend": "Recommend",
-  "edit": "Edit"
+  "edit": "Edit",
+  "rateArticle": "Please, rate article",
+  "articleFeedbackTitle": "Leave your feedback about the article, this will help improve the quality."
 }

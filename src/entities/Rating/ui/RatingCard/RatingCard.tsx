@@ -1,7 +1,6 @@
 import { memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { BrowserView, MobileView } from 'react-device-detect';
-import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './RatingCard.module.scss';
 import { Card } from '@/shared/ui/Card/Card';
 import { HStack, VStack } from '@/shared/ui/Stack';
@@ -18,7 +17,8 @@ type PropsType = {
   feedbackTitle?: string,
   hasFeedback?: boolean,
   onCancel?: (starsCount: number) => void,
-  onAccept?: (starsCount: number, feedback?: string | number) => void,
+  onAccept?: (starsCount: number, feedback?: string) => void,
+  rate?: number,
 };
 
 export const RatingCard = memo((props: PropsType) => {
@@ -29,11 +29,12 @@ export const RatingCard = memo((props: PropsType) => {
     hasFeedback,
     onCancel,
     onAccept,
+    rate = 0,
   } = props;
   const { t } = useTranslation();
 
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [starsCount, setStarsCount] = useState(0);
+  const [starsCount, setStarsCount] = useState(rate);
   const [feedback, setFeedback] = useState<string | number>('');
 
   const onSelectStarsHandler = useCallback((selectedStarsCount: number) => {
@@ -47,12 +48,12 @@ export const RatingCard = memo((props: PropsType) => {
 
   const onCloseHandler = useCallback(() => {
     setIsModalOpen(false);
-    onAccept?.(starsCount);
-  }, [onAccept, starsCount]);
+    onCancel?.(starsCount);
+  }, [onCancel, starsCount]);
 
   const acceptHandler = useCallback(() => {
     setIsModalOpen(false);
-    onAccept?.(starsCount, feedback);
+    onAccept?.(starsCount, feedback.toString());
   }, [feedback, onAccept, starsCount]);
 
   const modalContent = (
@@ -73,10 +74,10 @@ export const RatingCard = memo((props: PropsType) => {
   );
 
   return (
-    <Card className={classNames(cls.RatingCard, {}, [className])}>
-      <VStack align="center" gap="8">
-        <Text title={title} />
-        <StarRating size={40} onSelect={onSelectStarsHandler} />
+    <Card className={className} max>
+      <VStack align="center" gap="8" max>
+        <Text title={starsCount ? t('thanks') : title} />
+        <StarRating selectedStars={starsCount} size={40} onSelect={onSelectStarsHandler} />
         <BrowserView>
           <Modal isOpen={isModalOpen} onClose={onCloseHandler} isLazy>
             <VStack max gap="32">
