@@ -1,8 +1,10 @@
 {
+  "articleFeedbackTitle": "articleFeedbackTitle",
   "articleRequestError": "articleRequestError",
   "backToList": "backToList",
   "comments": "comments",
   "edit": "edit",
   "hasNotArticles": "hasNotArticles",
+  "rateArticle": "rateArticle",
   "recommend": "recommend"
 }

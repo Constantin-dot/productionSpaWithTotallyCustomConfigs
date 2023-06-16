@@ -14,6 +14,7 @@
   "by": "by",
   "cancelBtn": "cancelBtn",
   "cityPlaceholder": "cityPlaceholder",
+  "close": "close",
   "comments": "comments",
   "copy": "copy",
   "countryPlaceholder": "countryPlaceholder",
@@ -50,12 +51,15 @@
   "saveBtn": "saveBtn",
   "scince": "scince",
   "search": "search",
+  "send": "send",
   "sendComment": "sendComment",
   "sentComment": "sentComment",
   "server_error": "server_error",
   "signIn": "signIn",
   "signOut": "signOut",
   "sortBy": "sortBy",
+  "thanks": "thanks",
   "title": "title",
-  "usernamePlaceholder": "usernamePlaceholder"
+  "usernamePlaceholder": "usernamePlaceholder",
+  "yourFeedback": "yourFeedback"
 }
