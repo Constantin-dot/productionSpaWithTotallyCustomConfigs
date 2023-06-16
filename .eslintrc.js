@@ -71,6 +71,7 @@ module.exports = {
     'no-undef': 'off',
     'react/no-array-index-key': 'off',
     'constantin-dot-plugin/path-checker': ['error', { alias: '@' }],
+    'constantin-dot-plugin/public-api-imports': ['error', { alias: '@' }],
   },
   globals: {
     __IS_DEV__: true,

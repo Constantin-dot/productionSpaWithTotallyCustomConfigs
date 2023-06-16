@@ -1,6 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { ArticleTypeEnum, IArticle } from '@/entities/Article';
-import { ArticleBlockTypeEnum } from '@/entities/Article/model/consts/consts';
+import { ArticleTypeEnum, IArticle, ArticleBlockTypeEnum } from '@/entities/Article';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import ArticleDetailsPage from './ArticleDetailsPage';
 

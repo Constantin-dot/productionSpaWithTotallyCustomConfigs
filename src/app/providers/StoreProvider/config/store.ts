@@ -1,7 +1,7 @@
 import {
   CombinedState, configureStore, Reducer, ReducersMapObject,
 } from '@reduxjs/toolkit';
-import { counterReducer } from '@/entities/Counter/model/slice/counterSlice';
+import { counterReducer } from '@/entities/Counter';
 import { userReducer } from '@/entities/User';
 import { uiReducer } from '@/features/UI';
 import { $api } from '@/shared/api/api';

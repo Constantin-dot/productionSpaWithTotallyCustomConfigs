@@ -2,3 +2,4 @@ export { ArticleDetailsPageAsync as ArticleDetailsPage } from './ui/ArticleDetai
 export type { IArticleDetailsCommentsSchema } from './model/types/ArticleDetailsCommentsSchema';
 export type { IArticleDetailsRecommendationsSchema } from './model/types/ArticleDetailsRecommendationsSchema';
 export type { IArticleDetailsPageSchema } from './model/types';
+export { articleDetailsPageReducer } from './model/slices';

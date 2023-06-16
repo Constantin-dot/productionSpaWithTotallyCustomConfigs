@@ -80,6 +80,12 @@
       "articleId": "10",
       "rate": 3,
       "id": "cVADgwW"
+    },
+    {
+      "userId": "1",
+      "articleId": "1",
+      "rate": 3,
+      "id": "dfS7UVR"
     }
   ],
   "profile-ratings": [
