@@ -7,7 +7,6 @@ import { Icon } from '@/shared/ui/Icon/Icon';
 import { Card } from '@/shared/ui/Card/Card';
 import { Avatar } from '@/shared/ui/Avatar/Avatar';
 import { Button, ButtonVariantEnum } from '@/shared/ui/Button/Button';
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 import { AppLink } from '@/shared/ui/AppLink/AppLink';
 import {
   ArticleBlockTypeEnum,
@@ -19,6 +18,7 @@ import type {
 } from '../../model/types/article';
 import cls from './ArticleListItem.module.scss';
 import { ArticleTextBlock } from '../ArticleTextBlock/ArticleTextBlock';
+import { RoutePath } from '@/shared/const/router';
 
 type PropsType = {
   className?: string,
