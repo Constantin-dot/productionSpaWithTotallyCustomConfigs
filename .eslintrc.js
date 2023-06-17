@@ -71,6 +71,13 @@ module.exports = {
     'no-undef': 'off',
     'react/no-array-index-key': 'off',
     'constantin-dot-plugin/path-checker': ['error', { alias: '@' }],
+    'constantin-dot-plugin/layer-imports-checker': [
+      'error',
+      {
+        alias: '@',
+        ignoreImportPatterns: ['**/StoreProvider', '**/testing'],
+      },
+    ],
     'constantin-dot-plugin/public-api-imports': [
       'error',
       {

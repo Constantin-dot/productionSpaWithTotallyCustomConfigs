@@ -2,9 +2,10 @@ import {
   FC, memo, Suspense, useCallback,
 } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { AppRoutesPropsType, routeConfig } from '@/app/providers/router/config/routeConfig';
+import { routeConfig } from '../config/routeConfig';
 import { PageLoader } from '@/widgets/PageLoader';
 import { RequireAuth } from './RequireAuth';
+import type { AppRoutesPropsType } from '@/shared/types/router';
 
 const AppRouter: FC = () => {
   const renderWithWrapper = useCallback((route: AppRoutesPropsType) => {
