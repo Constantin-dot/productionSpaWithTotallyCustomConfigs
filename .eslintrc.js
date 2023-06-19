@@ -23,6 +23,7 @@ module.exports = {
     'i18next',
     'react-hooks',
     'constantin-dot-plugin',
+    'unused-imports',
   ],
   rules: {
     'react/jsx-indent': [2, 2],
@@ -85,6 +86,7 @@ module.exports = {
         testFilePatterns: ['**/*.test.*', '**/*.story.*', '**/StoreDecorator.tsx'],
       },
     ],
+    'unused-imports/no-unused-imports': 'error',
   },
   globals: {
     __IS_DEV__: true,
