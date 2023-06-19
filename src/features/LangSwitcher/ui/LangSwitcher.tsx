@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Button, ButtonVariantEnum } from '@/shared/ui/Button/Button';
+import { Button, ButtonVariantEnum } from '@/shared/ui/Button';
 
 type PropsType = { className?: string, };
 

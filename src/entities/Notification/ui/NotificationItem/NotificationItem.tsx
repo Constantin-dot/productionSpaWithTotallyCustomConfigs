@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Card, CardVariantEnum } from '@/shared/ui/Card/Card';
-import { Text, TextVariantEnum } from '@/shared/ui/Text/Text';
+import { Card, CardVariantEnum } from '@/shared/ui/Card';
+import { Text, TextVariantEnum } from '@/shared/ui/Text';
 import cls from './NotificationItem.module.scss';
 import type { INotification } from '../../model/types/notification';
 

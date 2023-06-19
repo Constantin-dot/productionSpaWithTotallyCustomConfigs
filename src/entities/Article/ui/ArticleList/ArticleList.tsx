@@ -3,7 +3,7 @@ import {
 } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Text, TextSizeEnum } from '@/shared/ui/Text/Text';
+import { Text, TextSizeEnum } from '@/shared/ui/Text';
 import type { IArticle } from '../../model/types/article';
 import { ArticleListViewVariantEnum } from '../../model/consts/consts';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';

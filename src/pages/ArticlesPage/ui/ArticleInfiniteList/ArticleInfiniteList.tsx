@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { useSelector } from 'react-redux';
 import { ArticleList } from '@/entities/Article';
-import { Text, TextAlignEnum } from '@/shared/ui/Text/Text';
+import { Text, TextAlignEnum } from '@/shared/ui/Text';
 import { getArticlesPageIsLoading } from '../../model/selectors/getArticlesPageIsLoading/getArticlesPageIsLoading';
 import { getArticlesPageView } from '../../model/selectors/getArticlesPageView/getArticlesPageView';
 import { getArticles } from '../../model/slices/articlePageSlice';

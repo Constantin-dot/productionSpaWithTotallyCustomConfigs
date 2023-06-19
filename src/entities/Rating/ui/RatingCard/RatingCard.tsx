@@ -2,14 +2,14 @@ import { memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { BrowserView, MobileView } from 'react-device-detect';
 import cls from './RatingCard.module.scss';
-import { Card } from '@/shared/ui/Card/Card';
+import { Card } from '@/shared/ui/Card';
 import { HStack, VStack } from '@/shared/ui/Stack';
-import { Text, TextSizeEnum, TextVariantEnum } from '@/shared/ui/Text/Text';
-import { StarRating } from '@/shared/ui/StarRating/StarRating';
-import { Modal } from '@/shared/ui/Modal/Modal';
-import { Input, InputVariantEnum } from '@/shared/ui/Input/Input';
-import { Button, ButtonVariantEnum } from '@/shared/ui/Button/Button';
-import { Drawer } from '@/shared/ui/Drawer/Drawer';
+import { Text, TextSizeEnum, TextVariantEnum } from '@/shared/ui/Text';
+import { StarRating } from '@/shared/ui/StarRating';
+import { Modal } from '@/shared/ui/Modal';
+import { Input, InputVariantEnum } from '@/shared/ui/Input';
+import { Button, ButtonVariantEnum } from '@/shared/ui/Button';
+import { Drawer } from '@/shared/ui/Drawer';
 
 type PropsType = {
   className?: string,
