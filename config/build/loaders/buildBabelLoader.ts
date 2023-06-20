@@ -13,18 +13,12 @@ export function buildBabelLoader({ isDev, isTsx }: buildBabelLoaderProps) {
     exclude: /node_modules/,
     use: {
       loader: 'babel-loader',
-      cacheDirectory: true,
       options: {
+        cacheDirectory: true,
         presets: [
           ['@babel/preset-env'],
         ],
         plugins: [
-          [
-            {
-              locales: ['ru', 'en'],
-              keyAsDefaultValue: true,
-            },
-          ],
           [
             '@babel/plugin-transform-typescript',
             {
