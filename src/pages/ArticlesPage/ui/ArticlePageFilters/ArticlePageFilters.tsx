@@ -4,10 +4,7 @@ import { useTranslation } from 'react-i18next';
 import {
   ArticleListViewVariantEnum,
   ArticleSortFieldEnum,
-  ArticleSortSelector,
   ArticleTypeEnum,
-  ArticleTypeTabs,
-  ArticleViewSelector,
 } from '@/entities/Article';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
@@ -24,6 +21,9 @@ import { articlesPageActions } from '../../model/slices/articlePageSlice';
 import cls from './ArticlePageFilters.module.scss';
 import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
 import { getArcticlesType } from '../../model/selectors/getArcticlesType/getArcticlesType';
+import { ArticleSortSelector } from '@/features/ArticleSortSelector';
+import { ArticleTypeTabs } from '@/features/ArticleTypeTabs';
+import { ArticleViewSelector } from '@/features/ArticleViewSelector';
 
 type PropsType = {className?: string,};
 

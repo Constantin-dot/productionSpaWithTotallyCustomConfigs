@@ -2,7 +2,7 @@ import { FC, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { ITabItem, Tabs } from '@/shared/ui/Tabs';
-import { ArticleTypeEnum } from '../../model/consts/consts';
+import { ArticleTypeEnum } from '@/entities/Article';
 
 type PropsType = {
   className?: string,
