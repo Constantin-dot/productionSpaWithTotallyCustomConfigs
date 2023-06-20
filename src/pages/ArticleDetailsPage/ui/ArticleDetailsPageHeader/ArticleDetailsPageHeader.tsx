@@ -7,7 +7,7 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button, ButtonVariantEnum } from '@/shared/ui/Button';
 import { HStack } from '@/shared/ui/Stack';
 import { getCanEditArticle } from '../../model/selectors/articles/articles';
-import { RoutePath } from '@/shared/const/router';
+import { getRouteArticles, getRouteArticlesDetails } from '@/shared/const/router';
 
 type PropsType = {className?: string,};
 
@@ -19,11 +19,13 @@ export const ArticleDetailsPageHeader = memo((props: PropsType) => {
   const canEdit = useSelector(getCanEditArticle);
 
   const onBackToList = useCallback(() => {
-    navigate(RoutePath.articles);
+    navigate(getRouteArticles());
   }, [navigate]);
 
   const onEditArticle = useCallback(() => {
-    navigate(`${RoutePath.article_details}${article?.id}/edit`);
+    if (article?.id) {
+      navigate(getRouteArticlesDetails(article?.id));
+    }
   }, [article?.id, navigate]);
 
   return (

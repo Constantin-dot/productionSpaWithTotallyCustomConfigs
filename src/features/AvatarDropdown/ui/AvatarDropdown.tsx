@@ -8,7 +8,7 @@ import {
   getUserAuthData, isUserAdmin, isUserManager, userActions,
 } from '@/entities/User';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { RoutePath } from '@/shared/const/router';
+import { getRouteAdminPanel, getRouteProfile } from '@/shared/const/router';
 
 type PropsType = {
   className?: string,
@@ -39,11 +39,11 @@ export const AvatarDropdown = memo((props: PropsType) => {
       items={[
         ...(isAdminPanelAvailable ? [{
           content: t('admin'),
-          href: RoutePath.admin_panel,
+          href: getRouteAdminPanel(),
         }] : []),
         {
           content: t('profile'),
-          href: RoutePath.profile + authData.id,
+          href: getRouteProfile(authData.id),
         },
         {
           content: t('signOut'),

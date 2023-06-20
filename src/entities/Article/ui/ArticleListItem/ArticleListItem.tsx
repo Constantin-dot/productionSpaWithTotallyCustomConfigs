@@ -18,7 +18,7 @@ import type {
 } from '../../model/types/article';
 import cls from './ArticleListItem.module.scss';
 import { ArticleTextBlock } from '../ArticleTextBlock/ArticleTextBlock';
-import { RoutePath } from '@/shared/const/router';
+import { getRouteArticlesDetails } from '@/shared/const/router';
 
 type PropsType = {
   className?: string,
@@ -63,7 +63,7 @@ export const ArticleListItem = memo((props: PropsType) => {
             )
           }
           <div className={cls.footer}>
-            <AppLink target={target} to={RoutePath.article_details + article.id}>
+            <AppLink target={target} to={getRouteArticlesDetails(article.id)}>
               <Button
                 variant={ButtonVariantEnum.OUTLINE}
               >
@@ -80,7 +80,7 @@ export const ArticleListItem = memo((props: PropsType) => {
   return (
     <AppLink
       target={target}
-      to={RoutePath.article_details + article.id}
+      to={getRouteArticlesDetails(article.id)}
       className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
     >
       <Card className={cls.card}>
