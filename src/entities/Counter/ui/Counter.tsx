@@ -1,37 +1,47 @@
 import { FC } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { Button } from '@/shared/ui/Button';
-import { getCounterValue } from '../model/selectors/getCounterValue/getCounterValue';
-import { counterActions } from '../model/slice/counterSlice';
+import { useCounterValue } from '../model/selectors/getCounterValue/getCounterValue';
+import { useCounterActions } from '../model/slice/counterSlice';
+import { HStack } from '@/shared/ui/Stack';
 
 export const Counter: FC = () => {
-  const dispatch = useDispatch();
-  const counterValue = useSelector(getCounterValue);
-  const increment = () => {
-    dispatch(counterActions.increment());
+  const counterValue = useCounterValue();
+  const { add, decrement, increment } = useCounterActions();
+
+  const incrementHandler = () => {
+    increment();
   };
 
-  const decrement = () => {
-    dispatch(counterActions.decrement());
+  const decrementHandler = () => {
+    decrement();
+  };
+
+  const addFiveHandler = () => {
+    add(5);
   };
 
   return (
-    <div>
+    <HStack justify="start" gap="32" max>
       <h1 data-testid="value-title">
         {counterValue}
       </h1>
       <Button
         data-testid="increment-btn"
-        onClick={increment}
+        onClick={incrementHandler}
       >
         increment
       </Button>
       <Button
         data-testid="decrement-btn"
-        onClick={decrement}
+        onClick={decrementHandler}
       >
         decrement
       </Button>
-    </div>
+      <Button
+        onClick={addFiveHandler}
+      >
+        add 5
+      </Button>
+    </HStack>
   );
 };

@@ -4,17 +4,19 @@ import { useTranslation } from 'react-i18next';
 import { BugButton } from '@/app/providers/ErrorBoundary';
 import { HStack, VStack } from '@/shared/ui/Stack';
 import { Page } from '@/widgets/Page';
+import { Counter } from '@/entities/Counter';
 
 const MainPage = memo(() => {
   const { t } = useTranslation('main');
 
   return (
     <Page>
-      <VStack align="start">
+      <VStack align="start" gap="16">
         <HStack justify="between" max>
           {t('mainPageContent')}
           <BugButton />
         </HStack>
+        <Counter />
       </VStack>
     </Page>
   );
