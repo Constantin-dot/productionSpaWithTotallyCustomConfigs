@@ -4,7 +4,7 @@ import {
   ArticleListViewVariantEnum, ArticleSortFieldEnum, ArticleTypeEnum, IArticle,
 } from '@/entities/Article';
 import { ARTICLES_VIEW_LOCAL_STORAGE_KEY } from '@/shared/const/localstorage';
-import { SortOrderType } from '@/shared/types';
+import { SortOrderType } from '@/shared/types/sort';
 import { fetchArticlesList } from '../services/fetchArticlesList/fetchArticlesList';
 import { IArticlesPageSchema } from '../types/articlesPageSchema';
 

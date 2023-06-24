@@ -14,7 +14,10 @@ const ProfilePage = memo((props: PropsType) => {
   const { id } = useParams<{ id: string }>();
 
   return (
-    <Page className={classNames(cls.ProfilePage, {}, [className])}>
+    <Page
+      className={classNames(cls.ProfilePage, {}, [className])}
+      data-testid="ProfilePage"
+    >
       <EditableProfileCard id={id ?? ''} />
     </Page>
   );

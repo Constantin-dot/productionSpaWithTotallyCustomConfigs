@@ -11,15 +11,16 @@ import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll/useInfin
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useThrottle } from '@/shared/lib/hooks/useThrottle/useThrottle';
 import cls from './Page.module.scss';
+import { ITestProps } from '@/shared/types/tests';
 
-type PropsType = {
+interface IProps extends ITestProps {
   className?: string;
   children: ReactNode;
   isSaveScroll?: boolean;
   onScrollEnd?: () => void;
-};
+}
 
-export const Page = (props: PropsType) => {
+export const Page = (props: IProps) => {
   const {
     className,
     children,
@@ -56,6 +57,8 @@ export const Page = (props: PropsType) => {
       className={classNames(cls.Page, {}, [className])}
       ref={wrapperRef}
       onScroll={isSaveScroll ? onScrollHandler : undefined}
+      // eslint-disable-next-line react/destructuring-assignment
+      data-testid={props['data-testid']}
     >
       {children}
       {onScrollEnd && <div className={cls.trigger} ref={triggerRef} />}

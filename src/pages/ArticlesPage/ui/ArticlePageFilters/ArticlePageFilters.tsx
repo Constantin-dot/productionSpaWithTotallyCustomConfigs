@@ -10,7 +10,7 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Card } from '@/shared/ui/Card';
 import { Input } from '@/shared/ui/Input';
-import { SortOrderType } from '@/shared/types';
+import { SortOrderType } from '@/shared/types/sort';
 import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
 import { ITabItem } from '@/shared/ui/Tabs';
 import { getArticlePageSort } from '../../model/selectors/getArticlePageSort/getArticlePageSort';
@@ -30,6 +30,7 @@ type PropsType = {className?: string,};
 export const ArticlePageFilters = memo((props: PropsType) => {
   const { className } = props;
   const { t } = useTranslation();
+
   const dispatch = useAppDispatch();
 
   const view = useSelector(getArticlesPageView);

@@ -11,7 +11,10 @@ const AdminPanelPage = memo((props: AdminPanelPageProps) => {
   const { className } = props;
 
   return (
-    <Page className={classNames(cls.AdminPanelPage, {}, [className])}>
+    <Page
+      className={classNames(cls.AdminPanelPage, {}, [className])}
+      data-testid="AdminPanelPage"
+    >
       adminka
     </Page>
   );

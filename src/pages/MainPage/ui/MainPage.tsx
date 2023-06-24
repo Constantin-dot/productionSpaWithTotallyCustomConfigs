@@ -10,7 +10,9 @@ const MainPage = memo(() => {
   const { t } = useTranslation('main');
 
   return (
-    <Page>
+    <Page
+      data-testid="MainPage"
+    >
       <VStack align="start" gap="16">
         <HStack justify="between" max>
           {t('mainPageContent')}
