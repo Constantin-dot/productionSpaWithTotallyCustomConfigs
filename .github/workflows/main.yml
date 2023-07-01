@@ -38,12 +38,12 @@
       #   run: npm run test:ui:ci
       #   if: always()
 
-      name: linting, testing, building
+name: linting, testing, building
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
 permissions:
   contents: write
   pages: write
