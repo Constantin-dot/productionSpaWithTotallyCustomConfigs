@@ -39,6 +39,7 @@ const ArticlesPage: FC<PropsType> = (props) => {
         className={classNames(cls.ArticlesPage, {}, [className])}
         isSaveScroll
         onScrollEnd={onLoadNextPart}
+        data-testid="ArticlesPage"
       >
         <VStack gap="16" max>
           <ArticlePageFilters />
