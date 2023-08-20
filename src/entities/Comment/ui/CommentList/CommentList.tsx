@@ -31,7 +31,12 @@ export const CommentList: FC<PropsType> = (props) => {
   }
 
   return (
-    <VStack gap="16" max className={classNames('', {}, [className])}>
+    <VStack
+      gap="16"
+      max
+      className={classNames('', {}, [className])}
+      data-testid="CommentCard.Content"
+    >
       {
         comments?.length
           ? comments?.map((comment) => (

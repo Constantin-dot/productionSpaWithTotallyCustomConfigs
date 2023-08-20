@@ -24,7 +24,13 @@ export const CommentCard: FC<PropsType> = (props) => {
 
   if (isLoading) {
     return (
-      <VStack gap="8" align="start" max className={classNames(cls.CommentCard, {}, [className, cls.loading])}>
+      <VStack
+        gap="8"
+        align="start"
+        max
+        className={classNames(cls.CommentCard, {}, [className, cls.loading])}
+        data-testid="CommentCard.Loading"
+      >
         <div className={cls.header}>
           <Skeleton width={30} height={30} border="50%" className={cls.avatar} />
           <Skeleton width={100} height={16} />
@@ -39,7 +45,12 @@ export const CommentCard: FC<PropsType> = (props) => {
   }
 
   return (
-    <VStack gap="8" align="start" max className={classNames(cls.CommentCard, {}, [className])}>
+    <VStack
+      gap="8"
+      align="start"
+      max
+      className={classNames(cls.CommentCard, {}, [className])}
+    >
       <AppLink to={getRouteProfile(comment.user.id)} className={cls.header}>
         {comment.user?.avatar && (
           <Avatar
