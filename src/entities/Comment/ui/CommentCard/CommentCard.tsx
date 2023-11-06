@@ -10,17 +10,13 @@ import cls from './CommentCard.module.scss';
 import { getRouteProfile } from '@/shared/const/router';
 
 type PropsType = {
-  className?: string,
-  comment?: IComment,
-  isLoading?: boolean,
+  className?: string;
+  comment?: IComment;
+  isLoading?: boolean;
 };
 
 export const CommentCard: FC<PropsType> = (props) => {
-  const {
-    className,
-    comment,
-    isLoading,
-  } = props;
+  const { className, comment, isLoading } = props;
 
   if (isLoading) {
     return (
@@ -32,7 +28,12 @@ export const CommentCard: FC<PropsType> = (props) => {
         data-testid="CommentCard.Loading"
       >
         <div className={cls.header}>
-          <Skeleton width={30} height={30} border="50%" className={cls.avatar} />
+          <Skeleton
+            width={30}
+            height={30}
+            border="50%"
+            className={cls.avatar}
+          />
           <Skeleton width={100} height={16} />
         </div>
         <Skeleton width="100%" height={50} className={cls.text} />

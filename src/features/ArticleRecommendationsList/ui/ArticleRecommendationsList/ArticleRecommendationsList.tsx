@@ -9,32 +9,35 @@ import { useArticleRecommendationsList } from '../../api/ArticleRecommendationsA
 interface ArticleRecommendationsListProps {
   className?: string;
 }
-export const ArticleRecommendationsList = memo((props: ArticleRecommendationsListProps) => {
-  const { className } = props;
-  const { t } = useTranslation('article');
+export const ArticleRecommendationsList = memo(
+  (props: ArticleRecommendationsListProps) => {
+    const { className } = props;
+    const { t } = useTranslation('article');
 
-  const { data: articles, isLoading, error } = useArticleRecommendationsList(4);
+    const {
+      data: articles,
+      isLoading,
+      error,
+    } = useArticleRecommendationsList(4);
 
-  if (isLoading || error || !articles) {
-    return null;
-  }
+    if (isLoading || error || !articles) {
+      return null;
+    }
 
-  return (
-    <VStack
-      gap="8"
-      align="start"
-      className={classNames('', {}, [className])}
-      data-testid="ArticleRecommendationsList"
-    >
-      <Text
-        size={TextSizeEnum.L}
-        title={t('recommend')}
-      />
-      <ArticleList
-        articles={articles}
-        view={ArticleListViewVariantEnum.CARDS}
-        target="_blank"
-      />
-    </VStack>
-  );
-});
+    return (
+      <VStack
+        gap="8"
+        align="start"
+        className={classNames('', {}, [className])}
+        data-testid="ArticleRecommendationsList"
+      >
+        <Text size={TextSizeEnum.L} title={t('recommend')} />
+        <ArticleList
+          articles={articles}
+          view={ArticleListViewVariantEnum.CARDS}
+          target="_blank"
+        />
+      </VStack>
+    );
+  },
+);

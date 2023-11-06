@@ -12,7 +12,7 @@ import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/get
 import { profileActions } from '../../model/slice/profileSlice';
 import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
 
-type PropsType = {className?: string,};
+type PropsType = { className?: string };
 
 export const EditableProfileCardHeader = memo((props: PropsType) => {
   const { className } = props;
@@ -65,7 +65,7 @@ export const EditableProfileCardHeader = memo((props: PropsType) => {
                 {t('saveBtn')}
               </Button>
             </HStack>
-          ) }
+          )}
         </div>
       )}
     </HStack>

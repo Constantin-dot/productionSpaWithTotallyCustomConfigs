@@ -6,19 +6,18 @@ import cls from './ArticleListItem.module.scss';
 import { ArticleListViewVariantEnum } from '../../model/consts/consts';
 
 type PropsType = {
-  className?: string,
-  view: ArticleListViewVariantEnum,
+  className?: string;
+  view: ArticleListViewVariantEnum;
 };
 
 export const ArticleListItemSkeleton = memo((props: PropsType) => {
-  const {
-    className,
-    view,
-  } = props;
+  const { className, view } = props;
 
   if (view === ArticleListViewVariantEnum.LIST) {
     return (
-      <div className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
+      <div
+        className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
+      >
         <Card className={cls.card}>
           <div className={cls.header}>
             <Skeleton border="50%" width={30} height={30} />
@@ -36,7 +35,9 @@ export const ArticleListItemSkeleton = memo((props: PropsType) => {
   }
 
   return (
-    <div className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
+    <div
+      className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
+    >
       <Card className={cls.card}>
         <div className={cls.imageWrapper}>
           <Skeleton width={200} height={200} />

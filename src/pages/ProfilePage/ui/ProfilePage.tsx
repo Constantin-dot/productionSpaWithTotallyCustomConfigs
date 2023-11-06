@@ -6,7 +6,7 @@ import { EditableProfileCard } from '@/features/EditableProfileCard';
 import cls from './ProfilePage.module.scss';
 
 type PropsType = {
-  className?: string,
+  className?: string;
 };
 
 const ProfilePage = memo((props: PropsType) => {

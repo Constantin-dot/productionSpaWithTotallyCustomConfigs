@@ -7,9 +7,12 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button, ButtonVariantEnum } from '@/shared/ui/Button';
 import { HStack } from '@/shared/ui/Stack';
 import { getCanEditArticle } from '../../model/selectors/articles/articles';
-import { getRouteArticles, getRouteArticlesDetails } from '@/shared/const/router';
+import {
+  getRouteArticles,
+  getRouteArticlesDetails,
+} from '@/shared/const/router';
 
-type PropsType = {className?: string,};
+type PropsType = { className?: string };
 
 export const ArticleDetailsPageHeader = memo((props: PropsType) => {
   const { className } = props;
@@ -30,17 +33,11 @@ export const ArticleDetailsPageHeader = memo((props: PropsType) => {
 
   return (
     <HStack justify="between" max className={classNames('', {}, [className])}>
-      <Button
-        variant={ButtonVariantEnum.OUTLINE}
-        onClick={onBackToList}
-      >
+      <Button variant={ButtonVariantEnum.OUTLINE} onClick={onBackToList}>
         {t('backToList')}
       </Button>
       {canEdit && (
-        <Button
-          variant={ButtonVariantEnum.OUTLINE}
-          onClick={onEditArticle}
-        >
+        <Button variant={ButtonVariantEnum.OUTLINE} onClick={onEditArticle}>
           {t('edit')}
         </Button>
       )}

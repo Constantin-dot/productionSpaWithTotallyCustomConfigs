@@ -5,38 +5,37 @@ import { ITabItem, Tabs } from '@/shared/ui/Tabs';
 import { ArticleTypeEnum } from '@/entities/Article';
 
 type PropsType = {
-  className?: string,
-  value: ArticleTypeEnum,
-  onTabClick: (tab: ITabItem) => void,
+  className?: string;
+  value: ArticleTypeEnum;
+  onTabClick: (tab: ITabItem) => void;
 };
 
 export const ArticleTypeTabs: FC<PropsType> = (props) => {
-  const {
-    className,
-    value,
-    onTabClick,
-  } = props;
+  const { className, value, onTabClick } = props;
 
   const { t } = useTranslation('article');
 
-  const typeTabs = useMemo<ITabItem[]>(() => [
-    {
-      value: ArticleTypeEnum.ALL,
-      content: t(ArticleTypeEnum.ALL),
-    },
-    {
-      value: ArticleTypeEnum.IT,
-      content: t(ArticleTypeEnum.IT),
-    },
-    {
-      value: ArticleTypeEnum.ECONOMICS,
-      content: t(ArticleTypeEnum.ECONOMICS),
-    },
-    {
-      value: ArticleTypeEnum.SCIENCE,
-      content: t(ArticleTypeEnum.SCIENCE),
-    },
-  ], [t]);
+  const typeTabs = useMemo<ITabItem[]>(
+    () => [
+      {
+        value: ArticleTypeEnum.ALL,
+        content: t(ArticleTypeEnum.ALL),
+      },
+      {
+        value: ArticleTypeEnum.IT,
+        content: t(ArticleTypeEnum.IT),
+      },
+      {
+        value: ArticleTypeEnum.ECONOMICS,
+        content: t(ArticleTypeEnum.ECONOMICS),
+      },
+      {
+        value: ArticleTypeEnum.SCIENCE,
+        content: t(ArticleTypeEnum.SCIENCE),
+      },
+    ],
+    [t],
+  );
 
   return (
     <Tabs

@@ -60,7 +60,6 @@ export const Navbar = memo(({ className }: INavbarProps) => {
 
   return (
     <header className={classNames(cls.Navbar, {}, [className])}>
-
       <Button
         variant={ButtonVariantEnum.CLEAR_INVERTED}
         className={cls.links}
@@ -69,10 +68,7 @@ export const Navbar = memo(({ className }: INavbarProps) => {
         {t('signIn')}
       </Button>
       {isAuthModalOpen && (
-        <LoginModal
-          isOpen={isAuthModalOpen}
-          onClose={onCloseModal}
-        />
+        <LoginModal isOpen={isAuthModalOpen} onClose={onCloseModal} />
       )}
     </header>
   );

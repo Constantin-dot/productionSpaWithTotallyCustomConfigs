@@ -10,7 +10,9 @@ describe('getArticleCommentsIsLoading.test', () => {
         },
       },
     };
-    expect(getArticleCommentsError(state as IStateSchema)).toEqual('test error');
+    expect(getArticleCommentsError(state as IStateSchema)).toEqual(
+      'test error',
+    );
   });
 
   test('should work with empty state', () => {

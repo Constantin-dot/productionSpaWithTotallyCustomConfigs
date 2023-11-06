@@ -7,17 +7,13 @@ import { IComment } from '../../model/types/comment';
 import { CommentCard } from '../CommentCard/CommentCard';
 
 type PropsType = {
-  className?: string,
-  comments?: Array<IComment>,
-  isLoading?: boolean,
+  className?: string;
+  comments?: Array<IComment>;
+  isLoading?: boolean;
 };
 
 export const CommentList: FC<PropsType> = (props) => {
-  const {
-    className,
-    comments,
-    isLoading,
-  } = props;
+  const { className, comments, isLoading } = props;
   const { t } = useTranslation();
 
   if (isLoading) {
@@ -37,17 +33,17 @@ export const CommentList: FC<PropsType> = (props) => {
       className={classNames('', {}, [className])}
       data-testid="CommentCard.Content"
     >
-      {
-        comments?.length
-          ? comments?.map((comment) => (
-            <CommentCard
-              key={comment.id}
-              comment={comment}
-              isLoading={isLoading}
-            />
-          ))
-          : <Text text={t('hasNotComments')} />
-      }
+      {comments?.length ? (
+        comments?.map((comment) => (
+          <CommentCard
+            key={comment.id}
+            comment={comment}
+            isLoading={isLoading}
+          />
+        ))
+      ) : (
+        <Text text={t('hasNotComments')} />
+      )}
     </VStack>
   );
 };

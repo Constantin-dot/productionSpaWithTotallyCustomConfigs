@@ -1,6 +1,4 @@
-import {
-  FC, HTMLAttributeAnchorTarget,
-} from 'react';
+import { FC, HTMLAttributeAnchorTarget } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Text, TextSizeEnum } from '@/shared/ui/Text';
@@ -11,16 +9,17 @@ import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkele
 import cls from './ArticleList.module.scss';
 
 type PropsType = {
-  className?: string,
-  articles: Array<IArticle>,
-  isLoading?: boolean,
-  view?: ArticleListViewVariantEnum,
-  target?: HTMLAttributeAnchorTarget,
+  className?: string;
+  articles: Array<IArticle>;
+  isLoading?: boolean;
+  view?: ArticleListViewVariantEnum;
+  target?: HTMLAttributeAnchorTarget;
 };
 
-const getSkeletons = (view: ArticleListViewVariantEnum) => new Array(view === ArticleListViewVariantEnum.CARDS ? 9 : 3)
-  .fill(0)
-  .map((_, index) => (<ArticleListItemSkeleton view={view} key={index} />));
+const getSkeletons = (view: ArticleListViewVariantEnum) =>
+  new Array(view === ArticleListViewVariantEnum.CARDS ? 9 : 3)
+    .fill(0)
+    .map((_, index) => <ArticleListItemSkeleton view={view} key={index} />);
 
 export const ArticleList: FC<PropsType> = (props) => {
   const {
@@ -44,10 +43,7 @@ export const ArticleList: FC<PropsType> = (props) => {
   if (!isLoading && !articles.length) {
     return (
       <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
-        <Text
-          title={t('hasNotArticles')}
-          size={TextSizeEnum.L}
-        />
+        <Text title={t('hasNotArticles')} size={TextSizeEnum.L} />
       </div>
     );
   }
@@ -57,11 +53,7 @@ export const ArticleList: FC<PropsType> = (props) => {
       className={classNames(cls.ArticleList, {}, [className, cls[view]])}
       data-testid="ArticleList"
     >
-      {
-        articles.length > 0
-          ? articles.map(renderArticle)
-          : null
-      }
+      {articles.length > 0 ? articles.map(renderArticle) : null}
       {isLoading && getSkeletons(view)}
     </div>
   );

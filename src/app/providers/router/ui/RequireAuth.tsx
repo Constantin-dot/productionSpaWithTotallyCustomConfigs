@@ -5,8 +5,8 @@ import { UserRoleVariant, getUserAuthData, getUserRole } from '@/entities/User';
 import { getRouteForbiddenPage, getRouteMain } from '@/shared/const/router';
 
 type PropsType = {
-  children: JSX.Element,
-  role?: Array<UserRoleVariant>,
+  children: JSX.Element;
+  role?: Array<UserRoleVariant>;
 };
 
 export function RequireAuth({ children, role }: PropsType) {
@@ -25,13 +25,7 @@ export function RequireAuth({ children, role }: PropsType) {
   }, [role, userRoles]);
 
   if (!auth) {
-    return (
-      <Navigate
-        to={getRouteMain()}
-        state={{ from: location }}
-        replace
-      />
-    );
+    return <Navigate to={getRouteMain()} state={{ from: location }} replace />;
   }
 
   if (!hasRequiredRoles) {

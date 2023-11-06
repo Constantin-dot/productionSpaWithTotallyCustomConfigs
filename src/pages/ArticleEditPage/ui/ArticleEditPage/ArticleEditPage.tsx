@@ -4,11 +4,11 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { Page } from '@/widgets/Page';
 import cls from './ArticleEditPage.module.scss';
 
-type PropsType = {className?: string,};
+type PropsType = { className?: string };
 
 const ArticleEditPage: FC<PropsType> = (props) => {
   const { className } = props;
-  const { id } = useParams<{id: string}>();
+  const { id } = useParams<{ id: string }>();
   const isEdit = Boolean(id);
 
   return (

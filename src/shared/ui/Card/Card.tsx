@@ -9,10 +9,10 @@ export enum CardVariantEnum {
 }
 
 interface IProps extends HTMLAttributes<HTMLDivElement> {
-  className?: string,
-  children: ReactNode,
-  variant?: CardVariantEnum,
-  max?: boolean,
+  className?: string;
+  children: ReactNode;
+  variant?: CardVariantEnum;
+  max?: boolean;
 }
 
 export const Card: FC<IProps> = (props) => {
@@ -25,7 +25,13 @@ export const Card: FC<IProps> = (props) => {
   } = props;
 
   return (
-    <div className={classNames(cls.Card, { [cls.max]: max }, [className, cls[variant]])} {...otherProps}>
+    <div
+      className={classNames(cls.Card, { [cls.max]: max }, [
+        className,
+        cls[variant],
+      ])}
+      {...otherProps}
+    >
       {children}
     </div>
   );

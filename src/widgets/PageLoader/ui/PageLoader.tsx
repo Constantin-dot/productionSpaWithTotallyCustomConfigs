@@ -3,7 +3,7 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { Loader } from '@/shared/ui/Loader';
 import cls from './PageLoader.module.scss';
 
-type PropsType = {className?: string,};
+type PropsType = { className?: string };
 
 export const PageLoader: FC<PropsType> = (props) => {
   const { className } = props;

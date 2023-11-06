@@ -14,27 +14,20 @@ type PropsType = {
 };
 
 export const Popover = (props: PropsType) => {
-  const {
-    className,
-    trigger,
-    direction = 'bottomRight',
-    children,
-  } = props;
+  const { className, trigger, direction = 'bottomRight', children } = props;
 
   const panelClasses = [mapDirectionClass[direction]];
 
   return (
-    <HPopover className={classNames(cls.Popover, {}, [className, popupCls.popup])}>
+    <HPopover
+      className={classNames(cls.Popover, {}, [className, popupCls.popup])}
+    >
       <HPopover.Button as="div" className={popupCls.trigger}>
         {trigger}
       </HPopover.Button>
 
-      <HPopover.Panel
-        className={classNames(cls.panel, {}, panelClasses)}
-      >
-        {
-          children
-        }
+      <HPopover.Panel className={classNames(cls.panel, {}, panelClasses)}>
+        {children}
       </HPopover.Panel>
     </HPopover>
   );

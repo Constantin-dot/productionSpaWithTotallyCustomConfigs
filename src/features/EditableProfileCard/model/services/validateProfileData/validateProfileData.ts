@@ -6,12 +6,7 @@ export const validateProfileData = (profile?: IProfile) => {
     return [ProfileValidateErrorEnum.NO_DATA];
   }
 
-  const {
-    firstname,
-    lastname,
-    age,
-    country,
-  } = profile;
+  const { firstname, lastname, age, country } = profile;
 
   const errors: ProfileValidateErrorEnum[] = [];
 

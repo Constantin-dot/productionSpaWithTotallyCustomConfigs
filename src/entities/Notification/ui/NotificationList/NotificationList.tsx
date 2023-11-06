@@ -7,8 +7,8 @@ import { useNotifications } from '../../api/notificationApi';
 import { NotificationItem } from '../NotificationItem/NotificationItem';
 
 type PropsType = {
-  className?: string,
-  isInvertedItemColor?: boolean,
+  className?: string;
+  isInvertedItemColor?: boolean;
 };
 
 export const NotificationList = memo((props: PropsType) => {
@@ -17,7 +17,11 @@ export const NotificationList = memo((props: PropsType) => {
 
   if (isLoading) {
     return (
-      <VStack gap="16" max className={classNames(cls.NotificationList, {}, [className])}>
+      <VStack
+        gap="16"
+        max
+        className={classNames(cls.NotificationList, {}, [className])}
+      >
         <Skeleton width="100%" border="8px" height="80px" />
         <Skeleton width="100%" border="8px" height="80px" />
         <Skeleton width="100%" border="8px" height="80px" />
@@ -26,12 +30,18 @@ export const NotificationList = memo((props: PropsType) => {
   }
 
   return (
-    <VStack gap="16" max className={classNames(cls.NotificationList, {}, [className])}>
-      {
-        data?.map((item) => (
-          <NotificationItem key={item.id} item={item} isInvertedItemColor={isInvertedItemColor} />
-        ))
-      }
+    <VStack
+      gap="16"
+      max
+      className={classNames(cls.NotificationList, {}, [className])}
+    >
+      {data?.map((item) => (
+        <NotificationItem
+          key={item.id}
+          item={item}
+          isInvertedItemColor={isInvertedItemColor}
+        />
+      ))}
     </VStack>
   );
 });

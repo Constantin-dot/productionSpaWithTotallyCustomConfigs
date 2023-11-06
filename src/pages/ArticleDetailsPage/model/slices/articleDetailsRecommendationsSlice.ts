@@ -8,18 +8,24 @@ const recommendationsAdapter = createEntityAdapter<IArticle>({
   selectId: (article) => article.id,
 });
 
-export const getArticleRecommendations = recommendationsAdapter.getSelectors<IStateSchema>(
-  (state) => state.articleDetailsPage?.recommendations || recommendationsAdapter.getInitialState(),
-);
+export const getArticleRecommendations =
+  recommendationsAdapter.getSelectors<IStateSchema>(
+    (state) =>
+      state.articleDetailsPage?.recommendations ||
+      recommendationsAdapter.getInitialState(),
+  );
 
 export const articleDetailsRecommendationsSlice = createSlice({
   name: 'articleDetailsRecommendationsSlice',
-  initialState: recommendationsAdapter.getInitialState<IArticleDetailsRecommendationsSchema>({
-    isLoading: false,
-    error: undefined,
-    ids: [],
-    entities: {},
-  }),
+  initialState:
+    recommendationsAdapter.getInitialState<IArticleDetailsRecommendationsSchema>(
+      {
+        isLoading: false,
+        error: undefined,
+        ids: [],
+        entities: {},
+      },
+    ),
   reducers: {
     // setView: (state, action: PayloadAction<ArticleListViewVariantEnum>) => {
     //   state.view = action.payload;
@@ -45,4 +51,5 @@ export const articleDetailsRecommendationsSlice = createSlice({
   },
 });
 
-export const { reducer: articleDetailsRecommendationsReducer } = articleDetailsRecommendationsSlice;
+export const { reducer: articleDetailsRecommendationsReducer } =
+  articleDetailsRecommendationsSlice;

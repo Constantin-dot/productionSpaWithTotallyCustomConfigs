@@ -10,13 +10,13 @@ import { getArticlesPageLimit } from '../../selectors/getArticlesPageLimit/getAr
 import { getArticlesPageNumber } from '../../selectors/getArticlesPageNumber/getArticlesPageNumber';
 
 type PropsType = {
-  replace?: boolean,
+  replace?: boolean;
 };
 
 export const fetchArticlesList = createAsyncThunk<
-Array<IArticle>,
-PropsType,
-ThunkConfig<string>
+  Array<IArticle>,
+  PropsType,
+  ThunkConfig<string>
 >(
   'articlesPage/fetchArticlesList',
   async (_, { extra, rejectWithValue, getState }) => {

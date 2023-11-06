@@ -7,15 +7,9 @@ const path = require('path');
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [
-    tsconfigPaths(),
-    svgr({ exportAsDefault: true }),
-    react(),
-  ],
+  plugins: [tsconfigPaths(), svgr({ exportAsDefault: true }), react()],
   resolve: {
-    alias: [
-      { find: '@', replacement: path.resolve(__dirname, '/src') },
-    ],
+    alias: [{ find: '@', replacement: path.resolve(__dirname, '/src') }],
   },
   define: {
     __IS_DEV__: JSON.stringify(true),

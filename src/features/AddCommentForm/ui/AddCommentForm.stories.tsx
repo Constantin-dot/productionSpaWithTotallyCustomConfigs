@@ -13,12 +13,12 @@ export default {
   decorators: [(Story) => I18nextDecorator(Story)],
 } as ComponentMeta<typeof AddCommentForm>;
 
-const Template: ComponentStory<typeof AddCommentForm> = (args) => <AddCommentForm {...args} />;
+const Template: ComponentStory<typeof AddCommentForm> = (args) => (
+  <AddCommentForm {...args} />
+);
 
 export const Primary = Template.bind({});
 Primary.args = {
   onSendComment: action('onSendComment'),
 };
-Primary.decorators = [
-  StoreDecorator({}),
-];
+Primary.decorators = [StoreDecorator({})];

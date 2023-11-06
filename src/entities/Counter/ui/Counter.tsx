@@ -22,26 +22,14 @@ export const Counter: FC = () => {
 
   return (
     <HStack justify="start" gap="32" max>
-      <h1 data-testid="value-title">
-        {counterValue}
-      </h1>
-      <Button
-        data-testid="increment-btn"
-        onClick={incrementHandler}
-      >
+      <h1 data-testid="value-title">{counterValue}</h1>
+      <Button data-testid="increment-btn" onClick={incrementHandler}>
         increment
       </Button>
-      <Button
-        data-testid="decrement-btn"
-        onClick={decrementHandler}
-      >
+      <Button data-testid="decrement-btn" onClick={decrementHandler}>
         decrement
       </Button>
-      <Button
-        onClick={addFiveHandler}
-      >
-        add 5
-      </Button>
+      <Button onClick={addFiveHandler}>add 5</Button>
     </HStack>
   );
 };

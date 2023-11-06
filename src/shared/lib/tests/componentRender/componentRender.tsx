@@ -23,7 +23,7 @@ interface ITestProviderProps {
   options?: IComponentRenderOptions;
 }
 
-export function TestProvider(props:ITestProviderProps) {
+export function TestProvider(props: ITestProviderProps) {
   const { children, options = {} } = props;
   const {
     route = '/',
@@ -37,9 +37,7 @@ export function TestProvider(props:ITestProviderProps) {
       <StoreProvider asyncReducers={asyncReducers} initialState={initialState}>
         <I18nextProvider i18n={i18nForTests}>
           <ThemeProvider initialTheme={theme}>
-            <div className={`app ${theme}`}>
-              {children}
-            </div>
+            <div className={`app ${theme}`}>{children}</div>
           </ThemeProvider>
         </I18nextProvider>
       </StoreProvider>

@@ -4,7 +4,7 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { Page } from '@/widgets/Page';
 
 type PropsType = {
-  className?: string,
+  className?: string;
 };
 
 export const ForbiddenPage = memo((props: PropsType) => {

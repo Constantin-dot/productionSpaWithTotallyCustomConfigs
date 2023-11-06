@@ -9,9 +9,7 @@ const data = {
   views: 314,
   createdAt: '22.01.2023',
   userId: '1',
-  type: [
-    'IT',
-  ],
+  type: ['IT'],
   blocks: [
     {
       id: '1',

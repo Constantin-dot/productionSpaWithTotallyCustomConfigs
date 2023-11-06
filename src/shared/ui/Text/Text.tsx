@@ -22,13 +22,13 @@ export enum TextSizeEnum {
 }
 
 type PropsType = {
-  className?: string,
-  title?: string | null,
-  text?: string | null,
-  variant?: TextVariantEnum,
-  align?: TextAlignEnum,
-  size?: TextSizeEnum,
-  'data-testid'?: string,
+  className?: string;
+  title?: string | null;
+  text?: string | null;
+  variant?: TextVariantEnum;
+  align?: TextAlignEnum;
+  size?: TextSizeEnum;
+  'data-testid'?: string;
 };
 
 type HeaderTagType = 'h1' | 'h2' | 'h3' | 'h4';

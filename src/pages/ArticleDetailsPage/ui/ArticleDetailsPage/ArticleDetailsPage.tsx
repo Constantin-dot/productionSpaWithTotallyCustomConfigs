@@ -2,7 +2,10 @@ import { FC, memo } from 'react';
 import { useParams } from 'react-router-dom';
 import { ArticleDetails } from '@/entities/Article';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { DynamicModuleLoader, ReducersListType } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import {
+  DynamicModuleLoader,
+  ReducersListType,
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { Page } from '@/widgets/Page';
 import { VStack } from '@/shared/ui/Stack';
 import { ArticleRecommendationsList } from '@/features/ArticleRecommendationsList';
@@ -12,7 +15,7 @@ import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDet
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';
 import { ArticleRating } from '@/features/ArticleRating';
 
-type PropsType = {className?: string,};
+type PropsType = { className?: string };
 
 const reducers: ReducersListType = {
   articleDetailsPage: articleDetailsPageReducer,
@@ -21,7 +24,7 @@ const reducers: ReducersListType = {
 const ArticleDetailsPage: FC<PropsType> = (props) => {
   const { className } = props;
 
-  const { id } = useParams<{id: string}>();
+  const { id } = useParams<{ id: string }>();
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>

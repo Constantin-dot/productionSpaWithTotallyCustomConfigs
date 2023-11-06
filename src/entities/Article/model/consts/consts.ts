@@ -19,5 +19,5 @@ export enum ArticleTypeEnum {
 
 export enum ArticleListViewVariantEnum {
   LIST = 'list',
-  CARDS = 'cards'
+  CARDS = 'cards',
 }

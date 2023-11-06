@@ -20,9 +20,7 @@ export const ArticleInfiniteList = memo((props: PropsType) => {
   const error = useSelector(getArticlesPageError);
 
   if (error) {
-    return (
-      <Text title="Error!" text={error} align={TextAlignEnum.CENTER} />
-    );
+    return <Text title="Error!" text={error} align={TextAlignEnum.CENTER} />;
   }
 
   return (

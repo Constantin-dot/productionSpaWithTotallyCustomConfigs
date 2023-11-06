@@ -7,48 +7,48 @@ import cls from './ArticleSortSelector.module.scss';
 import { ArticleSortFieldEnum } from '@/entities/Article';
 
 type PropsType = {
-  className?: string,
-  sort: ArticleSortFieldEnum,
-  order: SortOrderType,
-  onChangeSort: (newSort: ArticleSortFieldEnum) => void,
-  onChangeOrder: (newOrder: SortOrderType) => void,
+  className?: string;
+  sort: ArticleSortFieldEnum;
+  order: SortOrderType;
+  onChangeSort: (newSort: ArticleSortFieldEnum) => void;
+  onChangeOrder: (newOrder: SortOrderType) => void;
 };
 
 export const ArticleSortSelector = memo((props: PropsType) => {
-  const {
-    className,
-    sort,
-    order,
-    onChangeSort,
-    onChangeOrder,
-  } = props;
+  const { className, sort, order, onChangeSort, onChangeOrder } = props;
   const { t } = useTranslation();
 
-  const orderOptions = useMemo<Array<ISelectOption<SortOrderType>>>(() => [
-    {
-      value: 'asc',
-      content: t('asc'),
-    },
-    {
-      value: 'desc',
-      content: t('desc'),
-    },
-  ], [t]);
+  const orderOptions = useMemo<Array<ISelectOption<SortOrderType>>>(
+    () => [
+      {
+        value: 'asc',
+        content: t('asc'),
+      },
+      {
+        value: 'desc',
+        content: t('desc'),
+      },
+    ],
+    [t],
+  );
 
-  const sortFieldOptions = useMemo<Array<ISelectOption<ArticleSortFieldEnum>>>(() => [
-    {
-      value: ArticleSortFieldEnum.CREATED,
-      content: t(ArticleSortFieldEnum.CREATED),
-    },
-    {
-      value: ArticleSortFieldEnum.TITLE,
-      content: t(ArticleSortFieldEnum.TITLE),
-    },
-    {
-      value: ArticleSortFieldEnum.VIEWS,
-      content: t(ArticleSortFieldEnum.VIEWS),
-    },
-  ], [t]);
+  const sortFieldOptions = useMemo<Array<ISelectOption<ArticleSortFieldEnum>>>(
+    () => [
+      {
+        value: ArticleSortFieldEnum.CREATED,
+        content: t(ArticleSortFieldEnum.CREATED),
+      },
+      {
+        value: ArticleSortFieldEnum.TITLE,
+        content: t(ArticleSortFieldEnum.TITLE),
+      },
+      {
+        value: ArticleSortFieldEnum.VIEWS,
+        content: t(ArticleSortFieldEnum.VIEWS),
+      },
+    ],
+    [t],
+  );
 
   return (
     <div className={classNames(cls.ArticleSortSelector, {}, [className])}>

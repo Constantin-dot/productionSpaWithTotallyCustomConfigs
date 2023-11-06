@@ -5,13 +5,19 @@ import { loginByUsername } from './loginByUsername';
 
 describe('loginByUsername.test', () => {
   test('should be called with status fulfilled', async () => {
-    const userValue = { username: 'test', id: '1', role: ['ADMIN'] as Array<UserRoleVariant> };
+    const userValue = {
+      username: 'test',
+      id: '1',
+      role: ['ADMIN'] as Array<UserRoleVariant>,
+    };
 
     const thunk = new TestAsyncThunk(loginByUsername);
     thunk.api.post.mockReturnValue(Promise.resolve({ data: userValue }));
     const result = await thunk.callThunk({ username: 'test', password: '123' });
 
-    expect(thunk.dispatch).toHaveBeenCalledWith(userActions.setAuthData(userValue));
+    expect(thunk.dispatch).toHaveBeenCalledWith(
+      userActions.setAuthData(userValue),
+    );
     expect(thunk.dispatch).toHaveBeenCalledTimes(3);
     expect(thunk.api.post).toHaveBeenCalled();
     expect(result.meta.requestStatus).toBe('fulfilled');

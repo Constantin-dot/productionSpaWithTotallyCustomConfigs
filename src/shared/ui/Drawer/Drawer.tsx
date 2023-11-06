@@ -1,29 +1,25 @@
-import {
-  ReactNode, memo, useCallback, useEffect,
-} from 'react';
+import { ReactNode, memo, useCallback, useEffect } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { AnimationProvider, useAnimationLibs } from '@/shared/lib/components/AnimationProvider';
+import {
+  AnimationProvider,
+  useAnimationLibs,
+} from '@/shared/lib/components/AnimationProvider';
 import cls from './Drawer.module.scss';
 import { Portal } from '../Portal/Portal';
 import { Overlay } from '../Overlay/Overlay';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
 
 type PropsType = {
-  className?: string,
-  children: ReactNode,
-  isOpen?: boolean,
-  onClose?: () => void,
+  className?: string;
+  children: ReactNode;
+  isOpen?: boolean;
+  onClose?: () => void;
 };
 
 const height = window.innerHeight - 100;
 
 export const DrawerContent = memo((props: PropsType) => {
-  const {
-    className,
-    children,
-    isOpen,
-    onClose,
-  } = props;
+  const { className, children, isOpen, onClose } = props;
   const { Spring, Gesture } = useAnimationLibs();
   const [{ y }, api] = Spring.useSpring(() => ({ y: height }));
   const { theme } = useTheme();
@@ -85,7 +81,9 @@ export const DrawerContent = memo((props: PropsType) => {
 
   return (
     <Portal>
-      <div className={classNames(cls.Drawer, {}, [className, theme, 'app-drawer'])}>
+      <div
+        className={classNames(cls.Drawer, {}, [className, theme, 'app-drawer'])}
+      >
         <Overlay onClick={close} />
         <Spring.a.div
           className={cls.sheet}

@@ -15,7 +15,8 @@ const article = {
   user: {
     id: '1',
     username: 'admin',
-    avatar: 'https://cdn.jpegmini.com/user/images/slider_puffin_before_mobile.jpg',
+    avatar:
+      'https://cdn.jpegmini.com/user/images/slider_puffin_before_mobile.jpg',
   },
   title: 'Javascript news sfasdf adfs asf as f asdfasdfa',
   subtitle: 'Что нового в JS за 2022 год?',
@@ -143,9 +144,7 @@ const article = {
   JrUtuFjrc79ItSBOmlzvJ5QhGQjNA+vZGe0SDa0xCK+B1yMoQhEHCEIQAJmEIAYhCEACEIQALwhCAH//2Q==`,
   views: 314,
   createdAt: '22.01.2023',
-  type: [
-    'IT', 'POLITICS', 'ECONOMICS', 'SINCE',
-  ],
+  type: ['IT', 'POLITICS', 'ECONOMICS', 'SINCE'],
   blocks: [
     {
       id: '1',
@@ -262,7 +261,9 @@ const article = {
   ],
 } as any;
 
-const Template: ComponentStory<typeof ArticleListItem> = (args) => <ArticleListItem {...args} />;
+const Template: ComponentStory<typeof ArticleListItem> = (args) => (
+  <ArticleListItem {...args} />
+);
 
 export const ListItem = Template.bind({});
 ListItem.args = {

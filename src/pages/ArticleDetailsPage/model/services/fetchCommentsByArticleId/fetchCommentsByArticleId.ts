@@ -3,9 +3,9 @@ import { ThunkConfig } from '@/app/providers/StoreProvider';
 import { IComment } from '@/entities/Comment';
 
 export const fetchCommentsByArticleId = createAsyncThunk<
-Array<IComment>,
-string | undefined,
-ThunkConfig<string>
+  Array<IComment>,
+  string | undefined,
+  ThunkConfig<string>
 >(
   'pages/fetchCommentsByArticleId',
   async (articleId, { extra, rejectWithValue }) => {

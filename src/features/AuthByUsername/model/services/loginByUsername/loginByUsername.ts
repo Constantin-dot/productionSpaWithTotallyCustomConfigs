@@ -9,9 +9,9 @@ interface ILoginByUsernameProps {
 }
 
 export const loginByUsername = createAsyncThunk<
-IUser,
-ILoginByUsernameProps,
-ThunkConfig<string>
+  IUser,
+  ILoginByUsernameProps,
+  ThunkConfig<string>
 >(
   'login/loginByUsername',
   async (authData, { dispatch, extra, rejectWithValue }) => {
@@ -22,7 +22,10 @@ ThunkConfig<string>
         throw new Error();
       }
 
-      localStorage.setItem(LOCAL_STORAGE_USER_KEY, JSON.stringify(response.data));
+      localStorage.setItem(
+        LOCAL_STORAGE_USER_KEY,
+        JSON.stringify(response.data),
+      );
       dispatch(userActions.setAuthData(response.data));
 
       return response.data;

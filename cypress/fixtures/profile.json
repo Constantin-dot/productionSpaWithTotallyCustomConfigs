@@ -7,8 +7,6 @@
   "country": "Russia",
   "city": "Moscow",
   "username": "test_admin",
-  "role": [
-      "ADMIN"
-  ],
+  "role": ["ADMIN"],
   "avatar": "https://cdn.jpegmini.com/user/images/slider_puffin_before_mobile.jpg"
 }

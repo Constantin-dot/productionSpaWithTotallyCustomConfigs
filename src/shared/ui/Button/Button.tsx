@@ -3,28 +3,28 @@ import { classNames, ModsType } from '@/shared/lib/classNames/classNames';
 import cls from './Button.module.scss';
 
 export enum ButtonVariantEnum {
-    CLEAR = 'clear',
-    CLEAR_INVERTED = 'clearInverted',
-    OUTLINE = 'outline',
-    OUTLINE_RED = 'outline_red',
-    OUTLIN_INVERTED = 'outlineInverted',
-    BACKGROUND = 'background',
-    INVERTED_BACKGROUND = 'invertedBackground'
+  CLEAR = 'clear',
+  CLEAR_INVERTED = 'clearInverted',
+  OUTLINE = 'outline',
+  OUTLINE_RED = 'outline_red',
+  OUTLIN_INVERTED = 'outlineInverted',
+  BACKGROUND = 'background',
+  INVERTED_BACKGROUND = 'invertedBackground',
 }
 
 export enum ButtonSizeEnum {
   S = 'size_s',
   M = 'size_m',
-  L = 'size_l'
+  L = 'size_l',
 }
 
 interface IProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-    className?: string,
-    isSquare?: boolean,
-    size?: ButtonSizeEnum,
-    variant?: ButtonVariantEnum,
-    disabled?: boolean,
-    children?: ReactNode,
+  className?: string;
+  isSquare?: boolean;
+  size?: ButtonSizeEnum;
+  variant?: ButtonVariantEnum;
+  disabled?: boolean;
+  children?: ReactNode;
 }
 
 export const Button = memo((props: IProps) => {

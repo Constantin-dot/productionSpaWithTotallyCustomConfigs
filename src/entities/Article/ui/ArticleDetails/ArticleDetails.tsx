@@ -2,7 +2,10 @@ import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { DynamicModuleLoader, ReducersListType } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import {
+  DynamicModuleLoader,
+  ReducersListType,
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Avatar } from '@/shared/ui/Avatar';
 import { Skeleton } from '@/shared/ui/Skeleton';
@@ -31,8 +34,8 @@ const reducers: ReducersListType = {
 };
 
 type PropsType = {
-  id?: string,
-  className?: string,
+  id?: string;
+  className?: string;
 };
 
 export const ArticleDetails = memo((props: PropsType) => {
@@ -45,32 +48,32 @@ export const ArticleDetails = memo((props: PropsType) => {
 
   const renderBlockHandler = useCallback((block: ArticleBlockType) => {
     switch (block.type) {
-    case ArticleBlockTypeEnum.CODE:
-      return (
-        <ArticleCodeBlock
-          key={block.id}
-          block={block}
-          className={cls.block}
-        />
-      );
-    case ArticleBlockTypeEnum.IMAGE:
-      return (
-        <ArticleImageBlock
-          key={block.id}
-          block={block}
-          className={cls.block}
-        />
-      );
-    case ArticleBlockTypeEnum.TEXT:
-      return (
-        <ArticleTextBlock
-          key={block.id}
-          block={block}
-          className={cls.block}
-        />
-      );
-    default:
-      return null;
+      case ArticleBlockTypeEnum.CODE:
+        return (
+          <ArticleCodeBlock
+            key={block.id}
+            block={block}
+            className={cls.block}
+          />
+        );
+      case ArticleBlockTypeEnum.IMAGE:
+        return (
+          <ArticleImageBlock
+            key={block.id}
+            block={block}
+            className={cls.block}
+          />
+        );
+      case ArticleBlockTypeEnum.TEXT:
+        return (
+          <ArticleTextBlock
+            key={block.id}
+            block={block}
+            className={cls.block}
+          />
+        );
+      default:
+        return null;
     }
   }, []);
 
@@ -84,36 +87,17 @@ export const ArticleDetails = memo((props: PropsType) => {
     content = (
       <>
         <HStack justify="center" max>
-          <Skeleton
-            width={200}
-            height={200}
-            border="50%"
-          />
+          <Skeleton width={200} height={200} border="50%" />
         </HStack>
-        <Skeleton
-          width={300}
-          height={32}
-        />
-        <Skeleton
-          width={600}
-          height={24}
-        />
-        <Skeleton
-          width="100%"
-          height={200}
-        />
-        <Skeleton
-          width="100%"
-          height={200}
-        />
+        <Skeleton width={300} height={32} />
+        <Skeleton width={600} height={24} />
+        <Skeleton width="100%" height={200} />
+        <Skeleton width="100%" height={200} />
       </>
     );
   } else if (error) {
     content = (
-      <Text
-        title={t('articleRequestError')}
-        align={TextAlignEnum.CENTER}
-      />
+      <Text title={t('articleRequestError')} align={TextAlignEnum.CENTER} />
     );
   } else {
     content = (

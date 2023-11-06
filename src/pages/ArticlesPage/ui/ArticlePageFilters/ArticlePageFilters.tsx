@@ -25,7 +25,7 @@ import { ArticleSortSelector } from '@/features/ArticleSortSelector';
 import { ArticleTypeTabs } from '@/features/ArticleTypeTabs';
 import { ArticleViewSelector } from '@/features/ArticleViewSelector';
 
-type PropsType = {className?: string,};
+type PropsType = { className?: string };
 
 export const ArticlePageFilters = memo((props: PropsType) => {
   const { className } = props;
@@ -45,35 +45,50 @@ export const ArticlePageFilters = memo((props: PropsType) => {
 
   const debouncedFetchData = useDebounce(fetchData, 1000);
 
-  const onChangeView = useCallback((view: ArticleListViewVariantEnum) => {
-    dispatch(articlesPageActions.setView(view));
-    dispatch(articlesPageActions.setPage(1));
-    fetchData();
-  }, [dispatch, fetchData]);
+  const onChangeView = useCallback(
+    (view: ArticleListViewVariantEnum) => {
+      dispatch(articlesPageActions.setView(view));
+      dispatch(articlesPageActions.setPage(1));
+      fetchData();
+    },
+    [dispatch, fetchData],
+  );
 
-  const onChangeSort = useCallback((sort: ArticleSortFieldEnum) => {
-    dispatch(articlesPageActions.setSort(sort));
-    dispatch(articlesPageActions.setPage(1));
-    fetchData();
-  }, [dispatch, fetchData]);
+  const onChangeSort = useCallback(
+    (sort: ArticleSortFieldEnum) => {
+      dispatch(articlesPageActions.setSort(sort));
+      dispatch(articlesPageActions.setPage(1));
+      fetchData();
+    },
+    [dispatch, fetchData],
+  );
 
-  const onChangeOrder = useCallback((order: SortOrderType) => {
-    dispatch(articlesPageActions.setOrder(order));
-    dispatch(articlesPageActions.setPage(1));
-    fetchData();
-  }, [dispatch, fetchData]);
+  const onChangeOrder = useCallback(
+    (order: SortOrderType) => {
+      dispatch(articlesPageActions.setOrder(order));
+      dispatch(articlesPageActions.setPage(1));
+      fetchData();
+    },
+    [dispatch, fetchData],
+  );
 
-  const onChangeSearch = useCallback((value: string | number) => {
-    dispatch(articlesPageActions.setSearch(String(value)));
-    dispatch(articlesPageActions.setPage(1));
-    debouncedFetchData();
-  }, [dispatch, debouncedFetchData]);
+  const onChangeSearch = useCallback(
+    (value: string | number) => {
+      dispatch(articlesPageActions.setSearch(String(value)));
+      dispatch(articlesPageActions.setPage(1));
+      debouncedFetchData();
+    },
+    [dispatch, debouncedFetchData],
+  );
 
-  const onChangeType = useCallback((tab: ITabItem) => {
-    dispatch(articlesPageActions.setType(tab.value as ArticleTypeEnum));
-    dispatch(articlesPageActions.setPage(1));
-    fetchData();
-  }, [dispatch, fetchData]);
+  const onChangeType = useCallback(
+    (tab: ITabItem) => {
+      dispatch(articlesPageActions.setType(tab.value as ArticleTypeEnum));
+      dispatch(articlesPageActions.setPage(1));
+      fetchData();
+    },
+    [dispatch, fetchData],
+  );
 
   return (
     <div className={classNames(cls.ArticlePageFilters, {}, [className])}>

@@ -4,7 +4,7 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { Page } from '@/widgets/Page';
 import cls from './NotFoundPage.module.scss';
 
-type PropsType = {className?: string,};
+type PropsType = { className?: string };
 
 export const NotFoundPage = memo((props: PropsType) => {
   const { className } = props;

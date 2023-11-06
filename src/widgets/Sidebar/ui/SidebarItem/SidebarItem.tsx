@@ -8,16 +8,13 @@ import { ISidebarItem } from '../../model/types/sidebar';
 import cls from './SidebarItem.module.scss';
 
 type PropsType = {
-  item: ISidebarItem,
-  collapsed: boolean,
+  item: ISidebarItem;
+  collapsed: boolean;
 };
 
 export const SidebarItem = memo((props: PropsType) => {
   const { t } = useTranslation();
-  const {
-    item,
-    collapsed,
-  } = props;
+  const { item, collapsed } = props;
 
   const isAuth = useSelector(getUserAuthData);
 

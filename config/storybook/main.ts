@@ -3,9 +3,7 @@ import { Configuration, DefinePlugin, RuleSetRule } from 'webpack';
 import { buildCssLoader } from '../build/loaders/buildCssLoader';
 
 export default {
-  stories: [
-    '../../src/**/*.stories.@(js|jsx|ts|tsx)',
-  ],
+  stories: ['../../src/**/*.stories.@(js|jsx|ts|tsx)'],
   addons: [
     '@storybook/addon-links',
     {
@@ -47,10 +45,9 @@ export default {
     };
 
     const rules = config!.module!.rules as RuleSetRule[];
-    config.module!.rules = rules.map((rule) => (/svg/.test(rule.test as string)
-      ? { ...rule, exclude: /\.svg$/i }
-      : rule
-    ));
+    config.module!.rules = rules.map((rule) =>
+      /svg/.test(rule.test as string) ? { ...rule, exclude: /\.svg$/i } : rule,
+    );
 
     config.module!.rules.push({
       test: /\.svg$/,
@@ -59,11 +56,13 @@ export default {
 
     config.module!.rules.push(buildCssLoader(true));
 
-    config.plugins!.push(new DefinePlugin({
-      __IS_DEV__: JSON.stringify(true),
-      __API__: JSON.stringify('https://testapi.ru'),
-      __PROJECT__: JSON.stringify('storybook'),
-    }));
+    config.plugins!.push(
+      new DefinePlugin({
+        __IS_DEV__: JSON.stringify(true),
+        __API__: JSON.stringify('https://testapi.ru'),
+        __PROJECT__: JSON.stringify('storybook'),
+      }),
+    );
 
     return config;
   },

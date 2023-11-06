@@ -6,14 +6,12 @@ import { getUserAuthData } from '@/entities/User';
 import { fetchCommentsByArticleId } from '../../services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 
 export const addCommentForArticle = createAsyncThunk<
-IComment,
-string,
-ThunkConfig<string>
+  IComment,
+  string,
+  ThunkConfig<string>
 >(
   'articleDetails/addCommentForArticle',
-  async (text, {
-    extra, dispatch, rejectWithValue, getState,
-  }) => {
+  async (text, { extra, dispatch, rejectWithValue, getState }) => {
     const userData = getUserAuthData(getState());
     const article = getArticleDetailsData(getState());
 

@@ -10,7 +10,7 @@ import { Drawer } from '@/shared/ui/Drawer';
 import cls from './NotificationButton.module.scss';
 
 type PropsType = {
-  className?: string,
+  className?: string;
 };
 
 export const NotificationButton = memo((props: PropsType) => {

@@ -12,19 +12,19 @@ import { IProfile } from '../../model/types/profile';
 import cls from './ProfileCard.module.scss';
 
 type PropsType = {
-  className?: string,
-  data?: IProfile,
-  isLoading?: boolean,
-  error?: string,
-  readonly?: boolean,
-  onFirstnameChangeHandler?: (value: string | number) => void,
-  onLastnameChangeHandler?: (value: string | number) => void,
-  onAgeChangeHandler?: (value: string | number) => void,
-  onCityChangeHandler?: (value: string | number) => void,
-  onUsernameChangeHandler?: (value: string | number) => void,
-  onAvatarChangeHandler?: (value: string | number) => void,
-  onCurrencyChangeHandler?: (value: CurrencyEnum) => void,
-  onCountryChangeHandler?: (value: CountryEnum) => void,
+  className?: string;
+  data?: IProfile;
+  isLoading?: boolean;
+  error?: string;
+  readonly?: boolean;
+  onFirstnameChangeHandler?: (value: string | number) => void;
+  onLastnameChangeHandler?: (value: string | number) => void;
+  onAgeChangeHandler?: (value: string | number) => void;
+  onCityChangeHandler?: (value: string | number) => void;
+  onUsernameChangeHandler?: (value: string | number) => void;
+  onAvatarChangeHandler?: (value: string | number) => void;
+  onCurrencyChangeHandler?: (value: CurrencyEnum) => void;
+  onCountryChangeHandler?: (value: CountryEnum) => void;
 };
 
 export const ProfileCard: FC<PropsType> = (props) => {
@@ -51,7 +51,11 @@ export const ProfileCard: FC<PropsType> = (props) => {
 
   if (isLoading) {
     return (
-      <HStack justify="center" max className={classNames(cls.ProfileCard, {}, [className, cls.loading])}>
+      <HStack
+        justify="center"
+        max
+        className={classNames(cls.ProfileCard, {}, [className, cls.loading])}
+      >
         <Loader />
       </HStack>
     );
@@ -59,7 +63,11 @@ export const ProfileCard: FC<PropsType> = (props) => {
 
   if (error) {
     return (
-      <HStack justify="center" max className={classNames(cls.ProfileCard, {}, [className, cls.error])}>
+      <HStack
+        justify="center"
+        max
+        className={classNames(cls.ProfileCard, {}, [className, cls.error])}
+      >
         <Text
           variant={TextVariantEnum.ERROR}
           title={t('error')}
@@ -71,10 +79,19 @@ export const ProfileCard: FC<PropsType> = (props) => {
   }
 
   return (
-    <VStack gap="16" align="start" max className={classNames(cls.ProfileCard, mods, [className])}>
+    <VStack
+      gap="16"
+      align="start"
+      max
+      className={classNames(cls.ProfileCard, mods, [className])}
+    >
       {data?.avatar && (
         <HStack justify="center" max>
-          <Avatar src={data.avatar} alt={`${data.username} avatar`} size={100} />
+          <Avatar
+            src={data.avatar}
+            alt={`${data.username} avatar`}
+            size={100}
+          />
         </HStack>
       )}
       <Input

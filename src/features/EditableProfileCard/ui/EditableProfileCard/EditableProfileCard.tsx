@@ -8,7 +8,10 @@ import { CurrencyEnum } from '@/entities/Currency';
 import { CountryEnum } from '@/entities/Country';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { Text, TextVariantEnum } from '@/shared/ui/Text';
-import { DynamicModuleLoader, ReducersListType } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import {
+  DynamicModuleLoader,
+  ReducersListType,
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { VStack } from '@/shared/ui/Stack';
 import { profileActions, profileReducer } from '../../model/slice/profileSlice';
 import { fetchProfileData } from '../../model/services/fetchProfileData/fetchProfileData';
@@ -40,37 +43,61 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
   const error = useSelector(getProfileError);
   const readonly = useSelector(getProfileReadonly);
 
-  const onFirstnameChangeHandler = useCallback((value: number | string) => {
-    dispatch(profileActions.updateProfile({ firstname: value.toString() }));
-  }, [dispatch]);
+  const onFirstnameChangeHandler = useCallback(
+    (value: number | string) => {
+      dispatch(profileActions.updateProfile({ firstname: value.toString() }));
+    },
+    [dispatch],
+  );
 
-  const onLastnameChangeHandler = useCallback((value: number | string) => {
-    dispatch(profileActions.updateProfile({ lastname: value.toString() }));
-  }, [dispatch]);
+  const onLastnameChangeHandler = useCallback(
+    (value: number | string) => {
+      dispatch(profileActions.updateProfile({ lastname: value.toString() }));
+    },
+    [dispatch],
+  );
 
-  const onAgeChangeHandler = useCallback((value: number | string) => {
-    dispatch(profileActions.updateProfile({ age: +value }));
-  }, [dispatch]);
+  const onAgeChangeHandler = useCallback(
+    (value: number | string) => {
+      dispatch(profileActions.updateProfile({ age: +value }));
+    },
+    [dispatch],
+  );
 
-  const onCityChangeHandler = useCallback((value: number | string) => {
-    dispatch(profileActions.updateProfile({ city: value.toString() }));
-  }, [dispatch]);
+  const onCityChangeHandler = useCallback(
+    (value: number | string) => {
+      dispatch(profileActions.updateProfile({ city: value.toString() }));
+    },
+    [dispatch],
+  );
 
-  const onUsernameChangeHandler = useCallback((value: number | string) => {
-    dispatch(profileActions.updateProfile({ username: value.toString() }));
-  }, [dispatch]);
+  const onUsernameChangeHandler = useCallback(
+    (value: number | string) => {
+      dispatch(profileActions.updateProfile({ username: value.toString() }));
+    },
+    [dispatch],
+  );
 
-  const onAvatarChangeHandler = useCallback((value: number | string) => {
-    dispatch(profileActions.updateProfile({ avatar: value.toString() }));
-  }, [dispatch]);
+  const onAvatarChangeHandler = useCallback(
+    (value: number | string) => {
+      dispatch(profileActions.updateProfile({ avatar: value.toString() }));
+    },
+    [dispatch],
+  );
 
-  const onCurrencyChangeHandler = useCallback((value: CurrencyEnum) => {
-    dispatch(profileActions.updateProfile({ currency: value }));
-  }, [dispatch]);
+  const onCurrencyChangeHandler = useCallback(
+    (value: CurrencyEnum) => {
+      dispatch(profileActions.updateProfile({ currency: value }));
+    },
+    [dispatch],
+  );
 
-  const onCountryChangeHandler = useCallback((value: CountryEnum) => {
-    dispatch(profileActions.updateProfile({ country: value }));
-  }, [dispatch]);
+  const onCountryChangeHandler = useCallback(
+    (value: CountryEnum) => {
+      dispatch(profileActions.updateProfile({ country: value }));
+    },
+    [dispatch],
+  );
 
   const validateErrorTranslates = {
     [ProfileValidateErrorEnum.INCORRECT_USER_DATA]: t('incorrect_user_data'),
@@ -88,14 +115,15 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
       <VStack gap="16" max className={classNames('', {}, [className])}>
         <EditableProfileCardHeader />
-        {validateErrors?.length && validateErrors.map((err: ProfileValidateErrorEnum) => (
-          <Text
-            variant={TextVariantEnum.ERROR}
-            text={validateErrorTranslates[err]}
-            key={err}
-            data-testid="EditableProfileCard.Error"
-          />
-        ))}
+        {validateErrors?.length &&
+          validateErrors.map((err: ProfileValidateErrorEnum) => (
+            <Text
+              variant={TextVariantEnum.ERROR}
+              text={validateErrorTranslates[err]}
+              key={err}
+              data-testid="EditableProfileCard.Error"
+            />
+          ))}
         <ProfileCard
           data={data}
           isLoading={isLoading}

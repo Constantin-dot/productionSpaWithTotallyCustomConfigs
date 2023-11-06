@@ -24,9 +24,12 @@ export const ArticleDetailsComments = memo((props: PropsType) => {
   const comments = useSelector(getArticleComments.selectAll);
   const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
 
-  const onSendComment = useCallback((text: string) => {
-    dispatch(addCommentForArticle(text));
-  }, [dispatch]);
+  const onSendComment = useCallback(
+    (text: string) => {
+      dispatch(addCommentForArticle(text));
+    },
+    [dispatch],
+  );
 
   useInitialEffect(() => {
     dispatch(fetchCommentsByArticleId(id));
@@ -34,15 +37,9 @@ export const ArticleDetailsComments = memo((props: PropsType) => {
 
   return (
     <VStack align="start" gap="16" max>
-      <Text
-        size={TextSizeEnum.L}
-        title={t('comments')}
-      />
+      <Text size={TextSizeEnum.L} title={t('comments')} />
       <AddCommentForm onSendComment={onSendComment} />
-      <CommentList
-        comments={comments}
-        isLoading={commentsIsLoading}
-      />
+      <CommentList comments={comments} isLoading={commentsIsLoading} />
     </VStack>
   );
 });

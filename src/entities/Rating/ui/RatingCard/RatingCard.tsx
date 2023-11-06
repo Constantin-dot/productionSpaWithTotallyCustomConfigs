@@ -12,13 +12,13 @@ import { Button, ButtonVariantEnum } from '@/shared/ui/Button';
 import { Drawer } from '@/shared/ui/Drawer';
 
 type PropsType = {
-  className?: string,
-  title?: string,
-  feedbackTitle?: string,
-  hasFeedback?: boolean,
-  onCancel?: (starsCount: number) => void,
-  onAccept?: (starsCount: number, feedback?: string) => void,
-  rate?: number,
+  className?: string;
+  title?: string;
+  feedbackTitle?: string;
+  hasFeedback?: boolean;
+  onCancel?: (starsCount: number) => void;
+  onAccept?: (starsCount: number, feedback?: string) => void;
+  rate?: number;
 };
 
 export const RatingCard = memo((props: PropsType) => {
@@ -37,14 +37,17 @@ export const RatingCard = memo((props: PropsType) => {
   const [starsCount, setStarsCount] = useState(rate);
   const [feedback, setFeedback] = useState<string | number>('');
 
-  const onSelectStarsHandler = useCallback((selectedStarsCount: number) => {
-    setStarsCount(selectedStarsCount);
-    if (hasFeedback) {
-      setIsModalOpen(true);
-    } else {
-      onAccept?.(selectedStarsCount);
-    }
-  }, [hasFeedback, onAccept]);
+  const onSelectStarsHandler = useCallback(
+    (selectedStarsCount: number) => {
+      setStarsCount(selectedStarsCount);
+      if (hasFeedback) {
+        setIsModalOpen(true);
+      } else {
+        onAccept?.(selectedStarsCount);
+      }
+    },
+    [hasFeedback, onAccept],
+  );
 
   const onCloseHandler = useCallback(() => {
     setIsModalOpen(false);
@@ -75,14 +78,14 @@ export const RatingCard = memo((props: PropsType) => {
   );
 
   return (
-    <Card
-      className={className}
-      max
-      data-testid="RatingCard"
-    >
+    <Card className={className} max data-testid="RatingCard">
       <VStack align="center" gap="8" max>
         <Text title={starsCount ? t('thanks') : title} />
-        <StarRating selectedStars={starsCount} size={40} onSelect={onSelectStarsHandler} />
+        <StarRating
+          selectedStars={starsCount}
+          size={40}
+          onSelect={onSelectStarsHandler}
+        />
         <BrowserView>
           <Modal isOpen={isModalOpen} onClose={onCloseHandler} isLazy>
             <VStack max gap="32">
@@ -110,10 +113,18 @@ export const RatingCard = memo((props: PropsType) => {
           <Drawer isOpen={isModalOpen} onClose={onCloseHandler}>
             <VStack max gap="32" align="start">
               {modalContent}
-              <Button variant={ButtonVariantEnum.OUTLINE_RED} onClick={onCloseHandler} className={cls.btn}>
+              <Button
+                variant={ButtonVariantEnum.OUTLINE_RED}
+                onClick={onCloseHandler}
+                className={cls.btn}
+              >
                 {t('close')}
               </Button>
-              <Button variant={ButtonVariantEnum.OUTLIN_INVERTED} onClick={acceptHandler} className={cls.btn}>
+              <Button
+                variant={ButtonVariantEnum.OUTLIN_INVERTED}
+                onClick={acceptHandler}
+                className={cls.btn}
+              >
                 {t('send')}
               </Button>
             </VStack>

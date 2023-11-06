@@ -3,11 +3,11 @@ import { ListBox } from '@/shared/ui/Popups';
 import { CountryEnum } from '../../model/types/country';
 
 type PropsType = {
-  className?: string,
-  label: string,
-  readonly?: boolean,
-  value?: CountryEnum,
-  onChange?: (value: CountryEnum) => void,
+  className?: string;
+  label: string;
+  readonly?: boolean;
+  value?: CountryEnum;
+  onChange?: (value: CountryEnum) => void;
 };
 
 const options = [
@@ -19,17 +19,14 @@ const options = [
 ];
 
 export const CountrySelect = memo((props: PropsType) => {
-  const {
-    className,
-    label,
-    readonly,
-    value,
-    onChange,
-  } = props;
+  const { className, label, readonly, value, onChange } = props;
 
-  const onChangeHandler = useCallback((value: string) => {
-    onChange?.(value as CountryEnum);
-  }, [onChange]);
+  const onChangeHandler = useCallback(
+    (value: string) => {
+      onChange?.(value as CountryEnum);
+    },
+    [onChange],
+  );
 
   return (
     <ListBox

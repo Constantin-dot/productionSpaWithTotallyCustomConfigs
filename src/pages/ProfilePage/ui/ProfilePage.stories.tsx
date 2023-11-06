@@ -19,34 +19,39 @@ const Template: ComponentStory<typeof ProfilePage> = () => <ProfilePage />;
 
 export const LightTheme = Template.bind({});
 LightTheme.args = {};
-LightTheme.decorators = [StoreDecorator({
-  profile: {
-    form: {
-      username: 'admin',
-      age: 30,
-      country: CountryEnum.Gorgia,
-      firstname: 'Sarik',
-      lastname: 'Hvanidze',
-      avatar: AvatarImg,
-      city: 'Batumi',
-      currency: CurrencyEnum.EUR,
+LightTheme.decorators = [
+  StoreDecorator({
+    profile: {
+      form: {
+        username: 'admin',
+        age: 30,
+        country: CountryEnum.Gorgia,
+        firstname: 'Sarik',
+        lastname: 'Hvanidze',
+        avatar: AvatarImg,
+        city: 'Batumi',
+        currency: CurrencyEnum.EUR,
+      },
     },
-  },
-})];
+  }),
+];
 
 export const DarkTheme = Template.bind({});
 DarkTheme.args = {};
-DarkTheme.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
-  profile: {
-    form: {
-      username: 'admin',
-      age: 30,
-      country: CountryEnum.Gorgia,
-      firstname: 'Sarik',
-      lastname: 'Hvanidze',
-      avatar: AvatarImg,
-      city: 'Batumi',
-      currency: CurrencyEnum.EUR,
+DarkTheme.decorators = [
+  ThemeDecorator(Theme.DARK),
+  StoreDecorator({
+    profile: {
+      form: {
+        username: 'admin',
+        age: 30,
+        country: CountryEnum.Gorgia,
+        firstname: 'Sarik',
+        lastname: 'Hvanidze',
+        avatar: AvatarImg,
+        city: 'Batumi',
+        currency: CurrencyEnum.EUR,
+      },
     },
-  },
-})];
+  }),
+];

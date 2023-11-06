@@ -1,6 +1,4 @@
-import {
-  memo, useCallback, useEffect,
-} from 'react';
+import { memo, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { RatingCard } from '@/entities/Rating';
@@ -9,39 +7,49 @@ import { getUserAuthData } from '@/entities/User';
 import { Skeleton } from '@/shared/ui/Skeleton';
 
 export type ArticleRatingPropsType = {
-  className?: string,
-  articleId: string,
+  className?: string;
+  articleId: string;
 };
 
 const ArticleRating = memo((props: ArticleRatingPropsType) => {
   const { className, articleId } = props;
   const { t } = useTranslation('article');
   const userData = useSelector(getUserAuthData);
-  const {
-    data, isLoading, refetch,
-  } = useGetArticleRating({ userId: userData?.id ?? '', articleId }, { refetchOnMountOrArgChange: true });
+  const { data, isLoading, refetch } = useGetArticleRating(
+    { userId: userData?.id ?? '', articleId },
+    { refetchOnMountOrArgChange: true },
+  );
   const [rateArticleMutation] = useRateArticle();
 
-  const rateArticleHandler = useCallback((starsCount: number, feedback?: string) => {
-    try {
-      rateArticleMutation({
-        userId: userData?.id ?? '',
-        articleId,
-        rate: starsCount,
-        feedback,
-      });
-    } catch (e) {
-      console.log(e);
-    }
-  }, [articleId, rateArticleMutation, userData?.id]);
+  const rateArticleHandler = useCallback(
+    (starsCount: number, feedback?: string) => {
+      try {
+        rateArticleMutation({
+          userId: userData?.id ?? '',
+          articleId,
+          rate: starsCount,
+          feedback,
+        });
+      } catch (e) {
+        console.log(e);
+      }
+    },
+    [articleId, rateArticleMutation, userData?.id],
+  );
 
-  const onAcceptHandler = useCallback((starsCount: number, feedback?: string) => {
-    rateArticleHandler(starsCount, feedback);
-  }, [rateArticleHandler]);
+  const onAcceptHandler = useCallback(
+    (starsCount: number, feedback?: string) => {
+      rateArticleHandler(starsCount, feedback);
+    },
+    [rateArticleHandler],
+  );
 
-  const onCancelHandler = useCallback((starsCount: number) => {
-    rateArticleHandler(starsCount);
-  }, [rateArticleHandler]);
+  const onCancelHandler = useCallback(
+    (starsCount: number) => {
+      rateArticleHandler(starsCount);
+    },
+    [rateArticleHandler],
+  );
 
   useEffect(() => {
     refetch();

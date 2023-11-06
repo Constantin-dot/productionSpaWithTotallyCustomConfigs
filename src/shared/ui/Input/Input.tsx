@@ -1,5 +1,10 @@
 import {
-  ChangeEvent, InputHTMLAttributes, memo, useEffect, useRef, useState,
+  ChangeEvent,
+  InputHTMLAttributes,
+  memo,
+  useEffect,
+  useRef,
+  useState,
 } from 'react';
 import { classNames, ModsType } from '@/shared/lib/classNames/classNames';
 import cls from './Input.module.scss';
@@ -10,11 +15,14 @@ export enum InputVariantEnum {
   ERROR = 'error',
 }
 
-type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readonly'>;
+type HTMLInputProps = Omit<
+  InputHTMLAttributes<HTMLInputElement>,
+  'value' | 'onChange' | 'readonly'
+>;
 
 interface IProps extends HTMLInputProps {
   className?: string;
-  variant?: InputVariantEnum,
+  variant?: InputVariantEnum;
   value?: string | number;
   onChange?: (value: string | number) => void;
   readonly?: boolean;
@@ -72,9 +80,7 @@ export const Input = memo((props: IProps) => {
   return (
     <div className={classNames(cls.InputWrapper, mods, [className])}>
       {placeholder && (
-        <div className={cls.placeholder}>
-          {`${placeholder}>`}
-        </div>
+        <div className={cls.placeholder}>{`${placeholder}>`}</div>
       )}
       <div className={cls.caretWrapper}>
         <input
@@ -89,10 +95,11 @@ export const Input = memo((props: IProps) => {
           width={width}
           {...otherProps}
         />
-        {
-          (isFocused && (innerValue?.toString()?.length === 0) && (value?.toString()?.length === 0))
-        && <span className={classNames(cls.caret, subElemsMods, [])} />
-        }
+        {isFocused &&
+          innerValue?.toString()?.length === 0 &&
+          value?.toString()?.length === 0 && (
+            <span className={classNames(cls.caret, subElemsMods, [])} />
+          )}
       </div>
     </div>
   );

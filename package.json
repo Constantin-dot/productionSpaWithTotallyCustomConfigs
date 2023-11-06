@@ -11,6 +11,7 @@
     "start:dev:server": "node ./json-server/index.js",
     "build:prod": "webpack --env mode=production apiUrl=https://production-spa-server.vercel.app",
     "build:dev": "webpack --env mode=development",
+    "prettier": "npx prettier --write \"**/*.{ts,tsx,json}\"",
     "lint:ts": "npx eslint \"**/*.{ts,tsx}\"",
     "lint:ts:fix": "npx eslint \"**/*.{ts,tsx}\" --fix",
     "lint:scss": "npx stylelint \"**/*.scss\"",
@@ -30,7 +31,10 @@
     "postinstall": "node ./scripts/clear-cache.js"
   },
   "lint-staged": {
-    "**/*.{ts,tsx}": "eslint"
+    "**/*.{ts,tsx}": [
+      "prettier --list-different",
+      "eslint"
+    ]
   },
   "repository": {
     "type": "git",
@@ -101,10 +105,12 @@
     "cypress": "^12.17.0",
     "eslint": "^8.10.0",
     "eslint-config-airbnb": "^19.0.4",
-    "eslint-plugin-constantin-dot-plugin": "^0.1.5",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-constantin-dot-plugin": "^0.1.6",
     "eslint-plugin-i18next": "^5.1.2",
     "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-prettier": "^5.0.1",
     "eslint-plugin-react": "^7.29.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "file-loader": "^6.2.0",
@@ -118,6 +124,7 @@
     "lint-staged": "^13.2.2",
     "loki": "^0.32.0",
     "mini-css-extract-plugin": "^2.5.3",
+    "prettier": "3.0.3",
     "react-refresh": "^0.12.0",
     "reg-cli": "^0.17.7",
     "regenerator-runtime": "^0.13.9",

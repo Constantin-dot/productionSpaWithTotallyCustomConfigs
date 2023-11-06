@@ -3,11 +3,11 @@ import { ListBox } from '@/shared/ui/Popups';
 import { CurrencyEnum } from '../../model/types/currency';
 
 type PropsType = {
-  className?: string,
-  label: string,
-  readonly?: boolean,
-  value?: CurrencyEnum,
-  onChange?: (value: CurrencyEnum) => void,
+  className?: string;
+  label: string;
+  readonly?: boolean;
+  value?: CurrencyEnum;
+  onChange?: (value: CurrencyEnum) => void;
 };
 
 const options = [
@@ -17,17 +17,14 @@ const options = [
 ];
 
 export const CurrencySelect = memo((props: PropsType) => {
-  const {
-    className,
-    label,
-    readonly,
-    value,
-    onChange,
-  } = props;
+  const { className, label, readonly, value, onChange } = props;
 
-  const onChangeHandler = useCallback((value: string) => {
-    onChange?.(value as CurrencyEnum);
-  }, [onChange]);
+  const onChangeHandler = useCallback(
+    (value: string) => {
+      onChange?.(value as CurrencyEnum);
+    },
+    [onChange],
+  );
 
   return (
     <ListBox

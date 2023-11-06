@@ -12,10 +12,7 @@ import {
   ArticleBlockTypeEnum,
   ArticleListViewVariantEnum,
 } from '../../model/consts/consts';
-import type {
-  IArticle,
-  IArticleTextBlock,
-} from '../../model/types/article';
+import type { IArticle, IArticleTextBlock } from '../../model/types/article';
 import cls from './ArticleListItem.module.scss';
 import { ArticleTextBlock } from '../ArticleTextBlock/ArticleTextBlock';
 import { getRouteArticlesDetails } from '@/shared/const/router';
@@ -23,19 +20,14 @@ import { AppImage } from '@/shared/ui/AppImage';
 import { Skeleton } from '@/shared/ui/Skeleton';
 
 type PropsType = {
-  className?: string,
-  article: IArticle,
-  view: ArticleListViewVariantEnum,
-  target?: HTMLAttributeAnchorTarget,
-}
+  className?: string;
+  article: IArticle;
+  view: ArticleListViewVariantEnum;
+  target?: HTMLAttributeAnchorTarget;
+};
 
 export const ArticleListItem = memo((props: PropsType) => {
-  const {
-    className,
-    article,
-    view,
-    target,
-  } = props;
+  const { className, article, view, target } = props;
   const { t } = useTranslation();
   const types = <Text text={article.type.join(', ')} className={cls.types} />;
   const views = (
@@ -46,7 +38,9 @@ export const ArticleListItem = memo((props: PropsType) => {
   );
 
   if (view === ArticleListViewVariantEnum.LIST) {
-    const textBlock = article.blocks.find((block) => block.type === ArticleBlockTypeEnum.TEXT) as IArticleTextBlock;
+    const textBlock = article.blocks.find(
+      (block) => block.type === ArticleBlockTypeEnum.TEXT,
+    ) as IArticleTextBlock;
 
     return (
       <div
@@ -55,7 +49,11 @@ export const ArticleListItem = memo((props: PropsType) => {
       >
         <Card className={cls.card}>
           <div className={cls.header}>
-            <Avatar size={30} src={article.user.avatar ?? ''} alt="author avatar" />
+            <Avatar
+              size={30}
+              src={article.user.avatar ?? ''}
+              alt="author avatar"
+            />
             <Text text={article.user.username} className={cls.username} />
             <Text text={article.createdAt} className={cls.date} />
           </div>
@@ -67,16 +65,12 @@ export const ArticleListItem = memo((props: PropsType) => {
             className={cls.img}
             alt={article.title}
           />
-          {
-            textBlock && (
-              <ArticleTextBlock block={textBlock} className={cls.textBlock} />
-            )
-          }
+          {textBlock && (
+            <ArticleTextBlock block={textBlock} className={cls.textBlock} />
+          )}
           <div className={cls.footer}>
             <AppLink target={target} to={getRouteArticlesDetails(article.id)}>
-              <Button
-                variant={ButtonVariantEnum.OUTLINE}
-              >
+              <Button variant={ButtonVariantEnum.OUTLINE}>
                 {t('readForward')}
               </Button>
             </AppLink>

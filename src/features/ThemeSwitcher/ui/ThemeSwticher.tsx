@@ -6,7 +6,7 @@ import { Button, ButtonVariantEnum } from '@/shared/ui/Button';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
 import { Theme } from '@/shared/const/theme';
 
-type PropsType = { className?: string, };
+type PropsType = { className?: string };
 
 export const ThemeSwticher = memo((props: PropsType) => {
   const { className } = props;

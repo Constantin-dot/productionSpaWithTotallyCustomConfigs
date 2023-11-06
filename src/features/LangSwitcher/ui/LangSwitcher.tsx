@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button, ButtonVariantEnum } from '@/shared/ui/Button';
 
-type PropsType = { className?: string, };
+type PropsType = { className?: string };
 
 export const LangSwitcher = memo((props: PropsType) => {
   const { className } = props;

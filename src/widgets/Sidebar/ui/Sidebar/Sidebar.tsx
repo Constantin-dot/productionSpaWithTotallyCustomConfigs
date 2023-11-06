@@ -9,7 +9,7 @@ import cls from './Sidebar.module.scss';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
 import { getSidebarItems } from '../../model/selectors/getSidebarItems';
 
-type PropsType = { className?: string, };
+type PropsType = { className?: string };
 
 export const Sidebar = memo((props: PropsType) => {
   const { className } = props;
@@ -20,13 +20,13 @@ export const Sidebar = memo((props: PropsType) => {
     setCollapsed((prev) => !prev);
   };
 
-  const itemsList = useMemo(() => sidebarItemsList.map((item) => (
-    <SidebarItem
-      key={item.path}
-      item={item}
-      collapsed={collapsed}
-    />
-  )), [collapsed, sidebarItemsList]);
+  const itemsList = useMemo(
+    () =>
+      sidebarItemsList.map((item) => (
+        <SidebarItem key={item.path} item={item} collapsed={collapsed} />
+      )),
+    [collapsed, sidebarItemsList],
+  );
 
   return (
     <aside

@@ -4,7 +4,7 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button } from '@/shared/ui/Button';
 import cls from './PageError.module.scss';
 
-type PropsType = {className?: string,};
+type PropsType = { className?: string };
 
 export const PageError: FC<PropsType> = (props) => {
   const { className } = props;

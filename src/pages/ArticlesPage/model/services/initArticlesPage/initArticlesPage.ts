@@ -7,14 +7,12 @@ import { articlesPageActions } from '../../slices/articlePageSlice';
 import { fetchArticlesList } from '../fetchArticlesList/fetchArticlesList';
 
 export const initArticlesPage = createAsyncThunk<
-void,
-URLSearchParams,
-ThunkConfig<string>
+  void,
+  URLSearchParams,
+  ThunkConfig<string>
 >(
   'articlesPage/initArticlesPage',
-  async (searchParams, {
-    getState, dispatch,
-  }) => {
+  async (searchParams, { getState, dispatch }) => {
     const inited = getArticlesPageInited(getState());
     if (!inited) {
       const orderFromUrl = searchParams.get('order') as SortOrderType;

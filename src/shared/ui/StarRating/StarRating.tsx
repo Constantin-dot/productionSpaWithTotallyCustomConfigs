@@ -5,21 +5,16 @@ import { Icon } from '../Icon/Icon';
 import StarIcon from '../../assets/icons/star.svg';
 
 type PropsType = {
-  className?: string,
-  onSelect?: (starsCount: number) => void,
-  selectedStars?: number,
-  size?: number,
+  className?: string;
+  onSelect?: (starsCount: number) => void;
+  selectedStars?: number;
+  size?: number;
 };
 
 const stars = [1, 2, 3, 4, 5];
 
 export const StarRating = memo((props: PropsType) => {
-  const {
-    className,
-    onSelect,
-    selectedStars = 0,
-    size = 30,
-  } = props;
+  const { className, onSelect, selectedStars = 0, size = 30 } = props;
 
   const [currentStarCount, setCurrentStarCount] = useState(selectedStars);
   const [isSelected, setIsSelected] = useState(Boolean(selectedStars));
@@ -48,7 +43,9 @@ export const StarRating = memo((props: PropsType) => {
     <div className={classNames(cls.StarRating, {}, [className])}>
       {stars.map((starNumber) => (
         <Icon
-          className={classNames(cls.starIcon, { [cls.selected]: isSelected }, [currentStarCount >= starNumber ? cls.hovered : cls.normal])}
+          className={classNames(cls.starIcon, { [cls.selected]: isSelected }, [
+            currentStarCount >= starNumber ? cls.hovered : cls.normal,
+          ])}
           Svg={StarIcon}
           key={starNumber}
           width={size}

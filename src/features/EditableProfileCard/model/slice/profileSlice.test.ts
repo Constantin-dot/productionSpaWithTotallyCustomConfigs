@@ -19,10 +19,9 @@ const data = {
 describe('profileSlice.test', () => {
   test('test set readonly', () => {
     const state: DeepPartial<IProfileSchema> = { readonly: false };
-    expect(profileReducer(
-      state as IProfileSchema,
-      profileActions.setReadonly(true),
-    )).toEqual({ readonly: true });
+    expect(
+      profileReducer(state as IProfileSchema, profileActions.setReadonly(true)),
+    ).toEqual({ readonly: true });
   });
 
   test('test cancel edit mode', () => {
@@ -30,14 +29,15 @@ describe('profileSlice.test', () => {
       readonly: false,
       data,
       form: {
-        ...data, username: '', age: undefined,
+        ...data,
+        username: '',
+        age: undefined,
       },
       validateErrors: undefined,
     };
-    expect(profileReducer(
-      state as IProfileSchema,
-      profileActions.cancelEditMode(),
-    )).toEqual({
+    expect(
+      profileReducer(state as IProfileSchema, profileActions.cancelEditMode()),
+    ).toEqual({
       readonly: true,
       data,
       form: data,
@@ -49,10 +49,12 @@ describe('profileSlice.test', () => {
     const state: DeepPartial<IProfileSchema> = {
       form: data,
     };
-    expect(profileReducer(
-      state as IProfileSchema,
-      profileActions.updateProfile({ ...data, firstname: 'Garik' }),
-    )).toEqual({
+    expect(
+      profileReducer(
+        state as IProfileSchema,
+        profileActions.updateProfile({ ...data, firstname: 'Garik' }),
+      ),
+    ).toEqual({
       form: { ...data, firstname: 'Garik' },
     });
   });
@@ -62,10 +64,9 @@ describe('profileSlice.test', () => {
       isLoading: false,
       validateErrors: [ProfileValidateErrorEnum.SERVER_ERROR],
     };
-    expect(profileReducer(
-      state as IProfileSchema,
-      updateProfileData.pending,
-    )).toEqual({
+    expect(
+      profileReducer(state as IProfileSchema, updateProfileData.pending),
+    ).toEqual({
       isLoading: true,
       validateErrors: undefined,
     });
@@ -76,10 +77,12 @@ describe('profileSlice.test', () => {
       isLoading: true,
       validateErrors: undefined,
     };
-    expect(profileReducer(
-      state as IProfileSchema,
-      updateProfileData.fulfilled(data, ''),
-    )).toEqual({
+    expect(
+      profileReducer(
+        state as IProfileSchema,
+        updateProfileData.fulfilled(data, ''),
+      ),
+    ).toEqual({
       isLoading: false,
       data,
       form: data,
