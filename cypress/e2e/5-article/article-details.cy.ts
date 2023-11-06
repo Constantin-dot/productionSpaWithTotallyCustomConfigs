@@ -29,4 +29,11 @@ describe('User come in article details page', () => {
     cy.setRate();
     cy.get('[data-selected=true]').should('have.length', 5);
   });
+  it('and put on rating (example with stubs)', () => {
+    cy.intercept('GET', '**/articles/*', { fixture: 'article-details.json' });
+    cy.getByTestId('ArticleDetails.Info');
+    cy.getByTestId('RatingCard').scrollIntoView();
+    cy.setRate();
+    cy.get('[data-selected=true]').should('have.length', 5);
+  });
 });
