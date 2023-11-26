@@ -14,6 +14,7 @@ import { articleDetailsPageReducer } from '../../model/slices';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';
 import { ArticleRating } from '@/features/ArticleRating';
+import { getFeatrueFlag } from '@/shared/lib/features';
 
 type PropsType = { className?: string };
 
@@ -23,7 +24,7 @@ const reducers: ReducersListType = {
 
 const ArticleDetailsPage: FC<PropsType> = (props) => {
   const { className } = props;
-
+  const isArticleRatingEnabled = getFeatrueFlag('isArticleRatingEnabled');
   const { id } = useParams<{ id: string }>();
 
   return (
@@ -32,7 +33,7 @@ const ArticleDetailsPage: FC<PropsType> = (props) => {
         <VStack gap="16" align="start" max>
           <ArticleDetailsPageHeader />
           <ArticleDetails id={id} />
-          {id && <ArticleRating articleId={id} />}
+          {isArticleRatingEnabled && id && <ArticleRating articleId={id} />}
           <ArticleRecommendationsList className={cls.recommendations} />
           <ArticleDetailsComments id={id} />
         </VStack>

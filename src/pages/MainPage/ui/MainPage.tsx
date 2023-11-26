@@ -5,9 +5,11 @@ import { BugButton } from '@/app/providers/ErrorBoundary';
 import { HStack, VStack } from '@/shared/ui/Stack';
 import { Page } from '@/widgets/Page';
 import { Counter } from '@/entities/Counter';
+import { getFeatrueFlag } from '@/shared/lib/features';
 
 const MainPage = memo(() => {
   const { t } = useTranslation('main');
+  const isCounterEnabled = getFeatrueFlag('isCounterEnabled');
 
   return (
     <Page data-testid="MainPage">
@@ -16,7 +18,7 @@ const MainPage = memo(() => {
           {t('mainPageContent')}
           <BugButton />
         </HStack>
-        <Counter />
+        {isCounterEnabled && <Counter />}
       </VStack>
     </Page>
   );
