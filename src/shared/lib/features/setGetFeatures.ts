@@ -6,6 +6,6 @@ export function setFeatureFlags(newFeatureFlags?: IFeatureFlags) {
   featureFlags = newFeatureFlags;
 }
 
-export function getFeatrueFlag(flag: keyof IFeatureFlags) {
+export function getFeatureFlag(flag: keyof IFeatureFlags) {
   return featureFlags?.[flag];
 }

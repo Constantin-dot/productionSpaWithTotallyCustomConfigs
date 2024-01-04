@@ -103,6 +103,7 @@ module.exports = {
     'react/jsx-wrap-multilines': 'off',
     'react/jsx-one-expression-per-line': 'off',
     'react/jsx-closing-tag-location': 'off',
+    'react/no-unstable-nested-components': 'warn',
   },
   globals: {
     __IS_DEV__: true,
