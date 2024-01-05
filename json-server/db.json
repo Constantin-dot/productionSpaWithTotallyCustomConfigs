@@ -659,7 +659,7 @@
         "isCounterEnabled": true
       },
       "jsonSettings": {
-        "theme": "app_green_theme",
+        "theme": "app_normal_theme",
         "isFirstVisit": true,
         "settingsPageHasBeenOpened": true,
         "language": "en"

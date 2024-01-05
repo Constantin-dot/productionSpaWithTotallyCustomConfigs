@@ -14,7 +14,7 @@ import { articleDetailsPageReducer } from '../../model/slices';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';
 import { ArticleRating } from '@/features/ArticleRating';
-import { getFeatrueFlag } from '@/shared/lib/features';
+import { getFeatureFlag } from '@/shared/lib/features';
 
 type PropsType = { className?: string };
 
@@ -24,7 +24,7 @@ const reducers: ReducersListType = {
 
 const ArticleDetailsPage: FC<PropsType> = (props) => {
   const { className } = props;
-  const isArticleRatingEnabled = getFeatrueFlag('isArticleRatingEnabled');
+  const isArticleRatingEnabled = getFeatureFlag('isArticleRatingEnabled');
   const { id } = useParams<{ id: string }>();
 
   return (
