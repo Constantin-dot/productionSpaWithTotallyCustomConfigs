@@ -15,6 +15,7 @@ import cls from './ArticlesPage.module.scss';
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import { ArticlePageFilters } from '../ArticlePageFilters/ArticlePageFilters';
 import { ArticleInfiniteList } from '../ArticleInfiniteList/ArticleInfiniteList';
+import { ArticlePageGreeting } from '@/features/articlePageGreeting';
 
 type PropsType = { className?: string };
 
@@ -47,6 +48,7 @@ const ArticlesPage: FC<PropsType> = (props) => {
         <VStack gap="16" max>
           <ArticlePageFilters />
           <ArticleInfiniteList />
+          <ArticlePageGreeting />
         </VStack>
       </Page>
     </DynamicModuleLoader>
