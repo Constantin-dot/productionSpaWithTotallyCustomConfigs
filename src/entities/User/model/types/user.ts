@@ -1,4 +1,5 @@
 import { IFeatureFlags } from '@/shared/types/featureFlags';
+import { IJsonSettings } from './jsonSettings';
 
 export type UserRoleVariant = 'ADMIN' | 'MANAGER' | 'USER';
 export interface IUser {
@@ -7,6 +8,7 @@ export interface IUser {
   avatar?: string;
   role: Array<UserRoleVariant>;
   features?: IFeatureFlags;
+  jsonSettings?: IJsonSettings;
 }
 
 export interface IUserSchema {

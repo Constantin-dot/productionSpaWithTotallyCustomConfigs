@@ -1,8 +1,8 @@
 # name: linting, testing, building
-# on: 
+# on:
 #   push:
 #     branches: [main]
-#   pull_request: 
+#   pull_request:
 #     branches: [main]
 # jobs:
 #   pipline:
@@ -31,25 +31,25 @@
 #       - name: unit testing
 #         run: npm run test:unit
 #         if: always()
-      # - name: build storybook
-      #   run: npm run storybook:build
-      #   if: always()
-      # - name: screenshot testing
-      #   run: npm run test:ui:ci
-      #   if: always()
+# - name: build storybook
+#   run: npm run storybook:build
+#   if: always()
+# - name: screenshot testing
+#   run: npm run test:ui:ci
+#   if: always()
 
 name: linting, testing, building
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 permissions:
   contents: write
   pages: write
   id-token: write
 concurrency:
-  group: "pages"
+  group: 'pages'
   cancel-in-progress: true
 jobs:
   build-and-ui-testing:
@@ -60,7 +60,7 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     strategy:
       matrix:
-        node-version: [ 17.x ]
+        node-version: [17.x]
     steps:
       - uses: actions/checkout@v2
       - name: Staring Node.js ${{ matrix.node-version }}
@@ -69,8 +69,8 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: install modules
         run: npm ci --force
-      - name: build production project
-        run: npm run build:prod
+      - name: build production project (with vercel backend)
+        run: npm run build:prod:vercel
         if: always()
       # - name: build storybook
       #   run: npm run storybook:build
@@ -104,7 +104,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [ 17.x ]
+        node-version: [17.x]
     steps:
       - uses: actions/checkout@v2
       - name: Staring Node.js ${{ matrix.node-version }}
