@@ -1,12 +1,19 @@
 {
-  "articleFeedbackTitle": "articleFeedbackTitle",
-  "articleRequestError": "",
-  "backToList": "",
-  "comments": "",
-  "edit": "",
-  "hasNotArticles": "",
-  "hereYouCanSearch": "",
-  "rateArticle": "rateArticle",
-  "recommend": "",
-  "youAreWelcome": ""
+  "articleRequestError": "Sorry, this article not found",
+  "comments": "Comments",
+  "backToList": "Back to list",
+  "IT": "IT",
+  "SCIENCE": "Scince",
+  "ECONOMICS": "Economics",
+  "ALL": "All",
+  "hasNotArticles": "It has not any articles.",
+  "recommend": "Recommend",
+  "edit": "Edit",
+  "rateArticle": "Please, rate article",
+  "articleFeedbackTitle": "Leave your feedback about the article, this will help improve the quality.",
+  "youAreWelcome": "You are welcome on articles page!",
+  "article": {
+    "hereYouCanSearch": "Here you can search and see articles on different themes.",
+    "youAreWelcome": "You are welcome on articles page!"
+  }
 }

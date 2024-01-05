@@ -1,10 +1,17 @@
 {
-  "articleFeedbackTitle": "articleFeedbackTitle",
-  "articleRequestError": "articleRequestError",
-  "backToList": "backToList",
-  "comments": "comments",
-  "edit": "edit",
-  "hasNotArticles": "hasNotArticles",
-  "rateArticle": "rateArticle",
-  "recommend": "recommend"
+  "articleRequestError": "Извините, эта статья не найдена",
+  "comments": "Комментарии",
+  "backToList": "Назад к списку",
+  "SCIENCE": "Наука",
+  "ECONOMICS": "Экономика",
+  "ALL": "Все",
+  "hasNotArticles": "Статьи не найдены",
+  "recommend": "Рекомендуем",
+  "edit": "Редактировать",
+  "rateArticle": "Пожалуйста, оцените статью",
+  "articleFeedbackTitle": "Оставьте свой отзыв о статье, это поможет улучшить качество.",
+  "article": {
+    "hereYouCanSearch": "Здесь вы можете искать и просматривать статьи на различные темы.",
+    "youAreWelcome": "Добро пожаловать на страницу статей!"
+  }
 }
