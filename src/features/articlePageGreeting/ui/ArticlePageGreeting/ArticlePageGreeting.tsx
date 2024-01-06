@@ -25,7 +25,7 @@ export const ArticlePageGreeting = memo(() => {
 
   return (
     <Modal isLazy isOpen={isOpen} onClose={onCloseHandler}>
-      <Text title={t('youAreWelcome')} text={t('hereYouCanSearch')} />
+      <Text title={t('youAreWelcome')} />
     </Modal>
   );
 });

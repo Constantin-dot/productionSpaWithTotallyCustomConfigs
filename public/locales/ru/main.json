@@ -1,3 +1,5 @@
 {
-  "mainPageContent": "Здесь главная страница"
+  "main": {
+    "mainPageContent": "Здесь главная страница"
+  }
 }

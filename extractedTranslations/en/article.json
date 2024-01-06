@@ -1,19 +1,19 @@
 {
-  "articleRequestError": "Sorry, this article not found",
-  "comments": "Comments",
-  "backToList": "Back to list",
+  "ALL": "All",
+  "ECONOMICS": "Economics",
   "IT": "IT",
   "SCIENCE": "Scince",
-  "ECONOMICS": "Economics",
-  "ALL": "All",
-  "hasNotArticles": "It has not any articles.",
-  "recommend": "Recommend",
-  "edit": "Edit",
-  "rateArticle": "Please, rate article",
-  "articleFeedbackTitle": "Leave your feedback about the article, this will help improve the quality.",
-  "youAreWelcome": "You are welcome on articles page!",
   "article": {
     "hereYouCanSearch": "Here you can search and see articles on different themes.",
     "youAreWelcome": "You are welcome on articles page!"
-  }
+  },
+  "articleFeedbackTitle": "Leave your feedback about the article, this will help improve the quality.",
+  "articleRequestError": "Sorry, this article not found",
+  "backToList": "Back to list",
+  "comments": "Comments",
+  "edit": "Edit",
+  "hasNotArticles": "It has not any articles.",
+  "rateArticle": "Please, rate article",
+  "recommend": "Recommend",
+  "youAreWelcome": "You are welcome on articles page!"
 }

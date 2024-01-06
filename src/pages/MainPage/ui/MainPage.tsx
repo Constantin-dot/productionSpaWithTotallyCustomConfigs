@@ -4,16 +4,12 @@ import { useTranslation } from 'react-i18next';
 import { BugButton } from '@/app/providers/ErrorBoundary';
 import { HStack, VStack } from '@/shared/ui/Stack';
 import { Page } from '@/widgets/Page';
-import { toggleFeatures } from '@/shared/lib/features';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { Counter } from '@/entities/Counter';
+import { Card } from '@/shared/ui/Card';
 
 const MainPage = memo(() => {
   const { t } = useTranslation('main');
-
-  const counter = toggleFeatures({
-    name: 'isCounterEnabled',
-    on: () => <>Redisigned counter</>,
-    off: () => <>Old counter</>,
-  });
 
   return (
     <Page data-testid="MainPage">
@@ -22,7 +18,11 @@ const MainPage = memo(() => {
           {t('mainPageContent')}
           <BugButton />
         </HStack>
-        {counter}
+        <ToggleFeatures
+          feature="isCounterEnabled"
+          on={<Card>New counter will soon here</Card>}
+          off={<Counter />}
+        />
       </VStack>
     </Page>
   );

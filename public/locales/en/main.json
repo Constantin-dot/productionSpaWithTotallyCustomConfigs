@@ -1,4 +1,5 @@
 {
-  "main": "Main",
-  "mainPageContent": "Main page here"
+  "main": {
+    "mainPageContent": "Main page here"
+  }
 }

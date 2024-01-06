@@ -59,6 +59,8 @@ module.exports = {
           'as',
           'refName',
           'border',
+          'feature',
+          'on',
         ],
       },
     ],
