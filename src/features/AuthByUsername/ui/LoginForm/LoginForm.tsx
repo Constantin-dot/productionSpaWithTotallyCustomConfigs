@@ -2,9 +2,9 @@ import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Button, ButtonVariantEnum } from '@/shared/ui/Button';
-import { Input, InputVariantEnum } from '@/shared/ui/Input';
-import { Text, TextVariantEnum } from '@/shared/ui/Text';
+import { Button, ButtonVariantEnum } from '@/shared/ui/deprecated/Button';
+import { Input, InputVariantEnum } from '@/shared/ui/deprecated/Input';
+import { Text, TextVariantEnum } from '@/shared/ui/deprecated/Text';
 import {
   DynamicModuleLoader,
   ReducersListType,

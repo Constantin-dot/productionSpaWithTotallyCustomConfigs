@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Button, ButtonVariantEnum } from '@/shared/ui/Button';
+import { Button, ButtonVariantEnum } from '@/shared/ui/deprecated/Button';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { saveJsonSettings } from '@/entities/User';
 

@@ -5,9 +5,9 @@ import {
   useAnimationLibs,
 } from '@/shared/lib/components/AnimationProvider';
 import cls from './Drawer.module.scss';
-import { Portal } from '../Portal/Portal';
-import { Overlay } from '../Overlay/Overlay';
+import { Overlay } from '../Overlay';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
+import { Portal } from '../Portal';
 
 type PropsType = {
   className?: string;

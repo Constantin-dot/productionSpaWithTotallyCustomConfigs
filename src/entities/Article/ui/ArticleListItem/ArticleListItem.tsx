@@ -1,13 +1,13 @@
 import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Text } from '@/shared/ui/Text';
+import { Text } from '@/shared/ui/deprecated/Text';
 import EyeIcon from '@/shared/assets/icons/eye.svg';
 import { Icon } from '@/shared/ui/Icon';
-import { Card } from '@/shared/ui/Card';
-import { Avatar } from '@/shared/ui/Avatar';
-import { Button, ButtonVariantEnum } from '@/shared/ui/Button';
-import { AppLink } from '@/shared/ui/AppLink';
+import { Card } from '@/shared/ui/deprecated/Card';
+import { Avatar } from '@/shared/ui/deprecated/Avatar';
+import { Button, ButtonVariantEnum } from '@/shared/ui/deprecated/Button';
+import { AppLink } from '@/shared/ui/deprecated/AppLink';
 import {
   ArticleBlockTypeEnum,
   ArticleListViewVariantEnum,
@@ -16,8 +16,8 @@ import type { IArticle, IArticleTextBlock } from '../../model/types/article';
 import cls from './ArticleListItem.module.scss';
 import { ArticleTextBlock } from '../ArticleTextBlock/ArticleTextBlock';
 import { getRouteArticlesDetails } from '@/shared/const/router';
-import { AppImage } from '@/shared/ui/AppImage';
-import { Skeleton } from '@/shared/ui/Skeleton';
+import { AppImage } from '@/shared/ui/deprecated/AppImage';
+import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
 
 type PropsType = {
   className?: string;

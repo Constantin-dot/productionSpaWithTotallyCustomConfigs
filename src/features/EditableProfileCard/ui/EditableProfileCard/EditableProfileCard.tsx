@@ -7,7 +7,7 @@ import { ProfileCard } from '@/entities/Profile';
 import { CurrencyEnum } from '@/entities/Currency';
 import { CountryEnum } from '@/entities/Country';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { Text, TextVariantEnum } from '@/shared/ui/Text';
+import { Text, TextVariantEnum } from '@/shared/ui/deprecated/Text';
 import {
   DynamicModuleLoader,
   ReducersListType,

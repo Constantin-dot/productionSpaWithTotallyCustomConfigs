@@ -1,7 +1,7 @@
 import { memo, useCallback } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import ThemeIcon from '@/shared/assets/icons/theme.svg';
-import { Button, ButtonVariantEnum } from '@/shared/ui/Button';
+import { Button, ButtonVariantEnum } from '@/shared/ui/deprecated/Button';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
 import { Theme } from '@/shared/const/theme';
 import { saveJsonSettings } from '@/entities/User';

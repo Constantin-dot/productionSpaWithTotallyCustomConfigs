@@ -1,6 +1,6 @@
 import { FC, ReactNode, useCallback } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Card, CardVariantEnum } from '../Card/Card';
+import { Card, CardVariantEnum } from '../../deprecated/Card';
 import cls from './Tabs.module.scss';
 
 export interface ITabItem {

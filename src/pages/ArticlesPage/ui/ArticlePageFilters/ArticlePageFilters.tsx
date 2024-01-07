@@ -8,11 +8,11 @@ import {
 } from '@/entities/Article';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Card } from '@/shared/ui/Card';
-import { Input } from '@/shared/ui/Input';
+import { Card } from '@/shared/ui/deprecated/Card';
+import { Input } from '@/shared/ui/deprecated/Input';
 import { SortOrderType } from '@/shared/types/sort';
 import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
-import { ITabItem } from '@/shared/ui/Tabs';
+import { ITabItem } from '@/shared/ui/deprecated/Tabs';
 import { getArticlePageSort } from '../../model/selectors/getArticlePageSort/getArticlePageSort';
 import { getArticlePageOrder } from '../../model/selectors/getArticlePageOrder/getArticlePageOrder';
 import { getArticlePageSearch } from '../../model/selectors/getArticlePageSearch/getArticlePageSearch';

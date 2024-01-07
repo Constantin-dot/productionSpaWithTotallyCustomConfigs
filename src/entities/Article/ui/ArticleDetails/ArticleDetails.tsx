@@ -7,9 +7,9 @@ import {
   ReducersListType,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Avatar } from '@/shared/ui/Avatar';
-import { Skeleton } from '@/shared/ui/Skeleton';
-import { Text, TextAlignEnum, TextSizeEnum } from '@/shared/ui/Text';
+import { Avatar } from '@/shared/ui/deprecated/Avatar';
+import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
+import { Text, TextAlignEnum, TextSizeEnum } from '@/shared/ui/deprecated/Text';
 import EyeIcon from '@/shared/assets/icons/eye.svg';
 import ClarityIcon from '@/shared/assets/icons/clarity.svg';
 import { Icon } from '@/shared/ui/Icon';
