@@ -8,6 +8,8 @@ import { VStack } from '@/shared/ui/Stack';
 import cls from './Sidebar.module.scss';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
 import { getSidebarItems } from '../../model/selectors/getSidebarItems';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { AppLogo } from '@/shared/ui/AppLogo';
 
 type PropsType = { className?: string };
 
@@ -29,31 +31,45 @@ export const Sidebar = memo((props: PropsType) => {
   );
 
   return (
-    <aside
-      data-testid="sidebar"
-      className={classNames(
-        cls.Sidebar,
-        { [cls.collapsed]: collapsed },
-
-        [className],
-      )}
-    >
-      <VStack role="navigation" gap="8" align="start" className={cls.items}>
-        {itemsList}
-      </VStack>
-      <div className={cls.switchers}>
-        <ThemeSwticher />
-        <LangSwitcher />
-        <Button
-          data-testid="sidebar-toggle"
-          onClick={onToggleHandler}
-          className={cls.coolapsingBtn}
-          isSquare
-          variant={ButtonVariantEnum.INVERTED_BACKGROUND}
+    <ToggleFeatures
+      feature="isAppRedisigned"
+      on={
+        <aside
+          data-testid="sidebar"
+          className={classNames(
+            cls.SidebarRedesigned,
+            { [cls.collapsed]: collapsed },
+            [className],
+          )}
         >
-          {collapsed ? '>' : '<'}
-        </Button>
-      </div>
-    </aside>
+          <AppLogo className={cls.appLogo} />
+        </aside>
+      }
+      off={
+        <aside
+          data-testid="sidebar"
+          className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [
+            className,
+          ])}
+        >
+          <VStack role="navigation" gap="8" align="start" className={cls.items}>
+            {itemsList}
+          </VStack>
+          <div className={cls.switchers}>
+            <ThemeSwticher />
+            <LangSwitcher />
+            <Button
+              data-testid="sidebar-toggle"
+              onClick={onToggleHandler}
+              className={cls.coolapsingBtn}
+              isSquare
+              variant={ButtonVariantEnum.INVERTED_BACKGROUND}
+            >
+              {collapsed ? '>' : '<'}
+            </Button>
+          </div>
+        </aside>
+      }
+    />
   );
 });

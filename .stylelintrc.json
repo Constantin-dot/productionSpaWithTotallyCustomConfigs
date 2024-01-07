@@ -2,6 +2,9 @@
   "extends": "stylelint-config-standard",
   "rules": {
     "indentation": [2],
-    "selector-class-pattern": null
+    "selector-class-pattern": null,
+    "custom-property-empty-line-before": "never",
+    "color-hex-case": null,
+    "color-function-notation": null
   }
 }

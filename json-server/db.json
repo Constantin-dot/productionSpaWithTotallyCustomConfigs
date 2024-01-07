@@ -174,7 +174,9 @@
       "views": 314,
       "createdAt": "22.01.2023",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -244,7 +246,9 @@
       "views": 700,
       "createdAt": "30.01.2023",
       "userId": "2",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -314,7 +318,9 @@
       "views": 523,
       "createdAt": "22.01.2023",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -384,7 +390,9 @@
       "views": 523,
       "createdAt": "22.01.2023",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -406,7 +414,9 @@
       "views": 523,
       "createdAt": "22.01.2023",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -428,7 +438,9 @@
       "views": 999,
       "createdAt": "30.01.2023",
       "userId": "1",
-      "type": ["SCIENCE"],
+      "type": [
+        "SCIENCE"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -450,7 +462,9 @@
       "views": 731,
       "createdAt": "01.01.2023",
       "userId": "1",
-      "type": ["ECONOMICS"],
+      "type": [
+        "ECONOMICS"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -472,7 +486,9 @@
       "views": 1000,
       "createdAt": "22.02.2023",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -494,7 +510,9 @@
       "views": 200,
       "createdAt": "15.03.2023",
       "userId": "1",
-      "type": ["SCIENCE"],
+      "type": [
+        "SCIENCE"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -516,7 +534,9 @@
       "views": 100,
       "createdAt": "01.03.2023",
       "userId": "1",
-      "type": ["ECONOMICS"],
+      "type": [
+        "ECONOMICS"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -537,7 +557,9 @@
       "views": 314,
       "createdAt": "22.01.2023",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [],
       "id": "KX3kouc"
     },
@@ -548,7 +570,9 @@
       "views": 314,
       "createdAt": "22.01.2023",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [],
       "id": "riLOKIs"
     },
@@ -559,7 +583,9 @@
       "views": 314,
       "createdAt": "22.01.2023",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [],
       "id": "ype7qSi"
     }
@@ -625,15 +651,18 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "role": ["ADMIN"],
+      "role": [
+        "ADMIN"
+      ],
       "features": {
         "isArticleRatingEnabled": true,
-        "isCounterEnabled": true
+        "isCounterEnabled": true,
+        "isAppRedisigned": true
       },
       "jsonSettings": {
         "theme": "app_normal_theme",
         "isFirstVisit": true,
-        "isArticlePageWasOpened": false,
+        "isArticlePageWasOpened": true,
         "language": "en"
       },
       "avatar": "https://cdn.jpegmini.com/user/images/slider_puffin_before_mobile.jpg"
@@ -642,10 +671,13 @@
       "id": "2",
       "username": "user",
       "password": "123",
-      "role": ["USER"],
+      "role": [
+        "USER"
+      ],
       "features": {
         "isArticleRatingEnabled": false,
-        "isCounterEnabled": false
+        "isCounterEnabled": false,
+        "isAppRedisigned": false
       },
       "jsonSettings": {
         "theme": "app_normal_theme",
@@ -659,10 +691,13 @@
       "id": "3",
       "username": "testuser",
       "password": "123",
-      "role": ["USER"],
+      "role": [
+        "USER"
+      ],
       "features": {
         "isArticleRatingEnabled": true,
-        "isCounterEnabled": true
+        "isCounterEnabled": true,
+        "isAppRedisigned": false
       },
       "jsonSettings": {
         "theme": "app_green_theme",
@@ -676,10 +711,13 @@
       "id": "13",
       "username": "manager",
       "password": "123",
-      "role": ["MANAGER"],
+      "role": [
+        "MANAGER"
+      ],
       "features": {
         "isArticleRatingEnabled": false,
-        "isCounterEnabled": false
+        "isCounterEnabled": false,
+        "isAppRedisigned": true
       },
       "jsonSettings": {
         "theme": "app_green_theme",

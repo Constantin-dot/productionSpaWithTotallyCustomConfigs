@@ -12,6 +12,7 @@ import { NotificationButton } from '@/features/NotificationButton';
 import { AvatarDropdown } from '@/features/AvatarDropdown';
 import cls from './Navbar.module.scss';
 import { getRouteArticleCreate } from '@/shared/const/router';
+import { ToggleFeatures } from '@/shared/lib/features';
 
 interface INavbarProps {
   className?: string;
@@ -32,29 +33,42 @@ export const Navbar = memo(({ className }: INavbarProps) => {
 
   if (authData) {
     return (
-      <header className={classNames(cls.Navbar, {}, [className])}>
-        <Text
-          className={cls.appName}
-          variant={TextVariantEnum.INVERTED}
-          title="Test App"
-        />
-        <AppLink
-          className={cls.createLink}
-          to={getRouteArticleCreate()}
-          variant={AppLinkVariantEnum.SECONDARY}
-        >
-          <Button
-            variant={ButtonVariantEnum.CLEAR_INVERTED}
-            className={cls.links}
-          >
-            {t('createArticle')}
-          </Button>
-        </AppLink>
-        <HStack gap="16" className={cls.actions}>
-          <NotificationButton />
-          <AvatarDropdown />
-        </HStack>
-      </header>
+      <ToggleFeatures
+        feature="isAppRedisigned"
+        on={
+          <header className={classNames(cls.NavbarRedesigned, {}, [className])}>
+            <HStack gap="16" className={cls.actions}>
+              <NotificationButton />
+              <AvatarDropdown />
+            </HStack>
+          </header>
+        }
+        off={
+          <header className={classNames(cls.Navbar, {}, [className])}>
+            <Text
+              className={cls.appName}
+              variant={TextVariantEnum.INVERTED}
+              title="Test App"
+            />
+            <AppLink
+              className={cls.createLink}
+              to={getRouteArticleCreate()}
+              variant={AppLinkVariantEnum.SECONDARY}
+            >
+              <Button
+                variant={ButtonVariantEnum.CLEAR_INVERTED}
+                className={cls.links}
+              >
+                {t('createArticle')}
+              </Button>
+            </AppLink>
+            <HStack gap="16" className={cls.actions}>
+              <NotificationButton />
+              <AvatarDropdown />
+            </HStack>
+          </header>
+        }
+      />
     );
   }
 

@@ -10,6 +10,7 @@ import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitial
 import { useThrottle } from '@/shared/lib/hooks/useThrottle/useThrottle';
 import cls from './Page.module.scss';
 import { ITestProps } from '@/shared/types/tests';
+import { toggleFeatures } from '@/shared/lib/features';
 
 interface IProps extends ITestProps {
   className?: string;
@@ -51,7 +52,15 @@ export const Page = (props: IProps) => {
 
   return (
     <main
-      className={classNames(cls.Page, {}, [className])}
+      className={classNames(
+        toggleFeatures({
+          name: 'isAppRedisigned',
+          on: () => cls.PageRedesigned,
+          off: () => cls.Page,
+        }),
+        {},
+        [className],
+      )}
       ref={wrapperRef}
       onScroll={isSaveScroll ? onScrollHandler : undefined}
       // eslint-disable-next-line react/destructuring-assignment

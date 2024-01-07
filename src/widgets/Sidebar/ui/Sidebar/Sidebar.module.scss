@@ -32,3 +32,14 @@
     flex-direction: column;
   }
 }
+
+.SidebarRedesigned {
+  background: var(--light-bg-redesigned);
+  width: var(--sidebar-widht-redesigned);
+  height: 100%;
+  border-radius: 32px;
+}
+
+.appLogo {
+  padding-top: 20px;
+}
