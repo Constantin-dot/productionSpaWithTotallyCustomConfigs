@@ -1,6 +1,6 @@
 import { IFeatureFlags } from '@/shared/types/featureFlags';
 
-let featureFlags: IFeatureFlags | undefined;
+let featureFlags: IFeatureFlags | undefined = {};
 
 export function setFeatureFlags(newFeatureFlags?: IFeatureFlags) {
   featureFlags = newFeatureFlags;
