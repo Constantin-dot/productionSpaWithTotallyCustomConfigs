@@ -1,9 +1,14 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Button, ButtonVariantEnum } from '@/shared/ui/deprecated/Button';
+import {
+  Button as DeprecatedButton,
+  ButtonVariantEnum,
+} from '@/shared/ui/deprecated/Button';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { saveJsonSettings } from '@/entities/User';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { Button } from '@/shared/ui/redesigned/Button';
 
 type PropsType = { className?: string };
 
@@ -19,12 +24,26 @@ export const LangSwitcher = memo((props: PropsType) => {
   };
 
   return (
-    <Button
-      className={classNames('', {}, [className])}
-      variant={ButtonVariantEnum.INVERTED_BACKGROUND}
-      onClick={languageToggleHandler}
-    >
-      {t('language')}
-    </Button>
+    <ToggleFeatures
+      feature="isAppRedisigned"
+      on={
+        <Button
+          className={classNames('', {}, [className])}
+          variant="clear"
+          onClick={languageToggleHandler}
+        >
+          {t('language')}
+        </Button>
+      }
+      off={
+        <DeprecatedButton
+          className={classNames('', {}, [className])}
+          variant={ButtonVariantEnum.INVERTED_BACKGROUND}
+          onClick={languageToggleHandler}
+        >
+          {t('language')}
+        </DeprecatedButton>
+      }
+    />
   );
 });

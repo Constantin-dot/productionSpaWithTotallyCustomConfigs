@@ -9,7 +9,9 @@ import cls from './Sidebar.module.scss';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
 import { getSidebarItems } from '../../model/selectors/getSidebarItems';
 import { ToggleFeatures } from '@/shared/lib/features';
-import { AppLogo } from '@/shared/ui/AppLogo';
+import { AppLogo } from '@/shared/ui/redesigned/AppLogo';
+import { Icon } from '@/shared/ui/redesigned/Icon';
+import ArrowIcon from '@/shared/assets/icons/arrow.svg';
 
 type PropsType = { className?: string };
 
@@ -38,11 +40,25 @@ export const Sidebar = memo((props: PropsType) => {
           data-testid="sidebar"
           className={classNames(
             cls.SidebarRedesigned,
-            { [cls.collapsed]: collapsed },
+            { [cls.collapsedRedesigned]: collapsed },
             [className],
           )}
         >
-          <AppLogo className={cls.appLogo} />
+          <AppLogo className={cls.appLogo} size={collapsed ? 30 : 50} />
+          <VStack role="navigation" gap="8" align="start" className={cls.items}>
+            {itemsList}
+          </VStack>
+          <Icon
+            data-testid="sidebar-toggle"
+            onClick={onToggleHandler}
+            clickable
+            className={cls.coolapsingBtn}
+            Svg={ArrowIcon}
+          />
+          <div className={cls.switchersRedesigned}>
+            <ThemeSwticher />
+            <LangSwitcher className={cls.language} />
+          </div>
         </aside>
       }
       off={

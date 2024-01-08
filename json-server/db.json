@@ -660,7 +660,7 @@
         "isAppRedisigned": true
       },
       "jsonSettings": {
-        "theme": "app_normal_theme",
+        "theme": "app_dark_theme",
         "isFirstVisit": true,
         "isArticlePageWasOpened": true,
         "language": "en"

@@ -12,7 +12,7 @@ import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
 import { Text, TextAlignEnum, TextSizeEnum } from '@/shared/ui/deprecated/Text';
 import EyeIcon from '@/shared/assets/icons/eye.svg';
 import ClarityIcon from '@/shared/assets/icons/clarity.svg';
-import { Icon } from '@/shared/ui/Icon';
+import { Icon } from '@/shared/ui/deprecated/Icon';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { HStack, VStack } from '@/shared/ui/Stack';
 import type { ArticleBlockType } from '../../model/types/article';

@@ -3,7 +3,7 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import ListIcon from '@/shared/assets/icons/bi_list.svg';
 import CardsIcon from '@/shared/assets/icons/fe_tiled.svg';
 import { Button, ButtonVariantEnum } from '@/shared/ui/deprecated/Button';
-import { Icon } from '@/shared/ui/Icon';
+import { Icon } from '@/shared/ui/deprecated/Icon';
 import cls from './ArticleViewSelector.module.scss';
 import { ArticleListViewVariantEnum } from '@/entities/Article';
 

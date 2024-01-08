@@ -3,7 +3,7 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './Avatar.module.scss';
 import { AppImage } from '../AppImage';
 import UserIcon from '../../../assets/icons/user-avatar.svg';
-import { Icon } from '../../Icon';
+import { Icon } from '../Icon';
 import { Skeleton } from '../Skeleton';
 
 type PropsType = {
