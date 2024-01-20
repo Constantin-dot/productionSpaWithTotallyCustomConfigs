@@ -11,7 +11,7 @@ import {
   TextAlignEnum,
   TextVariantEnum,
 } from '@/shared/ui/deprecated/Text';
-import { HStack, VStack } from '@/shared/ui/Stack';
+import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import { IProfile } from '../../model/types/profile';
 import cls from './ProfileCard.module.scss';
 

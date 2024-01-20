@@ -1,9 +1,9 @@
 import { FC, ReactNode } from 'react';
 import { classNames, ModsType } from '@/shared/lib/classNames/classNames';
 import { useModal } from '@/shared/lib/hooks/useModal/useModal';
-import { Portal } from '../Portal';
+import { Portal } from '../../redesigned/Portal';
 import cls from './Modal.module.scss';
-import { Overlay } from '../Overlay';
+import { Overlay } from '../../redesigned/Overlay';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
 
 type PropsType = {

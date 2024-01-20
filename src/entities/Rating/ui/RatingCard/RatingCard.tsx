@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { BrowserView, MobileView } from 'react-device-detect';
 import cls from './RatingCard.module.scss';
 import { Card } from '@/shared/ui/deprecated/Card';
-import { HStack, VStack } from '@/shared/ui/Stack';
+import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import {
   Text,
   TextSizeEnum,

@@ -2,11 +2,11 @@ import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 // eslint-disable-next-line constantin-dot-plugin/layer-imports-checker
 import { BugButton } from '@/app/providers/ErrorBoundary';
-import { HStack, VStack } from '@/shared/ui/Stack';
 import { Page } from '@/widgets/Page';
 import { ToggleFeatures } from '@/shared/lib/features';
 import { Counter } from '@/entities/Counter';
 import { Card } from '@/shared/ui/deprecated/Card';
+import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 
 const MainPage = memo(() => {
   const { t } = useTranslation('main');

@@ -7,12 +7,13 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { AppLink, AppLinkVariantEnum } from '@/shared/ui/deprecated/AppLink';
 import { Button, ButtonVariantEnum } from '@/shared/ui/deprecated/Button';
 import { Text, TextVariantEnum } from '@/shared/ui/deprecated/Text';
-import { HStack } from '@/shared/ui/Stack';
+
 import { NotificationButton } from '@/features/NotificationButton';
 import { AvatarDropdown } from '@/features/AvatarDropdown';
 import cls from './Navbar.module.scss';
 import { getRouteArticleCreate } from '@/shared/const/router';
 import { ToggleFeatures } from '@/shared/lib/features';
+import { HStack } from '@/shared/ui/redesigned/Stack';
 
 interface INavbarProps {
   className?: string;

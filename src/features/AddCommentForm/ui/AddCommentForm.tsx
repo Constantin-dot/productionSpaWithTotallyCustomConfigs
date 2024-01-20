@@ -13,7 +13,7 @@ import {
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Button } from '@/shared/ui/deprecated/Button';
 import { Input } from '@/shared/ui/deprecated/Input';
-import { HStack } from '@/shared/ui/Stack';
+import { HStack } from '@/shared/ui/redesigned/Stack';
 import { getAddCommentFormText } from '../model/selectors/addCommentFormSelectors';
 import cls from './AddCommentForm.module.scss';
 

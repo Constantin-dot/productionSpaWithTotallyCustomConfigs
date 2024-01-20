@@ -14,7 +14,7 @@ import EyeIcon from '@/shared/assets/icons/eye.svg';
 import ClarityIcon from '@/shared/assets/icons/clarity.svg';
 import { Icon } from '@/shared/ui/deprecated/Icon';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { HStack, VStack } from '@/shared/ui/Stack';
+import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import type { ArticleBlockType } from '../../model/types/article';
 import { ArticleBlockTypeEnum } from '../../model/consts/consts';
 import {
