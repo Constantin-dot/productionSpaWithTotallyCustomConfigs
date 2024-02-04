@@ -106,6 +106,7 @@ module.exports = {
     'react/jsx-one-expression-per-line': 'off',
     'react/jsx-closing-tag-location': 'off',
     'react/no-unstable-nested-components': 'warn',
+    'react/prop-types': 'off',
   },
   globals: {
     __IS_DEV__: true,

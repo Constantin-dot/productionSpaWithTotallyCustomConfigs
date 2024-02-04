@@ -15,7 +15,11 @@ import cls from './ArticlesPage.module.scss';
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import { ArticlePageFilters } from '../ArticlePageFilters/ArticlePageFilters';
 import { ArticleInfiniteList } from '../ArticleInfiniteList/ArticleInfiniteList';
-import { ArticlePageGreeting } from '@/features/articlePageGreeting';
+import { ArticlePageGreeting } from '@/features/ArticlePageGreeting';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { StickyContentLayout } from '@/shared/layouts/StickyContentLayout';
+import { ViewSelectorContainer } from '../ViewSelectorContainer/ViewSelectorContainer';
+import { FiltersContainer } from '../FiltersContainer/FiltersContainer';
 
 type PropsType = { className?: string };
 
@@ -37,20 +41,46 @@ const ArticlesPage: FC<PropsType> = (props) => {
     dispatch(initArticlesPage(searchParams));
   });
 
+  const content = (
+    <ToggleFeatures
+      feature="isAppRedisigned"
+      on={
+        <StickyContentLayout
+          left={<ViewSelectorContainer />}
+          content={
+            <Page
+              className={classNames(cls.ArticlesPage, {}, [className])}
+              isSaveScroll
+              onScrollEnd={onLoadNextPart}
+              data-testid="ArticlesPage"
+            >
+              <ArticleInfiniteList />
+              <ArticlePageGreeting />
+            </Page>
+          }
+          right={<FiltersContainer />}
+        />
+      }
+      off={
+        <Page
+          className={classNames(cls.ArticlesPageDeprecated, {}, [className])}
+          isSaveScroll
+          onScrollEnd={onLoadNextPart}
+          data-testid="ArticlesPage"
+        >
+          <VStack gap="16" max>
+            <ArticlePageFilters />
+            <ArticleInfiniteList />
+            <ArticlePageGreeting />
+          </VStack>
+        </Page>
+      }
+    />
+  );
+
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
-      <Page
-        className={classNames(cls.ArticlesPage, {}, [className])}
-        isSaveScroll
-        onScrollEnd={onLoadNextPart}
-        data-testid="ArticlesPage"
-      >
-        <VStack gap="16" max>
-          <ArticlePageFilters />
-          <ArticleInfiniteList />
-          <ArticlePageGreeting />
-        </VStack>
-      </Page>
+      {content}
     </DynamicModuleLoader>
   );
 };

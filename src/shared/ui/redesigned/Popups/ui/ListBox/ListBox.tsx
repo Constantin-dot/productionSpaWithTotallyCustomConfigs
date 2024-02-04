@@ -6,25 +6,26 @@ import cls from './ListBox.module.scss';
 import { HStack } from '../../../../redesigned/Stack';
 import { mapDirectionClass } from '../../styles/consts';
 import popupCls from '../../styles/popup.module.scss';
+import { Button } from '../../../Button';
 
-type ListBoxItemType = {
+type ListBoxItemType<T extends string> = {
   value: string;
   content: ReactNode;
   disabled?: boolean;
 };
 
-type PropsType = {
-  items?: Array<ListBoxItemType>;
+type PropsType<T extends string> = {
+  items?: ListBoxItemType<T>[];
   className?: string;
-  value?: string;
+  value?: T;
   defaultValue?: string;
-  onChange: (value: string) => void;
+  onChange: (value: T) => void;
   readonly?: boolean;
-  label?: string;
+  label?: string | null;
   direction?: DropdownDirection;
 };
 
-export const ListBox = (props: PropsType) => {
+export const ListBox = <T extends string>(props: PropsType<T>) => {
   const {
     items,
     className,
@@ -59,7 +60,7 @@ export const ListBox = (props: PropsType) => {
             [],
           )}
         >
-          {value ?? defaultValue}
+          <Button variant="filled">{value ?? defaultValue}</Button>
         </HListbox.Button>
         <HListbox.Options
           className={classNames(cls.options, {}, optionsClasses)}

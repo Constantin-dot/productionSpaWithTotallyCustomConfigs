@@ -1,8 +1,16 @@
-.ArticleViewSelector {
+.ArticleViewSelectorDeprecated {
   display: flex;
   margin-bottom: 15px;
+
+  .notSelected {
+    fill: var(--secondary-color);
+  }
 }
 
-.notSelected {
-  fill: var(--secondary-color);
+.ArticleViewSelector {
+  display: flex;
+
+  .notSelected {
+    color: var(--light-bg-redesigned);
+  }
 }

@@ -4,6 +4,7 @@ import cls from './Card.module.scss';
 
 export type TCardVariant = 'normal' | 'light' | 'outlined';
 export type TCardPadding = '0' | '8' | '16' | '24';
+export type TCardBorder = 'round' | 'normalB';
 
 interface IProps extends HTMLAttributes<HTMLDivElement> {
   className?: string;
@@ -11,6 +12,7 @@ interface IProps extends HTMLAttributes<HTMLDivElement> {
   variant?: TCardVariant;
   max?: boolean;
   padding?: TCardPadding;
+  border?: TCardBorder;
 }
 
 const mapPaddingToClass: Record<TCardPadding, string> = {
@@ -27,6 +29,7 @@ export const Card: FC<IProps> = (props) => {
     variant = 'normal',
     max,
     padding = '8',
+    border = 'normal',
     ...otherProps
   } = props;
 
@@ -38,6 +41,7 @@ export const Card: FC<IProps> = (props) => {
         className,
         cls[variant],
         cls[paddingClass],
+        cls[border],
       ])}
       {...otherProps}
     >

@@ -5,6 +5,10 @@ import { SortOrderType } from '@/shared/types/sort';
 import { Select, ISelectOption } from '@/shared/ui/deprecated/Select';
 import cls from './ArticleSortSelector.module.scss';
 import { ArticleSortFieldEnum } from '@/entities/Article';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { ListBox } from '@/shared/ui/redesigned/Popups';
+import { VStack } from '@/shared/ui/redesigned/Stack';
+import { Text } from '@/shared/ui/redesigned/Text';
 
 type PropsType = {
   className?: string;
@@ -51,20 +55,43 @@ export const ArticleSortSelector = memo((props: PropsType) => {
   );
 
   return (
-    <div className={classNames(cls.ArticleSortSelector, {}, [className])}>
-      <Select
-        label={t('sortBy')}
-        options={sortFieldOptions}
-        value={sort}
-        onChange={onChangeSort}
-      />
-      <Select
-        label={t('by')}
-        options={orderOptions}
-        value={order}
-        onChange={onChangeOrder}
-        className={cls.order}
-      />
-    </div>
+    <ToggleFeatures
+      feature="isAppRedisigned"
+      on={
+        <div className={classNames(cls.ArticleSortSelector, {}, [className])}>
+          <VStack gap="8" align="start">
+            <Text title={t('sortBy')} size="s" />
+            <ListBox
+              items={sortFieldOptions}
+              value={sort}
+              onChange={onChangeSort}
+            />
+            <ListBox
+              items={orderOptions}
+              value={order}
+              onChange={onChangeOrder}
+              className={cls.order}
+            />
+          </VStack>
+        </div>
+      }
+      off={
+        <div className={classNames(cls.ArticleSortSelector, {}, [className])}>
+          <Select
+            label={t('sortBy')}
+            options={sortFieldOptions}
+            value={sort}
+            onChange={onChangeSort}
+          />
+          <Select
+            label={t('by')}
+            options={orderOptions}
+            value={order}
+            onChange={onChangeOrder}
+            className={cls.order}
+          />
+        </div>
+      }
+    />
   );
 });
