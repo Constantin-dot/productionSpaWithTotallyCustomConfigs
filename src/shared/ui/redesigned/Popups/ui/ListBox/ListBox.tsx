@@ -1,4 +1,4 @@
-import { Fragment, ReactNode } from 'react';
+import { Fragment, ReactNode, useMemo } from 'react';
 import { Listbox as HListbox } from '@headlessui/react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { DropdownDirection } from '@/shared/types/ui';
@@ -7,6 +7,7 @@ import { HStack } from '../../../../redesigned/Stack';
 import { mapDirectionClass } from '../../styles/consts';
 import popupCls from '../../styles/popup.module.scss';
 import { Button } from '../../../Button';
+import { Text } from '../../../Text';
 
 type ListBoxItemType<T extends string> = {
   value: string;
@@ -39,6 +40,11 @@ export const ListBox = <T extends string>(props: PropsType<T>) => {
 
   const optionsClasses = [mapDirectionClass[direction], popupCls.menu];
 
+  const selectedItem = useMemo(
+    () => items?.find((item) => item.value === value),
+    [items, value],
+  );
+
   return (
     <HStack gap="4">
       {label && (
@@ -60,7 +66,9 @@ export const ListBox = <T extends string>(props: PropsType<T>) => {
             [],
           )}
         >
-          <Button variant="filled">{value ?? defaultValue}</Button>
+          <Button variant="filled">
+            {selectedItem?.content ?? defaultValue}
+          </Button>
         </HListbox.Button>
         <HListbox.Options
           className={classNames(cls.options, {}, optionsClasses)}
@@ -77,10 +85,14 @@ export const ListBox = <T extends string>(props: PropsType<T>) => {
                   className={classNames(cls.item, {
                     [popupCls.active]: active,
                     [popupCls.disabled]: item.disabled,
+                    [cls.selected]: selected,
                   })}
                 >
-                  {selected && '+'}
-                  {item.content}
+                  <Text
+                    size="s"
+                    className={cls.text}
+                    text={`${selected ? 'v ' : ''}${item.content}`}
+                  />
                 </li>
               )}
             </HListbox.Option>

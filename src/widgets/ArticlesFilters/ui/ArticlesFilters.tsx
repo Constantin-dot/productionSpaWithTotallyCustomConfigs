@@ -9,7 +9,7 @@ import { ArticleSortSelector } from '@/features/ArticleSortSelector';
 import { ITabItem } from '@/shared/ui/deprecated/Tabs';
 import cls from './ArticlesFilters.module.scss';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Input } from '@/shared/ui/deprecated/Input';
+import { Input } from '@/shared/ui/redesigned/Input';
 
 type TProps = {
   className?: string;

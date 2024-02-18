@@ -16,4 +16,13 @@
 
 .item {
   padding: 10px 20px;
+  min-width: fit-content;
+}
+
+.selected {
+  background: var(--light-bg-redesigned);
+}
+
+.text {
+  min-width: max-content;
 }

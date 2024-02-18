@@ -1,8 +1,10 @@
 import { FC, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { ITabItem, Tabs } from '@/shared/ui/deprecated/Tabs';
+import { ITabItem, Tabs as DeprecatedTabs } from '@/shared/ui/deprecated/Tabs';
 import { ArticleTypeEnum } from '@/entities/Article';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { Tabs } from '@/shared/ui/redesigned/Tabs';
 
 type PropsType = {
   className?: string;
@@ -38,11 +40,25 @@ export const ArticleTypeTabs: FC<PropsType> = (props) => {
   );
 
   return (
-    <Tabs
-      className={classNames('', {}, [className])}
-      tabs={typeTabs}
-      value={value}
-      onTabClick={onTabClick}
+    <ToggleFeatures
+      feature="isAppRedisigned"
+      on={
+        <Tabs
+          className={classNames('', {}, [className])}
+          tabs={typeTabs}
+          value={value}
+          onTabClick={onTabClick}
+          direction="column"
+        />
+      }
+      off={
+        <DeprecatedTabs
+          className={classNames('', {}, [className])}
+          tabs={typeTabs}
+          value={value}
+          onTabClick={onTabClick}
+        />
+      }
     />
   );
 };

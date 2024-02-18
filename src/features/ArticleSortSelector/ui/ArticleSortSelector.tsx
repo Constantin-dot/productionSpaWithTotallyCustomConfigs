@@ -76,7 +76,11 @@ export const ArticleSortSelector = memo((props: PropsType) => {
         </div>
       }
       off={
-        <div className={classNames(cls.ArticleSortSelector, {}, [className])}>
+        <div
+          className={classNames(cls.DeprecatedArticleSortSelector, {}, [
+            className,
+          ])}
+        >
           <Select
             label={t('sortBy')}
             options={sortFieldOptions}
