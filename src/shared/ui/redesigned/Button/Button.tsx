@@ -13,6 +13,8 @@ interface IProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: TButtonVariant;
   disabled?: boolean;
   children?: ReactNode;
+  addonLeft?: ReactNode;
+  addonRight?: ReactNode;
 }
 
 export const Button = memo((props: IProps) => {
@@ -23,12 +25,15 @@ export const Button = memo((props: IProps) => {
     isSquare = false,
     size = 's',
     children,
+    addonLeft,
+    addonRight,
     ...otherProps
   } = props;
 
   const mods: ModsType = {
     [cls.square]: isSquare,
     [cls.disabled]: disabled,
+    [cls.withAddon]: Boolean(addonLeft || addonRight),
   };
 
   return (
@@ -42,7 +47,9 @@ export const Button = memo((props: IProps) => {
       ])}
       {...otherProps}
     >
+      <div className={cls.addonLeft}>{addonLeft}</div>
       {children}
+      <div className={cls.addonRight}>{addonRight}</div>
     </button>
   );
 });

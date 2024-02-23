@@ -7,9 +7,11 @@ import { SortOrderType } from '@/shared/types/sort';
 import { ArticleTypeTabs } from '@/features/ArticleTypeTabs';
 import { ArticleSortSelector } from '@/features/ArticleSortSelector';
 import { ITabItem } from '@/shared/ui/deprecated/Tabs';
+import SearchIcon from '@/shared/assets/icons/search.svg';
 import cls from './ArticlesFilters.module.scss';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Input } from '@/shared/ui/redesigned/Input';
+import { Icon } from '@/shared/ui/redesigned/Icon';
 
 type TProps = {
   className?: string;
@@ -47,6 +49,7 @@ export const ArticlesFilters: FC<TProps> = memo((props) => {
           placeholder={t('search') ?? ''}
           value={search}
           onChange={onChangeSearch}
+          addonLeft={<Icon Svg={SearchIcon} />}
         />
         <ArticleTypeTabs
           className={cls.tabs}

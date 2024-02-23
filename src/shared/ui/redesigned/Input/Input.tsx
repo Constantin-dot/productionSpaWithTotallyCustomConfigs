@@ -1,6 +1,7 @@
 import {
   ChangeEvent,
   InputHTMLAttributes,
+  ReactNode,
   memo,
   useEffect,
   useRef,
@@ -9,12 +10,6 @@ import {
 import { classNames, ModsType } from '@/shared/lib/classNames/classNames';
 import cls from './Input.module.scss';
 
-export enum InputVariantEnum {
-  PRIMARY = 'primary',
-  INVERTED = 'inverted',
-  ERROR = 'error',
-}
-
 type HTMLInputProps = Omit<
   InputHTMLAttributes<HTMLInputElement>,
   'value' | 'onChange' | 'readonly'
@@ -22,18 +17,18 @@ type HTMLInputProps = Omit<
 
 interface IProps extends HTMLInputProps {
   className?: string;
-  variant?: InputVariantEnum;
   value?: string | number;
   onChange?: (value: string | number) => void;
   readonly?: boolean;
   elipsis?: boolean;
   width?: string;
+  addonLeft?: ReactNode;
+  addonRight?: ReactNode;
 }
 
 export const Input = memo((props: IProps) => {
   const {
     className,
-    variant = InputVariantEnum.PRIMARY,
     value = '',
     onChange,
     placeholder,
@@ -42,11 +37,12 @@ export const Input = memo((props: IProps) => {
     readonly,
     elipsis,
     width = '100%',
+    addonLeft,
+    addonRight,
     ...otherProps
   } = props;
   const ref = useRef<HTMLInputElement>(null);
   const [isFocused, setIsFocused] = useState(false);
-  const [innerValue, setInnerValue] = useState('');
 
   useEffect(() => {
     if (autoFocus) {
@@ -57,7 +53,6 @@ export const Input = memo((props: IProps) => {
 
   const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
     onChange?.(e.target.value);
-    setInnerValue(e.target.value);
   };
 
   const onBlur = () => {
@@ -70,37 +65,32 @@ export const Input = memo((props: IProps) => {
 
   const mods: ModsType = {
     [cls.readonly]: readonly,
+    [cls.focused]: isFocused,
+    [cls.withAddonLeft]: Boolean(addonLeft),
+    [cls.withAddonRight]: Boolean(addonRight),
   };
 
   const subElemsMods: ModsType = {
     [cls.elipsis]: elipsis,
-    [cls[variant]]: true,
   };
 
   return (
     <div className={classNames(cls.InputWrapper, mods, [className])}>
-      {placeholder && (
-        <div className={cls.placeholder}>{`${placeholder}>`}</div>
-      )}
-      <div className={cls.caretWrapper}>
-        <input
-          ref={ref}
-          type={type}
-          value={value}
-          onChange={onChangeHandler}
-          onFocus={onFocus}
-          onBlur={onBlur}
-          className={classNames(cls.input, subElemsMods, [])}
-          readOnly={readonly}
-          width={width}
-          {...otherProps}
-        />
-        {isFocused &&
-          innerValue?.toString()?.length === 0 &&
-          value?.toString()?.length === 0 && (
-            <span className={classNames(cls.caret, subElemsMods, [])} />
-          )}
-      </div>
+      <div className={cls.addonLeft}>{addonLeft}</div>
+      <input
+        ref={ref}
+        type={type}
+        value={value}
+        onChange={onChangeHandler}
+        onFocus={onFocus}
+        onBlur={onBlur}
+        className={classNames(cls.input, subElemsMods, [])}
+        readOnly={readonly}
+        width={width}
+        placeholder={placeholder}
+        {...otherProps}
+      />
+      <div className={cls.addonRight}>{addonRight}</div>
     </div>
   );
 });

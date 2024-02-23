@@ -8,6 +8,8 @@ import { mapDirectionClass } from '../../styles/consts';
 import popupCls from '../../styles/popup.module.scss';
 import { Button } from '../../../Button';
 import { Text } from '../../../Text';
+import ArrowIcon from '@/shared/assets/icons/arrow.svg';
+import { Icon } from '../../../Icon';
 
 type ListBoxItemType<T extends string> = {
   value: string;
@@ -66,7 +68,7 @@ export const ListBox = <T extends string>(props: PropsType<T>) => {
             [],
           )}
         >
-          <Button variant="filled">
+          <Button variant="filled" addonRight={<Icon Svg={ArrowIcon} />}>
             {selectedItem?.content ?? defaultValue}
           </Button>
         </HListbox.Button>
