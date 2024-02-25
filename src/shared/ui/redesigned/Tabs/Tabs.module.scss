@@ -4,6 +4,10 @@
   cursor: pointer;
 }
 
+.tab {
+  font: var(--font-s-redesigned);
+}
+
 .selected {
-  padding: 8px 16px;
+  padding: 7px 16px;
 }

@@ -41,7 +41,7 @@ export const Tabs: FC<PropsType> = (props) => {
           <Card
             key={tab.value}
             variant={isSelected ? 'light' : 'normal'}
-            className={isSelected ? cls.selected : ''}
+            className={classNames(cls.tab, { [cls.selected]: isSelected }, [])}
             onClick={onTabClickHandler(tab)}
             border="round"
           >

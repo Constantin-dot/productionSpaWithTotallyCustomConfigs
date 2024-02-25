@@ -1,9 +1,11 @@
-.title {
-  color: var(--text-redesigned);
-}
+.primary {
+  .title {
+    color: var(--text-redesigned);
+  }
 
-.text {
-  color: var(--text-redesigned);
+  .text {
+    color: var(--text-redesigned);
+  }
 }
 
 .accent {
@@ -38,7 +40,7 @@
   text-align: center;
 }
 
-.size_s {
+.sizeS {
   .title {
     font: var(--font-s-redesigned);
   }
@@ -48,7 +50,7 @@
   }
 }
 
-.size_m {
+.sizeM {
   .title {
     font: var(--font-m-redesigned);
   }
@@ -58,7 +60,7 @@
   }
 }
 
-.size_l {
+.sizeL {
   .title {
     font: var(--font-l-redesigned);
   }
@@ -68,7 +70,7 @@
   }
 }
 
-.size_xl {
+.sizeXL {
   .title {
     font: var(--font-xl-redesigned);
   }

@@ -1,6 +1,8 @@
 import { memo, useCallback } from 'react';
-import { ListBox } from '@/shared/ui/deprecated/Popups';
+import { ListBox as DeprecatedListBox } from '@/shared/ui/deprecated/Popups';
 import { CountryEnum } from '../../model/types/country';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { ListBox } from '@/shared/ui/redesigned/Popups';
 
 type PropsType = {
   className?: string;
@@ -28,16 +30,22 @@ export const CountrySelect = memo((props: PropsType) => {
     [onChange],
   );
 
+  const listBoxProps = {
+    items: options,
+    value,
+    defaultValue: 'Select a value',
+    onChange: onChangeHandler,
+    className,
+    readonly,
+    label,
+    direction: 'topRight' as const,
+  };
+
   return (
-    <ListBox
-      items={options}
-      value={value}
-      defaultValue="Select a value"
-      onChange={onChangeHandler}
-      className={className}
-      readonly={readonly}
-      label={label}
-      direction="topRight"
+    <ToggleFeatures
+      feature="isAppRedisigned"
+      on={<ListBox {...listBoxProps} />}
+      off={<DeprecatedListBox {...listBoxProps} />}
     />
   );
 });

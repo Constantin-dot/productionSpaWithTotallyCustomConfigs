@@ -50,6 +50,7 @@ export const ArticlesFilters: FC<TProps> = memo((props) => {
           value={search}
           onChange={onChangeSearch}
           addonLeft={<Icon Svg={SearchIcon} />}
+          size="s"
         />
         <ArticleTypeTabs
           className={cls.tabs}

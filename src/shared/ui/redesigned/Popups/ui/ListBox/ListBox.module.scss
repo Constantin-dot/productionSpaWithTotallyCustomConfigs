@@ -1,3 +1,7 @@
+.ListBox {
+  display: flex;
+}
+
 .trigger {
   background: none;
   border: none;
@@ -25,4 +29,8 @@
 
 .text {
   min-width: max-content;
+}
+
+.label {
+  font: var(--font-s-redesigned);
 }

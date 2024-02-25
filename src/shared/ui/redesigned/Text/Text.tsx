@@ -21,10 +21,10 @@ type PropsType = {
 type HeaderTagType = 'h1' | 'h2' | 'h3' | 'h4';
 
 const mapSizeToClass: Record<TTextSize, string> = {
-  s: 'size-s',
-  m: 'size-m',
-  l: 'size-l',
-  xl: 'size-xl',
+  s: 'sizeS',
+  m: 'sizeM',
+  l: 'sizeL',
+  xl: 'sizeXL',
 };
 
 const mapSizeToHeaderTag: Record<TTextSize, HeaderTagType> = {
@@ -48,7 +48,7 @@ export const Text = memo((props: PropsType) => {
   const HeaderTag = mapSizeToHeaderTag[size];
   const sizeClass = mapSizeToClass[size];
 
-  const additionalClasses = [className, cls[align], sizeClass, cls[variant]];
+  const additionalClasses = [className, cls[align], cls[variant], sizeClass];
 
   return (
     <div className={classNames(cls.Text, {}, additionalClasses)}>
@@ -62,7 +62,7 @@ export const Text = memo((props: PropsType) => {
       )}
       {text && (
         <p
-          className={classNames(cls.text, { [cls[variant]]: true }, [])}
+          className={classNames(cls.text, {}, [])}
           data-testid={`${dataTestId}.Paragraph`}
         >
           {text}

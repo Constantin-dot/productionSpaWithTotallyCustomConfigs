@@ -48,15 +48,17 @@ export const ListBox = <T extends string>(props: PropsType<T>) => {
   );
 
   return (
-    <HStack gap="4">
+    <HStack gap="4" justify="center">
       {label && (
         <span
-          className={classNames('', { [popupCls.disabled]: readonly }, [])}
-        >{`${label}>`}</span>
+          className={classNames(cls.label, { [popupCls.disabled]: readonly }, [
+            className,
+          ])}
+        >{`${label}`}</span>
       )}
       <HListbox
         as="div"
-        className={classNames(cls.ListBox, {}, [className, popupCls.popup])}
+        className={classNames(cls.ListBox, {}, [popupCls.popup])}
         value={value}
         onChange={onChange}
         disabled={readonly}
@@ -68,7 +70,11 @@ export const ListBox = <T extends string>(props: PropsType<T>) => {
             [],
           )}
         >
-          <Button variant="filled" addonRight={<Icon Svg={ArrowIcon} />}>
+          <Button
+            variant="filled"
+            addonRight={<Icon Svg={ArrowIcon} />}
+            disabled={readonly}
+          >
             {selectedItem?.content ?? defaultValue}
           </Button>
         </HListbox.Button>
