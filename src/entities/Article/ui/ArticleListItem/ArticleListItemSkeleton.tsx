@@ -1,9 +1,12 @@
 import { memo } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
-import { Card } from '@/shared/ui/deprecated/Card';
-import cls from './ArticleListItem.module.scss';
+import { Skeleton as DeprecatedSkeleton } from '@/shared/ui/deprecated/Skeleton';
+import { Card as DeprecatedCard } from '@/shared/ui/deprecated/Card';
+import cls from './DeprecatedArticleListItem/DeprecatedArticleListItem.module.scss';
 import { ArticleListViewVariantEnum } from '../../model/consts/consts';
+import { toggleFeatures } from '@/shared/lib/features';
+import { Skeleton as RedesignedSkeleton } from '@/shared/ui/redesigned/Skeleton';
+import { Card as RedesignedCard } from '@/shared/ui/redesigned/Card';
 
 type PropsType = {
   className?: string;
@@ -12,6 +15,17 @@ type PropsType = {
 
 export const ArticleListItemSkeleton = memo((props: PropsType) => {
   const { className, view } = props;
+
+  const Skeleton = toggleFeatures({
+    name: 'isAppRedisigned',
+    on: () => RedesignedSkeleton,
+    off: () => DeprecatedSkeleton,
+  });
+  const Card = toggleFeatures({
+    name: 'isAppRedisigned',
+    on: () => RedesignedCard,
+    off: () => DeprecatedCard as any,
+  });
 
   if (view === ArticleListViewVariantEnum.LIST) {
     return (
