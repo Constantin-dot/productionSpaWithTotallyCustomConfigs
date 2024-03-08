@@ -1,29 +1,29 @@
 .primary {
-  .title {
+  >.title {
     color: var(--text-redesigned);
   }
 
-  .text {
+  >.text {
     color: var(--text-redesigned);
   }
 }
 
 .accent {
-  &.title {
+  >.title {
     color: var(--accent-redesigned);
   }
 
-  &.text {
+  >.text {
     color: var(--accent-redesigned);
   }
 }
 
 .error {
-  &.title {
+  >.title {
     color: var(--red-light);
   }
 
-  &.text {
+  >.text {
     color: var(--red-dark);
   }
 }
@@ -41,48 +41,45 @@
 }
 
 .sizeS {
-  .title {
-    font: var(--font-s-redesigned);
-  }
-
-  .text {
+  >.title,
+  >.text {
     font: var(--font-s-redesigned);
   }
 }
 
 .sizeM {
-  .title {
+  >.title {
     font: var(--font-m-redesigned);
   }
 
-  .text {
+  >.text {
     font: var(--font-s-redesigned);
   }
 }
 
 .sizeL {
-  .title {
+  >.title {
     font: var(--font-l-redesigned);
   }
 
-  .text {
+  >.text {
     font: var(--font-m-redesigned);
   }
 }
 
 .sizeXL {
-  .title {
+  >.title {
     font: var(--font-xl-redesigned);
   }
 
-  .text {
+  >.text {
     font: var(--font-l-redesigned);
   }
 }
 
 .bold {
-  .title,
-  .text {
+  >.title,
+  >.text {
     font-weight: 700;
   }
 }

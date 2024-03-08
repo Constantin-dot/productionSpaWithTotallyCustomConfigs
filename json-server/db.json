@@ -86,6 +86,12 @@
       "articleId": "1",
       "rate": 3,
       "id": "dfS7UVR"
+    },
+    {
+      "userId": "1",
+      "articleId": "7",
+      "rate": 4,
+      "id": "FthpyKj"
     }
   ],
   "profile-ratings": [
@@ -663,7 +669,7 @@
         "theme": "app_dark_theme",
         "isFirstVisit": true,
         "isArticlePageWasOpened": true,
-        "language": "ru"
+        "language": "en"
       },
       "avatar": "https://icons.iconarchive.com/icons/iconarchive/incognito-animals/512/Lion-Avatar-icon.png"
     },

@@ -2,11 +2,11 @@ import { memo } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Skeleton as DeprecatedSkeleton } from '@/shared/ui/deprecated/Skeleton';
 import { Card as DeprecatedCard } from '@/shared/ui/deprecated/Card';
-import cls from './DeprecatedArticleListItem/DeprecatedArticleListItem.module.scss';
 import { ArticleListViewVariantEnum } from '../../model/consts/consts';
 import { toggleFeatures } from '@/shared/lib/features';
 import { Skeleton as RedesignedSkeleton } from '@/shared/ui/redesigned/Skeleton';
 import { Card as RedesignedCard } from '@/shared/ui/redesigned/Card';
+import cls from './DeprecatedArticleListItem/DeprecatedArticleListItem.module.scss';
 
 type PropsType = {
   className?: string;

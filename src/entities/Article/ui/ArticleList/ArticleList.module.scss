@@ -1,14 +1,16 @@
-.list {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
+.ArticleList {
+  &.list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
 
-.cards {
-  width: 100%;
-  gap: 16px;
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
+  &.cards {
+    width: 100%;
+    gap: 16px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
 }

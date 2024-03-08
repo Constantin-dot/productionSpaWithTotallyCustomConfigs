@@ -26,7 +26,12 @@ export const RedesignedArticleListItem = memo(
   (props: TArticleListItemProps) => {
     const { className, article, view, target } = props;
     const { t } = useTranslation();
-    const types = <Text text={article.type.join(', ')} />;
+    const userInfo = (
+      <>
+        <Avatar size={32} src={article.user.avatar ?? ''} alt="author avatar" />
+        <Text bold text={article.user.username} />
+      </>
+    );
     const views = (
       <HStack gap="8">
         <Icon Svg={EyeIcon} />
@@ -50,12 +55,7 @@ export const RedesignedArticleListItem = memo(
         >
           <VStack max align="start" gap="16">
             <HStack gap="8" max>
-              <Avatar
-                size={32}
-                src={article.user.avatar ?? ''}
-                alt="author avatar"
-              />
-              <Text bold text={article.user.username} />
+              {userInfo}
               <Text text={article.createdAt} />
             </HStack>
             <Text title={article.title} bold />
@@ -84,21 +84,30 @@ export const RedesignedArticleListItem = memo(
     }
 
     return (
-      <AppLink target={target} to={getRouteArticlesDetails(article.id)}>
-        <Card>
-          <div>
-            <AppImage
-              fallback={<Skeleton width={200} height={200} />}
-              src={article.img}
-              alt={article.type.join(', ')}
-            />
-            <Text text={article.createdAt} />
-          </div>
-          <div>
-            {types}
-            {views}
-          </div>
-          <Text title={article.title} />
+      <AppLink
+        target={target}
+        to={getRouteArticlesDetails(article.id)}
+        className={classNames(cls.wrapper, {}, [className, cls[view]])}
+      >
+        <Card className={cls.card} border="round">
+          <AppImage
+            fallback={<Skeleton width={240} height={140} />}
+            src={article.img}
+            alt={article.type.join(', ')}
+            className={cls.img}
+          />
+          <VStack className={cls.info} gap="4">
+            <Text title={article.title} />
+            <VStack gap="4" className={cls.footer} max align="start">
+              <HStack justify="between" max>
+                <Text text={article.createdAt} size="s" className={cls.date} />
+                {views}
+              </HStack>
+              <HStack gap="4" align="start">
+                {userInfo}
+              </HStack>
+            </VStack>
+          </VStack>
         </Card>
       </AppLink>
     );

@@ -7,6 +7,8 @@ import { ArticleListViewVariantEnum } from '../../model/consts/consts';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
 import cls from './ArticleList.module.scss';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { HStack } from '@/shared/ui/redesigned/Stack';
 
 type PropsType = {
   className?: string;
@@ -31,15 +33,6 @@ export const ArticleList: FC<PropsType> = (props) => {
   } = props;
   const { t } = useTranslation('article');
 
-  const renderArticle = (article: IArticle) => (
-    <ArticleListItem
-      article={article}
-      view={view}
-      key={article.id}
-      target={target}
-    />
-  );
-
   if (!isLoading && !articles.length) {
     return (
       <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
@@ -49,12 +42,45 @@ export const ArticleList: FC<PropsType> = (props) => {
   }
 
   return (
-    <div
-      className={classNames(cls.ArticleList, {}, [className, cls[view]])}
-      data-testid="ArticleList"
-    >
-      {articles.length > 0 ? articles.map(renderArticle) : null}
-      {isLoading && getSkeletons(view)}
-    </div>
+    <ToggleFeatures
+      feature="isAppRedisigned"
+      on={
+        <HStack
+          gap="16"
+          wrap="wrap"
+          className={classNames(cls.RedesignedArticleList, {}, [
+            className,
+            cls[view],
+          ])}
+          data-testid="ArticleList"
+        >
+          {articles?.map((article) => (
+            <ArticleListItem
+              article={article}
+              view={view}
+              key={article.id}
+              target={target}
+            />
+          ))}
+          {isLoading && getSkeletons(view)}
+        </HStack>
+      }
+      off={
+        <div
+          className={classNames(cls.ArticleList, {}, [className, cls[view]])}
+          data-testid="ArticleList"
+        >
+          {articles?.map((article) => (
+            <ArticleListItem
+              article={article}
+              view={view}
+              key={article.id}
+              target={target}
+            />
+          ))}
+          {isLoading && getSkeletons(view)}
+        </div>
+      }
+    />
   );
 };

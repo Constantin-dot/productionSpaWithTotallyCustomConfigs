@@ -12,8 +12,5 @@
   "rateArticle": "Please, rate article",
   "articleFeedbackTitle": "Leave your feedback about the article, this will help improve the quality.",
   "youAreWelcome": "You are welcome on articles page!",
-  "article": {
-    "hereYouCanSearch": "Here you can search and see articles on different themes.",
-    "youAreWelcome": "You are welcome on articles page!"
-  }
+  "hereYouCanSearch": "Here you can search and see articles on different themes."
 }
